@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		40001F631B99895A007D2DBA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F5D1B99895A007D2DBA /* AppDelegate.m */; };
 		40001F641B99895A007D2DBA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F601B99895A007D2DBA /* main.m */; };
+		40001F671B998CC1007D2DBA /* DZYTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F661B998CC1007D2DBA /* DZYTabBarController.m */; };
+		40001F6A1B998D41007D2DBA /* DZYEssenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F691B998D41007D2DBA /* DZYEssenceViewController.m */; };
+		40001F6D1B998D6A007D2DBA /* DZYFriendTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F6C1B998D6A007D2DBA /* DZYFriendTrendsViewController.m */; };
+		40001F701B998D76007D2DBA /* DZYMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F6F1B998D76007D2DBA /* DZYMeViewController.m */; };
+		40001F731B998D84007D2DBA /* DZYNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F721B998D84007D2DBA /* DZYNewViewController.m */; };
+		40001F761B999313007D2DBA /* DZYTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F751B999313007D2DBA /* DZYTabBar.m */; };
+		40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F791B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m */; };
+		40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7C1B99A964007D2DBA /* DZYTagViewController.m */; };
+		40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */; };
 		40E40A721B996A78002A26D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E40A711B996A78002A26D7 /* Images.xcassets */; };
 		40E40A811B996A78002A26D7 /* BSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E40A801B996A78002A26D7 /* BSTests.m */; };
 /* End PBXBuildFile section */
@@ -27,6 +36,25 @@
 		40001F5C1B99895A007D2DBA /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		40001F5D1B99895A007D2DBA /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		40001F601B99895A007D2DBA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		40001F651B998CC1007D2DBA /* DZYTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTabBarController.h; sourceTree = "<group>"; };
+		40001F661B998CC1007D2DBA /* DZYTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTabBarController.m; sourceTree = "<group>"; };
+		40001F681B998D41007D2DBA /* DZYEssenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYEssenceViewController.h; sourceTree = "<group>"; };
+		40001F691B998D41007D2DBA /* DZYEssenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYEssenceViewController.m; sourceTree = "<group>"; };
+		40001F6B1B998D6A007D2DBA /* DZYFriendTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYFriendTrendsViewController.h; sourceTree = "<group>"; };
+		40001F6C1B998D6A007D2DBA /* DZYFriendTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYFriendTrendsViewController.m; sourceTree = "<group>"; };
+		40001F6E1B998D76007D2DBA /* DZYMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeViewController.h; sourceTree = "<group>"; };
+		40001F6F1B998D76007D2DBA /* DZYMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYMeViewController.m; sourceTree = "<group>"; };
+		40001F711B998D84007D2DBA /* DZYNewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYNewViewController.h; sourceTree = "<group>"; };
+		40001F721B998D84007D2DBA /* DZYNewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYNewViewController.m; sourceTree = "<group>"; };
+		40001F741B999313007D2DBA /* DZYTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTabBar.h; sourceTree = "<group>"; };
+		40001F751B999313007D2DBA /* DZYTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTabBar.m; sourceTree = "<group>"; };
+		40001F771B99A197007D2DBA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		40001F781B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+DZYExtension.h"; sourceTree = "<group>"; };
+		40001F791B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+DZYExtension.m"; sourceTree = "<group>"; };
+		40001F7B1B99A964007D2DBA /* DZYTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTagViewController.h; sourceTree = "<group>"; };
+		40001F7C1B99A964007D2DBA /* DZYTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTagViewController.m; sourceTree = "<group>"; };
+		40001F7E1B99AB9E007D2DBA /* DZYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSettingViewController.h; sourceTree = "<group>"; };
+		40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSettingViewController.m; sourceTree = "<group>"; };
 		40E40A5E1B996A78002A26D7 /* BS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E40A621B996A78002A26D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E40A711B996A78002A26D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -78,6 +106,10 @@
 		40001F4C1B99895A007D2DBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				40001F681B998D41007D2DBA /* DZYEssenceViewController.h */,
+				40001F691B998D41007D2DBA /* DZYEssenceViewController.m */,
+				40001F7B1B99A964007D2DBA /* DZYTagViewController.h */,
+				40001F7C1B99A964007D2DBA /* DZYTagViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -109,6 +141,8 @@
 		40001F501B99895A007D2DBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				40001F6B1B998D6A007D2DBA /* DZYFriendTrendsViewController.h */,
+				40001F6C1B998D6A007D2DBA /* DZYFriendTrendsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -140,6 +174,10 @@
 		40001F541B99895A007D2DBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				40001F6E1B998D76007D2DBA /* DZYMeViewController.h */,
+				40001F6F1B998D76007D2DBA /* DZYMeViewController.m */,
+				40001F7E1B99AB9E007D2DBA /* DZYSettingViewController.h */,
+				40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -171,6 +209,8 @@
 		40001F581B99895A007D2DBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				40001F711B998D84007D2DBA /* DZYNewViewController.h */,
+				40001F721B998D84007D2DBA /* DZYNewViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -192,13 +232,14 @@
 		40001F5B1B99895A007D2DBA /* Other-其它 */ = {
 			isa = PBXGroup;
 			children = (
-				40001F5C1B99895A007D2DBA /* AppDelegate.h */,
-				40001F5D1B99895A007D2DBA /* AppDelegate.m */,
 				40001F5E1B99895A007D2DBA /* Category */,
 				40001F5F1B99895A007D2DBA /* Controller */,
-				40001F601B99895A007D2DBA /* main.m */,
 				40001F611B99895A007D2DBA /* Model */,
 				40001F621B99895A007D2DBA /* View */,
+				40001F771B99A197007D2DBA /* PrefixHeader.pch */,
+				40001F601B99895A007D2DBA /* main.m */,
+				40001F5C1B99895A007D2DBA /* AppDelegate.h */,
+				40001F5D1B99895A007D2DBA /* AppDelegate.m */,
 			);
 			path = "Other-其它";
 			sourceTree = "<group>";
@@ -206,6 +247,8 @@
 		40001F5E1B99895A007D2DBA /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				40001F781B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.h */,
+				40001F791B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -213,6 +256,8 @@
 		40001F5F1B99895A007D2DBA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				40001F651B998CC1007D2DBA /* DZYTabBarController.h */,
+				40001F661B998CC1007D2DBA /* DZYTabBarController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,6 +272,8 @@
 		40001F621B99895A007D2DBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				40001F741B999313007D2DBA /* DZYTabBar.h */,
+				40001F751B999313007D2DBA /* DZYTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -253,7 +300,6 @@
 			isa = PBXGroup;
 			children = (
 				40001F4A1B99895A007D2DBA /* Classes */,
-				40E40A711B996A78002A26D7 /* Images.xcassets */,
 				40E40A611B996A78002A26D7 /* Supporting Files */,
 			);
 			path = BS;
@@ -262,6 +308,7 @@
 		40E40A611B996A78002A26D7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				40E40A711B996A78002A26D7 /* Images.xcassets */,
 				40E40A621B996A78002A26D7 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -328,6 +375,7 @@
 		40E40A561B996A78002A26D7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DZY;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "董震宇";
 				TargetAttributes = {
@@ -382,6 +430,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40001F701B998D76007D2DBA /* DZYMeViewController.m in Sources */,
+				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
+				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
+				40001F6D1B998D6A007D2DBA /* DZYFriendTrendsViewController.m in Sources */,
+				40001F671B998CC1007D2DBA /* DZYTabBarController.m in Sources */,
+				40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */,
+				40001F731B998D84007D2DBA /* DZYNewViewController.m in Sources */,
+				40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */,
+				40001F6A1B998D41007D2DBA /* DZYEssenceViewController.m in Sources */,
 				40001F641B99895A007D2DBA /* main.m in Sources */,
 				40001F631B99895A007D2DBA /* AppDelegate.m in Sources */,
 			);
@@ -431,6 +488,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "BS/Classes/Other-其它/PrefixHeader.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -473,6 +531,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "BS/Classes/Other-其它/PrefixHeader.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;

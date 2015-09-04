@@ -1,0 +1,26 @@
+//
+//  PrefixHeader.pch
+//  BS
+//
+//  Created by dzy on 15/9/4.
+//  Copyright (c) 2015年 董震宇. All rights reserved.
+//
+
+#ifndef BS_PrefixHeader_pch
+#define BS_PrefixHeader_pch
+
+#import <UIKit/UIKit.h>
+#import "UIBarButtonItem+DZYExtension.h"
+
+// 日志输出
+#ifdef DEBUG // 开发阶段-DEBUG阶段:使用Log
+#define DZYLog(...) NSLog(__VA_ARGS__)
+#else // 发布阶段-上线阶段:移除Log
+#define DZYLog(...)
+#endif
+
+// 方法输出
+#define DZYLogFunc DZYLog(@"%s", __func__)
+
+#endif
+///Users/dongzhenyu/Desktop/day day up/day33/百思不得姐/BS/BS/BS/Classes/Other-其它/PrefixHeader.pch
