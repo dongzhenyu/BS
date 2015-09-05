@@ -13,6 +13,7 @@
 #import "DZYNewViewController.h"
 
 #import "DZYTabBar.h"
+#import "DZYNavigationController.h"
 
 @interface DZYTabBarController ()
 
@@ -63,7 +64,7 @@
 - (void)setUpChildVc:(UIViewController *)vc title:(NSString *)title image:(NSString *)image selectedImage:(NSString *)selectedImage
 {
     // 包装一个导航控制器
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    DZYNavigationController *nav = [[DZYNavigationController alloc] initWithRootViewController:vc];
     [self addChildViewController:nav];
     
     // 设置子控制器的tabBarItem

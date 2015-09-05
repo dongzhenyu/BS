@@ -32,7 +32,7 @@
 {
     DZYTagViewController *tag = [[DZYTagViewController alloc] init];
     // 隐藏底部条
-    tag.hidesBottomBarWhenPushed = YES;
+//    tag.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:tag animated:YES];
 }
 

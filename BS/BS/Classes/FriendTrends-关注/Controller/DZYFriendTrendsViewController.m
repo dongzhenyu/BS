@@ -7,6 +7,7 @@
 //
 
 #import "DZYFriendTrendsViewController.h"
+#import "DZYDemoViewController.h"
 
 @interface DZYFriendTrendsViewController ()
 
@@ -25,7 +26,10 @@
 
 - (void)riendsRecommendClick
 {
-    DZYLogFunc;
+//    DZYLogFunc;
+    DZYDemoViewController *demo = [[DZYDemoViewController alloc] init];
+//    demo.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:demo animated:YES];
 }
 
 

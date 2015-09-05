@@ -7,6 +7,7 @@
 //
 
 #import "DZYSettingViewController.h"
+#import "DZYTestViewController.h"
 
 @interface DZYSettingViewController ()
 
@@ -17,30 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    DZYLog(@"%@", self.navigationController);
     self.navigationItem.title = @"设置";
+    self.view.backgroundColor = [UIColor redColor];
     
-    // 左上角返回
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setTitle:@"返回" forState:UIControlStateNormal];
-    [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-    [backButton setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
-    
-    [backButton sizeToFit];
-    
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    
-    backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+
     
 }
 
-- (void)back
+
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    DZYTestViewController *test = [[DZYTestViewController alloc] init];
+    [self.navigationController pushViewController:test animated:YES];
 }
-
 
 @end

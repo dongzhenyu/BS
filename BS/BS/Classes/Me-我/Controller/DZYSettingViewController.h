@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DZYSettingViewController : UITableViewController
+@interface DZYSettingViewController : UIViewController
 
 @end
