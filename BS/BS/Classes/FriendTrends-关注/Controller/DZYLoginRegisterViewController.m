@@ -9,6 +9,7 @@
 #import "DZYLoginRegisterViewController.h"
 
 @interface DZYLoginRegisterViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftSpace;
 
 @end
 
@@ -38,5 +39,24 @@
 {
     [self.view endEditing:YES];
 }
+
+- (IBAction)loginOrRegister:(UIButton *)button {
+    // 修改约束
+    if (self.leftSpace.constant == 0) {
+        self.leftSpace.constant = - self.view.width;
+//        button.selected = YES;
+                [button setTitle:@"已有帐号？" forState:UIControlStateNormal];
+    } else {
+        self.leftSpace.constant = 0;
+//        button.selected = NO;
+                [button setTitle:@"注册帐号" forState:UIControlStateNormal];
+    }
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.view layoutIfNeeded];
+    }];
+}
+
+
 
 @end

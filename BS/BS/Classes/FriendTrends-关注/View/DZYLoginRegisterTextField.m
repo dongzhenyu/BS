@@ -7,6 +7,12 @@
 //
 
 #import "DZYLoginRegisterTextField.h"
+// 占位文字颜色
+#define DZYPlaceholderColorKey @"placeholderLabel.textColor"
+// 默认的占位文字颜色
+#define DZYPlaceholderDefaultColor [UIColor grayColor]
+// 聚焦的占位文字颜色
+#define DZYPlaceholderFocusColor [UIColor whiteColor]
 
 
 @implementation DZYLoginRegisterTextField
@@ -18,32 +24,26 @@
     self.tintColor = [UIColor whiteColor];
     // 文字颜色
     self.textColor = [UIColor whiteColor];
+    // 设置占位文字颜色
+    [self resignFirstResponder];
     
-    // 利用KVC访问苹果内部属性
-    [self setValue:[UIColor grayColor] forKeyPath:@"placeholderLabel.textColor"];
-    
-//    // 监听文本框的开始和结束编辑
-//    [self addTarget:self action:@selector(beginEditing) forControlEvents:UIControlEventEditingDidBegin];
-//    [self addTarget:self action:@selector(endEditing) forControlEvents:UIControlEventEditingDidEnd];
-    
-    // 通过通知-》监听文本框的开始和结束编辑
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(beginEditing) name:UITextFieldTextDidBeginEditingNotification object:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(endEditing) name:UITextFieldTextDidEndEditingNotification object:self];
 }
 
-// 养成习惯
-- (void)dealloc
+/**
+ * 文本框聚焦时候调用
+ */
+- (BOOL)becomeFirstResponder
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self setValue:DZYPlaceholderFocusColor forKeyPath:DZYPlaceholderColorKey];
+    return [super becomeFirstResponder];
 }
 
-- (void)beginEditing
+/**
+ *  文本框是去焦点的时候调用
+ */
+- (BOOL)resignFirstResponder
 {
-    [self setValue:[UIColor whiteColor] forKeyPath:@"placeholderLabel.textColor"];
-}
-
-- (void)endEditing
-{
-    [self setValue:[UIColor grayColor] forKeyPath:@"placeholderLabel.textColor"];
+    [self setValue:DZYPlaceholderDefaultColor forKeyPath:DZYPlaceholderColorKey];
+    return [super resignFirstResponder];
 }
 @end
