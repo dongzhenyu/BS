@@ -9,7 +9,6 @@
 #import "DZYLoginRegisterViewController.h"
 
 @interface DZYLoginRegisterViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @end
 
@@ -17,14 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-//    self.loginBtn.layer.cornerRadius = 5;
-    // 遵循边框规则
-//    self.loginBtn.layer.masksToBounds = YES;
-//    self.loginBtn.clipsToBounds = YES;
-    // 通过KVC来修改
-//    [self.loginBtn setValue:@5 forKeyPath:@"layer.cornerRadius"];
-//    [self.loginBtn setValue:@YES forKeyPath:@"layer.masksToBounds"];
+
 
 }
 // ios7以前修改状态栏样式
@@ -41,5 +33,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 
 @end
