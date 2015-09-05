@@ -20,6 +20,8 @@
 		40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */; };
 		405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */; };
 		407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */; };
+		407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */; };
+		407FF9091B9AF11700D21B68 /* DZYLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407FF9071B9AF11700D21B68 /* DZYLoginRegisterViewController.xib */; };
 		40E40A721B996A78002A26D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E40A711B996A78002A26D7 /* Images.xcassets */; };
 		40E40A811B996A78002A26D7 /* BSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E40A801B996A78002A26D7 /* BSTests.m */; };
 /* End PBXBuildFile section */
@@ -60,6 +62,9 @@
 		405CA2B41B9AAD3700B09395 /* DZYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYNavigationController.h; sourceTree = "<group>"; };
 		405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYNavigationController.m; sourceTree = "<group>"; };
 		407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYFriendTrendsViewController.xib; sourceTree = "<group>"; };
+		407FF9051B9AF11700D21B68 /* DZYLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYLoginRegisterViewController.h; sourceTree = "<group>"; };
+		407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYLoginRegisterViewController.m; sourceTree = "<group>"; };
+		407FF9071B9AF11700D21B68 /* DZYLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYLoginRegisterViewController.xib; sourceTree = "<group>"; };
 		40E40A5E1B996A78002A26D7 /* BS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E40A621B996A78002A26D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E40A711B996A78002A26D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -149,6 +154,9 @@
 				40001F6B1B998D6A007D2DBA /* DZYFriendTrendsViewController.h */,
 				40001F6C1B998D6A007D2DBA /* DZYFriendTrendsViewController.m */,
 				407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */,
+				407FF9051B9AF11700D21B68 /* DZYLoginRegisterViewController.h */,
+				407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */,
+				407FF9071B9AF11700D21B68 /* DZYLoginRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -420,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407FF9091B9AF11700D21B68 /* DZYLoginRegisterViewController.xib in Resources */,
 				407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */,
 				40E40A721B996A78002A26D7 /* Images.xcassets in Resources */,
 			);
@@ -446,6 +455,7 @@
 				40001F671B998CC1007D2DBA /* DZYTabBarController.m in Sources */,
 				40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */,
 				40001F731B998D84007D2DBA /* DZYNewViewController.m in Sources */,
+				407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */,
 				40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */,
 				405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */,
 				40001F6A1B998D41007D2DBA /* DZYEssenceViewController.m in Sources */,

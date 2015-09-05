@@ -7,6 +7,7 @@
 //
 
 #import "DZYFriendTrendsViewController.h"
+#import "DZYLoginRegisterViewController.h"
 
 
 @interface DZYFriendTrendsViewController ()
@@ -37,6 +38,10 @@
 }
 
 - (IBAction)loginRegister:(id)sender {
+    
+    // 跳转到注册界面 通过modal模式
+    DZYLoginRegisterViewController *loginRegister = [[DZYLoginRegisterViewController alloc] init];
+    [self presentViewController:loginRegister animated:YES completion:nil];
 }
 
 
