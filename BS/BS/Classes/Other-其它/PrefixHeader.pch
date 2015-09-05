@@ -22,5 +22,13 @@
 // 方法输出
 #define DZYLogFunc DZYLog(@"%s", __func__)
 
+// 颜色
+#define DZYARGBColor(a, r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0];
+#define DZYColor(r, g, b) DZYARGBColor(255, (r), (g), (b))
+// 灰色
+#define DZYGrayColor(v) DZYColor((v), (v), (v))
+// 全局灰色
+#define DZYCommonBgColor DZYGrayColor(215)
+
+
 #endif
-///Users/dongzhenyu/Desktop/day day up/day33/百思不得姐/BS/BS/BS/Classes/Other-其它/PrefixHeader.pch

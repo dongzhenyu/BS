@@ -18,10 +18,7 @@
 		40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F791B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m */; };
 		40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7C1B99A964007D2DBA /* DZYTagViewController.m */; };
 		40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */; };
-		405CA2B21B9AABE300B09395 /* DZYTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405CA2B01B9AABE300B09395 /* DZYTestViewController.m */; };
-		405CA2B31B9AABE300B09395 /* DZYTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405CA2B11B9AABE300B09395 /* DZYTestViewController.xib */; };
 		405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */; };
-		405CA2B91B9AB7D700B09395 /* DZYDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405CA2B81B9AB7D700B09395 /* DZYDemoViewController.m */; };
 		40E40A721B996A78002A26D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E40A711B996A78002A26D7 /* Images.xcassets */; };
 		40E40A811B996A78002A26D7 /* BSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E40A801B996A78002A26D7 /* BSTests.m */; };
 /* End PBXBuildFile section */
@@ -59,13 +56,8 @@
 		40001F7C1B99A964007D2DBA /* DZYTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTagViewController.m; sourceTree = "<group>"; };
 		40001F7E1B99AB9E007D2DBA /* DZYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSettingViewController.h; sourceTree = "<group>"; };
 		40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSettingViewController.m; sourceTree = "<group>"; };
-		405CA2AF1B9AABE300B09395 /* DZYTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTestViewController.h; sourceTree = "<group>"; };
-		405CA2B01B9AABE300B09395 /* DZYTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTestViewController.m; sourceTree = "<group>"; };
-		405CA2B11B9AABE300B09395 /* DZYTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYTestViewController.xib; sourceTree = "<group>"; };
 		405CA2B41B9AAD3700B09395 /* DZYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYNavigationController.h; sourceTree = "<group>"; };
 		405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYNavigationController.m; sourceTree = "<group>"; };
-		405CA2B71B9AB7D700B09395 /* DZYDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYDemoViewController.h; sourceTree = "<group>"; };
-		405CA2B81B9AB7D700B09395 /* DZYDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYDemoViewController.m; sourceTree = "<group>"; };
 		40E40A5E1B996A78002A26D7 /* BS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E40A621B996A78002A26D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E40A711B996A78002A26D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -154,8 +146,6 @@
 			children = (
 				40001F6B1B998D6A007D2DBA /* DZYFriendTrendsViewController.h */,
 				40001F6C1B998D6A007D2DBA /* DZYFriendTrendsViewController.m */,
-				405CA2B71B9AB7D700B09395 /* DZYDemoViewController.h */,
-				405CA2B81B9AB7D700B09395 /* DZYDemoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,9 +181,6 @@
 				40001F6F1B998D76007D2DBA /* DZYMeViewController.m */,
 				40001F7E1B99AB9E007D2DBA /* DZYSettingViewController.h */,
 				40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */,
-				405CA2AF1B9AABE300B09395 /* DZYTestViewController.h */,
-				405CA2B01B9AABE300B09395 /* DZYTestViewController.m */,
-				405CA2B11B9AABE300B09395 /* DZYTestViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -430,7 +417,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				405CA2B31B9AABE300B09395 /* DZYTestViewController.xib in Resources */,
 				40E40A721B996A78002A26D7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,9 +442,7 @@
 				40001F671B998CC1007D2DBA /* DZYTabBarController.m in Sources */,
 				40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */,
 				40001F731B998D84007D2DBA /* DZYNewViewController.m in Sources */,
-				405CA2B91B9AB7D700B09395 /* DZYDemoViewController.m in Sources */,
 				40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */,
-				405CA2B21B9AABE300B09395 /* DZYTestViewController.m in Sources */,
 				405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */,
 				40001F6A1B998D41007D2DBA /* DZYEssenceViewController.m in Sources */,
 				40001F641B99895A007D2DBA /* main.m in Sources */,

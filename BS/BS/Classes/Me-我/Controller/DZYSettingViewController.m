@@ -7,7 +7,7 @@
 //
 
 #import "DZYSettingViewController.h"
-#import "DZYTestViewController.h"
+
 
 @interface DZYSettingViewController ()
 
@@ -27,11 +27,5 @@
 }
 
 
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    DZYTestViewController *test = [[DZYTestViewController alloc] init];
-    [self.navigationController pushViewController:test animated:YES];
-}
 
 @end

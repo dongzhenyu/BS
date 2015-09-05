@@ -7,7 +7,7 @@
 //
 
 #import "DZYFriendTrendsViewController.h"
-#import "DZYDemoViewController.h"
+
 
 @interface DZYFriendTrendsViewController ()
 
@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.view.backgroundColor = DZYCommonBgColor;
     self.navigationItem.title = @"我的关注";
     
     // 左边导航栏内容
@@ -26,10 +27,8 @@
 
 - (void)riendsRecommendClick
 {
-//    DZYLogFunc;
-    DZYDemoViewController *demo = [[DZYDemoViewController alloc] init];
-//    demo.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:demo animated:YES];
+    DZYLogFunc;
+
 }
 
 

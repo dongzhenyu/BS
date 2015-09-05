@@ -18,7 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = DZYCommonBgColor;
     self.navigationItem.title = @"我的";
+    self.view.backgroundColor = [UIColor whiteColor];
     
     // 导航条右边的内容
     UIBarButtonItem *moonItem = [UIBarButtonItem itemWithImage:@"mine-moon-icon" highImage:@"mine-moon-icon-click" target:self action:@selector(moonClick)];
