@@ -53,7 +53,7 @@
                                     <rect key="frame" x="327" y="0.0" width="273" height="30"/>
                                 </imageView>
                             </subviews>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="pZf-aY-PfQ" secondAttribute="bottom" id="1Kp-U6-c8F"/>
                                 <constraint firstAttribute="centerY" secondItem="k5l-r4-jkL" secondAttribute="centerY" id="4y9-mG-2Mj"/>
@@ -70,13 +70,51 @@
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BA-Oo-ggC" userLabel="底部按钮">
                             <rect key="frame" x="0.0" y="30" width="600" height="90"/>
-                            <color key="backgroundColor" red="0.2759196512" green="0.66666666669999997" blue="0.20541089879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lWh-uU-C3V" customClass="DZYQuickLoginButton">
+                                    <rect key="frame" x="400" y="0.0" width="200" height="90"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="腾讯微博" image="login_tecent_icon">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" image="login_tecent_icon_click"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezu-vq-7gL" customClass="DZYQuickLoginButton">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="90"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="QQ登陆" image="login_QQ_icon">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" image="login_QQ_icon_click"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usd-Cw-Upv" customClass="DZYQuickLoginButton">
+                                    <rect key="frame" x="200" y="0.0" width="200" height="90"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="微博登陆" image="login_sina_icon">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted" image="login_sina_icon_click"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="usd-Cw-Upv" firstAttribute="top" secondItem="8BA-Oo-ggC" secondAttribute="top" id="3IO-u6-nIr"/>
                                 <constraint firstAttribute="height" constant="90" id="3pR-3Y-1Ab"/>
+                                <constraint firstItem="usd-Cw-Upv" firstAttribute="leading" secondItem="ezu-vq-7gL" secondAttribute="trailing" id="ONj-sS-dTa"/>
+                                <constraint firstItem="lWh-uU-C3V" firstAttribute="leading" secondItem="usd-Cw-Upv" secondAttribute="trailing" id="Ol2-yR-Ef7"/>
+                                <constraint firstItem="lWh-uU-C3V" firstAttribute="top" secondItem="8BA-Oo-ggC" secondAttribute="top" id="Q3n-l1-qug"/>
+                                <constraint firstAttribute="bottom" secondItem="lWh-uU-C3V" secondAttribute="bottom" id="YgF-rH-nHb"/>
+                                <constraint firstItem="ezu-vq-7gL" firstAttribute="width" secondItem="usd-Cw-Upv" secondAttribute="width" id="Z3R-lU-MDS"/>
+                                <constraint firstAttribute="trailing" secondItem="lWh-uU-C3V" secondAttribute="trailing" id="a9G-Pd-30d"/>
+                                <constraint firstItem="ezu-vq-7gL" firstAttribute="leading" secondItem="8BA-Oo-ggC" secondAttribute="leading" id="cEw-AZ-FLm"/>
+                                <constraint firstItem="ezu-vq-7gL" firstAttribute="top" secondItem="8BA-Oo-ggC" secondAttribute="top" id="j7n-8f-SLl"/>
+                                <constraint firstAttribute="bottom" secondItem="ezu-vq-7gL" secondAttribute="bottom" id="kjR-hp-jhc"/>
+                                <constraint firstAttribute="bottom" secondItem="usd-Cw-Upv" secondAttribute="bottom" id="uLe-IB-VNB"/>
+                                <constraint firstItem="ezu-vq-7gL" firstAttribute="width" secondItem="lWh-uU-C3V" secondAttribute="width" id="xye-Vo-tqP"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="8BA-Oo-ggC" firstAttribute="top" secondItem="khV-hy-Q9l" secondAttribute="bottom" id="7yf-Mr-pWb"/>
                         <constraint firstAttribute="bottom" secondItem="8BA-Oo-ggC" secondAttribute="bottom" id="VLG-1c-WuR"/>
@@ -87,41 +125,13 @@
                         <constraint firstItem="8BA-Oo-ggC" firstAttribute="leading" secondItem="Wrt-av-aiN" secondAttribute="leading" id="vd8-zd-8bO"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbg-ef-e4K">
-                    <rect key="frame" x="91" y="86" width="178" height="191"/>
-                    <subviews>
-                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STf-5a-7Bd">
-                            <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                        </switch>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabelLabel" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inH-XQ-nKN">
-                            <rect key="frame" x="8" y="49" width="100" height="142"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="100" id="FYk-8R-fUk"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="inH-XQ-nKN" firstAttribute="leading" secondItem="zbg-ef-e4K" secondAttribute="leading" constant="8" id="4ia-R1-Alr"/>
-                        <constraint firstAttribute="bottom" secondItem="inH-XQ-nKN" secondAttribute="bottom" id="5ih-5o-FEg"/>
-                        <constraint firstItem="STf-5a-7Bd" firstAttribute="top" secondItem="zbg-ef-e4K" secondAttribute="top" id="cBt-ZH-l8v"/>
-                        <constraint firstItem="STf-5a-7Bd" firstAttribute="leading" secondItem="zbg-ef-e4K" secondAttribute="leading" id="gyi-h2-95g"/>
-                        <constraint firstItem="inH-XQ-nKN" firstAttribute="top" secondItem="STf-5a-7Bd" secondAttribute="bottom" constant="18" id="nCc-hD-N7x"/>
-                        <constraint firstAttribute="width" constant="178" id="wIH-js-nZK"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="OyC-sZ-N5k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="8sL-xh-JEO"/>
                 <constraint firstAttribute="trailing" secondItem="Wrt-av-aiN" secondAttribute="trailing" id="Bkd-cT-nfO"/>
                 <constraint firstItem="wBq-s0-FkF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Fit-qZ-H9L"/>
-                <constraint firstItem="zbg-ef-e4K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="91" id="HNt-Mo-Yos"/>
                 <constraint firstItem="OyC-sZ-N5k" firstAttribute="centerY" secondItem="rcw-n1-BHT" secondAttribute="centerY" constant="-10" id="Ptq-Pk-kF8"/>
-                <constraint firstItem="zbg-ef-e4K" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="86" id="Y1r-5v-wlX"/>
                 <constraint firstAttribute="trailing" secondItem="rcw-n1-BHT" secondAttribute="trailing" constant="20" id="fT5-fh-uMB"/>
                 <constraint firstAttribute="bottom" secondItem="wBq-s0-FkF" secondAttribute="bottom" id="giP-PK-jxx"/>
                 <constraint firstItem="wBq-s0-FkF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iA5-t3-Sb0"/>
@@ -133,9 +143,15 @@
         </view>
     </objects>
     <resources>
+        <image name="login_QQ_icon" width="70" height="70"/>
+        <image name="login_QQ_icon_click" width="70" height="70"/>
         <image name="login_close_icon" width="16" height="16"/>
         <image name="login_register_background" width="320" height="568"/>
         <image name="login_register_left_line" width="103" height="1"/>
         <image name="login_register_right_line" width="103" height="1"/>
+        <image name="login_sina_icon" width="70" height="70"/>
+        <image name="login_sina_icon_click" width="70" height="70"/>
+        <image name="login_tecent_icon" width="70" height="70"/>
+        <image name="login_tecent_icon_click" width="70" height="70"/>
     </resources>
 </document>

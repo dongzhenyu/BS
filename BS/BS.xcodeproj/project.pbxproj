@@ -22,6 +22,8 @@
 		407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */; };
 		407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */; };
 		407FF9091B9AF11700D21B68 /* DZYLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407FF9071B9AF11700D21B68 /* DZYLoginRegisterViewController.xib */; };
+		407FF90C1B9B14E200D21B68 /* DZYQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF90B1B9B14E200D21B68 /* DZYQuickLoginButton.m */; };
+		407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF90E1B9B17B300D21B68 /* UIView+DZYExtension.m */; };
 		40E40A721B996A78002A26D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E40A711B996A78002A26D7 /* Images.xcassets */; };
 		40E40A811B996A78002A26D7 /* BSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E40A801B996A78002A26D7 /* BSTests.m */; };
 /* End PBXBuildFile section */
@@ -65,6 +67,10 @@
 		407FF9051B9AF11700D21B68 /* DZYLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYLoginRegisterViewController.h; sourceTree = "<group>"; };
 		407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYLoginRegisterViewController.m; sourceTree = "<group>"; };
 		407FF9071B9AF11700D21B68 /* DZYLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		407FF90A1B9B14E200D21B68 /* DZYQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYQuickLoginButton.h; sourceTree = "<group>"; };
+		407FF90B1B9B14E200D21B68 /* DZYQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYQuickLoginButton.m; sourceTree = "<group>"; };
+		407FF90D1B9B17B300D21B68 /* UIView+DZYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DZYExtension.h"; sourceTree = "<group>"; };
+		407FF90E1B9B17B300D21B68 /* UIView+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DZYExtension.m"; sourceTree = "<group>"; };
 		40E40A5E1B996A78002A26D7 /* BS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E40A621B996A78002A26D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E40A711B996A78002A26D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 		40001F521B99895A007D2DBA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				407FF90A1B9B14E200D21B68 /* DZYQuickLoginButton.h */,
+				407FF90B1B9B14E200D21B68 /* DZYQuickLoginButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +271,8 @@
 			children = (
 				40001F781B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.h */,
 				40001F791B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m */,
+				407FF90D1B9B17B300D21B68 /* UIView+DZYExtension.h */,
+				407FF90E1B9B17B300D21B68 /* UIView+DZYExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -451,8 +461,10 @@
 				40001F701B998D76007D2DBA /* DZYMeViewController.m in Sources */,
 				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
+				407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */,
 				40001F6D1B998D6A007D2DBA /* DZYFriendTrendsViewController.m in Sources */,
 				40001F671B998CC1007D2DBA /* DZYTabBarController.m in Sources */,
+				407FF90C1B9B14E200D21B68 /* DZYQuickLoginButton.m in Sources */,
 				40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */,
 				40001F731B998D84007D2DBA /* DZYNewViewController.m in Sources */,
 				407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */,

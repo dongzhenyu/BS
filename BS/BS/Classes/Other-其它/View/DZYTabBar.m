@@ -52,8 +52,8 @@
     [super layoutSubviews];
     
     // tabBar的尺寸
-    CGFloat width = self.frame.size.width;
-    CGFloat height = self.frame.size.height;
+    CGFloat width = self.width;
+    CGFloat height = self.height;
     
     // 设置发布按钮的位置
     self.publishButton.center = CGPointMake(width * 0.5, height * 0.5);
