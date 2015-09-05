@@ -19,6 +19,7 @@
 		40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7C1B99A964007D2DBA /* DZYTagViewController.m */; };
 		40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */; };
 		405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */; };
+		407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */; };
 		40E40A721B996A78002A26D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E40A711B996A78002A26D7 /* Images.xcassets */; };
 		40E40A811B996A78002A26D7 /* BSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E40A801B996A78002A26D7 /* BSTests.m */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSettingViewController.m; sourceTree = "<group>"; };
 		405CA2B41B9AAD3700B09395 /* DZYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYNavigationController.h; sourceTree = "<group>"; };
 		405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYNavigationController.m; sourceTree = "<group>"; };
+		407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYFriendTrendsViewController.xib; sourceTree = "<group>"; };
 		40E40A5E1B996A78002A26D7 /* BS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E40A621B996A78002A26D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E40A711B996A78002A26D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				40001F6B1B998D6A007D2DBA /* DZYFriendTrendsViewController.h */,
 				40001F6C1B998D6A007D2DBA /* DZYFriendTrendsViewController.m */,
+				407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */,
 				40E40A721B996A78002A26D7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

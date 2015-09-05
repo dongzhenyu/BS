@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    DZYLog(@"%@", self.navigationController);
     self.navigationItem.title = @"设置";
     self.view.backgroundColor = [UIColor redColor];
     

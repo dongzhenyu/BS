@@ -20,6 +20,12 @@
     // 只要修改了系统默认的导航条按钮 左滑手势功能就会消失
     // interactivePopGestureRecognizer 用户交互管理
     self.interactivePopGestureRecognizer.delegate = self;
+    
+    // 还可以通过apperance来设置
+//    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] forBarMetrics:UIBarMetricsDefault];
+    
+    // 设置导航条的背景图片
+    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
 
 }
 

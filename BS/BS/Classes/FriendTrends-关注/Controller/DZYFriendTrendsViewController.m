@@ -10,6 +10,7 @@
 
 
 @interface DZYFriendTrendsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 
@@ -21,8 +22,12 @@
     self.view.backgroundColor = DZYCommonBgColor;
     self.navigationItem.title = @"我的关注";
     
+    
     // 左边导航栏内容
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"friendsRecommentIcon" highImage:@"friendsRecommentIcon-click" target:self action:@selector(riendsRecommendClick)];
+    
+    
+//    self.textLabel.text = @"helloasdfasdfaf\nworlddafa";
 }
 
 - (void)riendsRecommendClick
@@ -31,6 +36,8 @@
 
 }
 
+- (IBAction)loginRegister:(id)sender {
+}
 
 
 @end
