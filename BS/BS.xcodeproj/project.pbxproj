@@ -31,6 +31,7 @@
 		40CC7C7E1B9C58E500CC6105 /* NSDictionary+LOG.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CC7C7D1B9C58E500CC6105 /* NSDictionary+LOG.m */; };
 		40D0F3FD1B9C827F00A24DF6 /* UIImage+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F3FC1B9C827F00A24DF6 /* UIImage+DZYExtension.m */; };
 		40D0F4001B9C8AB300A24DF6 /* UIImageView+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F3FF1B9C8AB300A24DF6 /* UIImageView+DZYExtension.m */; };
+		40D0F4081B9C9AB200A24DF6 /* DZYConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F4071B9C9AB200A24DF6 /* DZYConst.m */; };
 		40E40A721B996A78002A26D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E40A711B996A78002A26D7 /* Images.xcassets */; };
 		40E40A811B996A78002A26D7 /* BSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E40A801B996A78002A26D7 /* BSTests.m */; };
 		F6B01BACEECC44CADE9F992C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A1EDE84C19FD47A6EF197C /* libPods.a */; };
@@ -91,6 +92,8 @@
 		40D0F3FC1B9C827F00A24DF6 /* UIImage+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DZYExtension.m"; sourceTree = "<group>"; };
 		40D0F3FE1B9C8AB300A24DF6 /* UIImageView+DZYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DZYExtension.h"; sourceTree = "<group>"; };
 		40D0F3FF1B9C8AB300A24DF6 /* UIImageView+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DZYExtension.m"; sourceTree = "<group>"; };
+		40D0F4061B9C9AB200A24DF6 /* DZYConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYConst.h; sourceTree = "<group>"; };
+		40D0F4071B9C9AB200A24DF6 /* DZYConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYConst.m; sourceTree = "<group>"; };
 		40E40A5E1B996A78002A26D7 /* BS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E40A621B996A78002A26D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E40A711B996A78002A26D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -303,6 +306,8 @@
 				40001F5C1B99895A007D2DBA /* AppDelegate.h */,
 				40001F5D1B99895A007D2DBA /* AppDelegate.m */,
 				40CC7C7D1B9C58E500CC6105 /* NSDictionary+LOG.m */,
+				40D0F4061B9C9AB200A24DF6 /* DZYConst.h */,
+				40D0F4071B9C9AB200A24DF6 /* DZYConst.m */,
 			);
 			path = "Other-其它";
 			sourceTree = "<group>";
@@ -564,6 +569,7 @@
 				407FF90C1B9B14E200D21B68 /* DZYQuickLoginButton.m in Sources */,
 				40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */,
 				40001F731B998D84007D2DBA /* DZYNewViewController.m in Sources */,
+				40D0F4081B9C9AB200A24DF6 /* DZYConst.m in Sources */,
 				407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */,
 				40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */,
 				405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */,

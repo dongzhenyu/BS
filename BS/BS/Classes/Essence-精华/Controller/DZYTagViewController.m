@@ -25,6 +25,9 @@
 
 @implementation DZYTagViewController
 
+/** cell的循环利用标识 */
+static NSString * const DZYTagCellId = @"tag";
+
 - (AFHTTPSessionManager *)manager
 {
     if (!_manager) {
@@ -52,7 +55,7 @@
     self.tableView.rowHeight = 70;
     
     // 注册重用标识
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYRecommendTagCell class]) bundle:nil] forCellReuseIdentifier:@"tag"];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYRecommendTagCell class]) bundle:nil] forCellReuseIdentifier:DZYTagCellId];
     // 去掉系统自带的分割线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -72,7 +75,7 @@
     
     // 发送请求
     DZYWeakSelf;
-    [[self manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [[self manager] GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         // 如果URl写错 请求不到数据 那么就会来到这个方法
         if (responseObject == nil) {
@@ -118,7 +121,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DZYRecommendTagCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tag"];
+    DZYRecommendTagCell *cell = [tableView dequeueReusableCellWithIdentifier:DZYTagCellId];
     // 设置数据
     cell.recommendTag = self.tags[indexPath.row];
     return cell;
