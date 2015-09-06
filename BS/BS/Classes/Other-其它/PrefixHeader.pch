@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h>
 #import "UIBarButtonItem+DZYExtension.h"
 #import "UIView+DZYExtension.h"
+#import "UIImage+DZYExtension.h"
 
 // 日志输出
 #ifdef DEBUG // 开发阶段-DEBUG阶段:使用Log
@@ -31,5 +32,7 @@
 // 全局灰色
 #define DZYCommonBgColor DZYGrayColor(215)
 
+// 弱引用
+#define DZYWeakSelf __weak typeof(self) weakSelf = self;
 
 #endif

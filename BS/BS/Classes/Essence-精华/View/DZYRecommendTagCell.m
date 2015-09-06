@@ -10,6 +10,7 @@
 #import "DZYRecommendTag.h"
 #import <UIImageView+WebCache.h>
 
+
 @interface DZYRecommendTagCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageListView;
@@ -22,6 +23,9 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    // 如果使用过于频繁 会导致拖拽起来感觉比较卡 可以用图形上下文
+//    self.imageListView.layer.cornerRadius = self.imageListView.width * 0.5;
+//    self.imageListView.layer.masksToBounds = YES;
 }
 
 /**
@@ -29,6 +33,7 @@
  */
 - (void)setFrame:(CGRect)frame
 {
+    
     frame.size.height -= 1;
 //    frame.origin.x = 5;
 //    frame.size.width -= 2 * frame.origin.x;
@@ -39,7 +44,17 @@
 {
     _recommendTag = recommendTag;
     
-    [self.imageListView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+//    [self.imageListView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+    
+    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
+    
+    DZYWeakSelf;
+    [self.imageListView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        // 如果下载失败 就不做任何处理 按照默认的做法 或显示占位图片
+        if (image == nil) return;
+        weakSelf.imageListView.image = [image circleImage];
+        
+    }];
     
     self.themeNameLabel.text = recommendTag.theme_name;
     

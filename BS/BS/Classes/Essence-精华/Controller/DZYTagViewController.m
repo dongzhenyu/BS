@@ -71,21 +71,15 @@
     params[@"c"] = @"topic";
     
     // 发送请求
-    __weak typeof(self) weakSelf = self;
+    DZYWeakSelf;
     [[self manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
         
         // 如果URl写错 请求不到数据 那么就会来到这个方法
         if (responseObject == nil) {
             [SVProgressHUD showErrorWithStatus:@"加载标签数据失败"];
             return;
         }
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            
-//            weakSelf.tags = [DZYRecommendTag objectArrayWithKeyValuesArray:responseObject];
-//            // 刷新表格
-//            [weakSelf.tableView reloadData];
-//        });
+
         weakSelf.tags = [DZYRecommendTag objectArrayWithKeyValuesArray:responseObject];
         // 刷新表格
         [weakSelf.tableView reloadData];
