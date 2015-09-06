@@ -25,13 +25,13 @@
 }
 
 /**
- *  重写这个方法的目的是 拦截cell的frame设置
+ *  重写这个方法的目的是 拦截cell的frame设置（系统设置cell的frame才会来到这个方法）
  */
 - (void)setFrame:(CGRect)frame
 {
     frame.size.height -= 1;
-    frame.origin.x = 5;
-    frame.size.width -= 2 * frame.origin.x;
+//    frame.origin.x = 5;
+//    frame.size.width -= 2 * frame.origin.x;
     
     [super setFrame:frame];
 }

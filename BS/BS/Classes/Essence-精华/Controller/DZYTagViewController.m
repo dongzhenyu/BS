@@ -11,19 +11,33 @@
 #import <AFNetworking/AFNetworking.h>
 #import <MJExtension/MJExtension.h>
 #import "DZYRecommendTag.h"
+#import <SVProgressHUD.h>
 
 @interface DZYTagViewController ()
 
 // 所有的标签数据（里面放的是标签模型）
 @property (nonatomic, strong) NSMutableArray *tags;
 
+// 请求管理者
+@property (nonatomic, weak) AFHTTPSessionManager *manager;
+
 @end
 
 @implementation DZYTagViewController
 
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.navigationItem.title = @"推荐标签";
+    
     [self setUpTabView];
     
     [self loadTags];
@@ -32,7 +46,7 @@
 
 - (void)setUpTabView
 {
-    self.navigationItem.title = @"推荐标签";
+    
     self.view.backgroundColor = DZYCommonBgColor;
     
     self.tableView.rowHeight = 70;
@@ -46,6 +60,9 @@
 
 - (void)loadTags
 {
+    // 弹框
+    [SVProgressHUD show];
+    
     // 加载标签数据
     // 请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -54,18 +71,48 @@
     params[@"c"] = @"topic";
     
     // 发送请求
-        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-//            DZYLog(@"%@", responseObject);
-            // 将服务器的数据写成plist文件 方便以后查看
-//            [responseObject writeToFile:@"/Users/dongzhenyu/Desktop/tag.plist" atomically:YES];
-            self.tags = [DZYRecommendTag objectArrayWithKeyValuesArray:responseObject];
-            
-            // 刷新表格
-            [self.tableView reloadData];
-            
-        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-            
-        }];
+    __weak typeof(self) weakSelf = self;
+    [[self manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        
+        // 如果URl写错 请求不到数据 那么就会来到这个方法
+        if (responseObject == nil) {
+            [SVProgressHUD showErrorWithStatus:@"加载标签数据失败"];
+            return;
+        }
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            
+//            weakSelf.tags = [DZYRecommendTag objectArrayWithKeyValuesArray:responseObject];
+//            // 刷新表格
+//            [weakSelf.tableView reloadData];
+//        });
+        weakSelf.tags = [DZYRecommendTag objectArrayWithKeyValuesArray:responseObject];
+        // 刷新表格
+        [weakSelf.tableView reloadData];
+
+        
+        // 关闭弹框
+        [SVProgressHUD dismiss];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 如果是取消了请求任务 就不算是请求失败 直接返回
+        if (error.code == NSURLErrorCancelled) return;
+        if (error.code == NSURLErrorTimedOut) {
+            // 关闭弹框
+            [SVProgressHUD showErrorWithStatus:@"请求数据超时，请稍后再试"];
+        } else {
+            // 关闭弹框
+            [SVProgressHUD showErrorWithStatus:@"加载标签数据失败"];
+        }
+        
+    }];
+}
+
+- (void)dealloc
+{
+    // 停止请求
+    [self.manager invalidateSessionCancelingTasks:YES];
+    [SVProgressHUD dismiss];
 }
 
 
