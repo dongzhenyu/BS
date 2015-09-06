@@ -7,8 +7,15 @@
 //
 
 #import "DZYTagViewController.h"
+#import "DZYRecommendTagCell.h"
+#import <AFNetworking/AFNetworking.h>
+#import <MJExtension/MJExtension.h>
+#import "DZYRecommendTag.h"
 
 @interface DZYTagViewController ()
+
+// 所有的标签数据（里面放的是标签模型）
+@property (nonatomic, strong) NSMutableArray *tags;
 
 @end
 
@@ -17,30 +24,63 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.title = @"推荐标签";
-    self.view.backgroundColor = [UIColor grayColor];
+    [self setUpTabView];
     
-    // 左上角的返回
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [backButton setTitle:@"返回" forState:UIControlStateNormal];
-    [backButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [backButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-    [backButton setImage:[UIImage imageNamed:@"navigationButtonReturn"] forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"navigationButtonReturnClick"] forState:UIControlStateHighlighted];
-    [backButton sizeToFit];
+    [self loadTags];
     
-    [backButton addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-    
-    backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
 }
 
-- (void)back
+- (void)setUpTabView
 {
-    // 返回精华界面
-    [self.navigationController popViewControllerAnimated:YES];
+    self.navigationItem.title = @"推荐标签";
+    self.view.backgroundColor = DZYCommonBgColor;
+    
+    self.tableView.rowHeight = 70;
+    
+    // 注册重用标识
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYRecommendTagCell class]) bundle:nil] forCellReuseIdentifier:@"tag"];
+    // 去掉系统自带的分割线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 }
 
+- (void)loadTags
+{
+    // 加载标签数据
+    // 请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"tag_recommend";
+    params[@"action"] = @"sub";
+    params[@"c"] = @"topic";
+    
+    // 发送请求
+        [[AFHTTPSessionManager manager] GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+//            DZYLog(@"%@", responseObject);
+            // 将服务器的数据写成plist文件 方便以后查看
+//            [responseObject writeToFile:@"/Users/dongzhenyu/Desktop/tag.plist" atomically:YES];
+            self.tags = [DZYRecommendTag objectArrayWithKeyValuesArray:responseObject];
+            
+            // 刷新表格
+            [self.tableView reloadData];
+            
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            
+        }];
+}
+
+
+#pragma mark - 数据源方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.tags.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DZYRecommendTagCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tag"];
+    // 设置数据
+    cell.recommendTag = self.tags[indexPath.row];
+    return cell;
+}
 
 @end

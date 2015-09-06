@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DZYTagViewController : UIViewController
+@interface DZYTagViewController :UITableViewController
 
 @end
