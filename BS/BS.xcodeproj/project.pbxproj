@@ -30,6 +30,7 @@
 		40CC7C7C1B9C4DF700CC6105 /* DZYRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CC7C7B1B9C4DF700CC6105 /* DZYRecommendTag.m */; };
 		40CC7C7E1B9C58E500CC6105 /* NSDictionary+LOG.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CC7C7D1B9C58E500CC6105 /* NSDictionary+LOG.m */; };
 		40D0F3FD1B9C827F00A24DF6 /* UIImage+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F3FC1B9C827F00A24DF6 /* UIImage+DZYExtension.m */; };
+		40D0F4001B9C8AB300A24DF6 /* UIImageView+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F3FF1B9C8AB300A24DF6 /* UIImageView+DZYExtension.m */; };
 		40E40A721B996A78002A26D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E40A711B996A78002A26D7 /* Images.xcassets */; };
 		40E40A811B996A78002A26D7 /* BSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E40A801B996A78002A26D7 /* BSTests.m */; };
 		F6B01BACEECC44CADE9F992C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A1EDE84C19FD47A6EF197C /* libPods.a */; };
@@ -88,6 +89,8 @@
 		40CC7C7D1B9C58E500CC6105 /* NSDictionary+LOG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LOG.m"; sourceTree = "<group>"; };
 		40D0F3FB1B9C827F00A24DF6 /* UIImage+DZYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DZYExtension.h"; sourceTree = "<group>"; };
 		40D0F3FC1B9C827F00A24DF6 /* UIImage+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DZYExtension.m"; sourceTree = "<group>"; };
+		40D0F3FE1B9C8AB300A24DF6 /* UIImageView+DZYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DZYExtension.h"; sourceTree = "<group>"; };
+		40D0F3FF1B9C8AB300A24DF6 /* UIImageView+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DZYExtension.m"; sourceTree = "<group>"; };
 		40E40A5E1B996A78002A26D7 /* BS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E40A621B996A78002A26D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E40A711B996A78002A26D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 				407FF90E1B9B17B300D21B68 /* UIView+DZYExtension.m */,
 				40D0F3FB1B9C827F00A24DF6 /* UIImage+DZYExtension.h */,
 				40D0F3FC1B9C827F00A24DF6 /* UIImage+DZYExtension.m */,
+				40D0F3FE1B9C8AB300A24DF6 /* UIImageView+DZYExtension.h */,
+				40D0F3FF1B9C8AB300A24DF6 /* UIImageView+DZYExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -555,6 +560,7 @@
 				40001F6D1B998D6A007D2DBA /* DZYFriendTrendsViewController.m in Sources */,
 				40CC7C7C1B9C4DF700CC6105 /* DZYRecommendTag.m in Sources */,
 				40001F671B998CC1007D2DBA /* DZYTabBarController.m in Sources */,
+				40D0F4001B9C8AB300A24DF6 /* UIImageView+DZYExtension.m in Sources */,
 				407FF90C1B9B14E200D21B68 /* DZYQuickLoginButton.m in Sources */,
 				40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */,
 				40001F731B998D84007D2DBA /* DZYNewViewController.m in Sources */,

@@ -19,6 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.frame = CGRectMake(100, 100, 100, 100);
+    [imageView setHeader:@"https://www.baidu.com/img/bd_logo1.png"];
+    [self.view addSubview:imageView];
+    
     self.view.backgroundColor = DZYCommonBgColor;
 
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];

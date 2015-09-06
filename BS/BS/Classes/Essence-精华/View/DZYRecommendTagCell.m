@@ -11,6 +11,7 @@
 #import <UIImageView+WebCache.h>
 
 
+
 @interface DZYRecommendTagCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageListView;
@@ -44,18 +45,18 @@
 {
     _recommendTag = recommendTag;
     
-//    [self.imageListView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"]];
+//    DZYWeakSelf;
+//    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
+//    [self.imageListView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        // 如果下载失败 就不做任何处理 按照默认的做法 或显示占位图片
+//        if (image == nil) return;
+//        weakSelf.imageListView.image = [image circleImage];
+//        
+//    }];
+    // 设置头像
+    [self.imageListView setHeader:recommendTag.image_list];
     
-    UIImage *placeholder = [[UIImage imageNamed:@"defaultUserIcon"] circleImage];
-    
-    DZYWeakSelf;
-    [self.imageListView sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:placeholder completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        // 如果下载失败 就不做任何处理 按照默认的做法 或显示占位图片
-        if (image == nil) return;
-        weakSelf.imageListView.image = [image circleImage];
-        
-    }];
-    
+    // 设置名字
     self.themeNameLabel.text = recommendTag.theme_name;
     
     // 订阅数

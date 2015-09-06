@@ -13,6 +13,7 @@
 #import "UIBarButtonItem+DZYExtension.h"
 #import "UIView+DZYExtension.h"
 #import "UIImage+DZYExtension.h"
+#import "UIImageView+DZYExtension.h"
 
 // 日志输出
 #ifdef DEBUG // 开发阶段-DEBUG阶段:使用Log
