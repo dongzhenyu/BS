@@ -7,6 +7,8 @@
 //
 
 #import "DZYSquareButton.h"
+#import "DZYSquare.h"
+#import <UIButton+WebCache.h>
 
 @implementation DZYSquareButton
 
@@ -19,6 +21,8 @@
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.font = [UIFont systemFontOfSize:14];
         [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        // 设置按钮边框
+        [self setBackgroundImage:[UIImage imageNamed:@"mainCellBackground"] forState:UIControlStateNormal];
         
     }
     return self;
@@ -39,6 +43,16 @@
     self.titleLabel.x = 0;
     self.titleLabel.height = self.height - self.titleLabel.y;
     
+}
+
+- (void)setSquare:(DZYSquare *)square
+{
+    _square = square;
+    
+    // 数据
+    [self setTitle:square.name forState:UIControlStateNormal];
+    // 设置按钮的image
+    [self sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal];
 }
 
 @end

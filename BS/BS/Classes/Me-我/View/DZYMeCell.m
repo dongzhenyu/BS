@@ -27,6 +27,7 @@
 {
     [super layoutSubviews];
     
+    if (self.imageView.image == nil) return;
     // 调整imageView
     self.imageView.y = DZYCommonMargin * 0.5;
     self.imageView.height = self.contentView.height - 2 * self.imageView.y;

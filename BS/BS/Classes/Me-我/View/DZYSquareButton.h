@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DZYSquare;
 @interface DZYSquareButton : UIButton
 
+/** 方块模型 */
+@property (nonatomic, strong) DZYSquare *square;
 @end
