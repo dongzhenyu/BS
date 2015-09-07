@@ -10,8 +10,6 @@
 // 占位文字颜色
 //#define DZYPlaceholderColorKey @"placeholderLabel.textColor"
 static NSString * const DZYPlaceholderColorKey = @"placeholderLabel.textColor";
-//static CGRect const XMGCommonRect = CGRectMake(0, 0, 375, 64);
-static CGRect const DZYCommonRect = {{0, 0}, {375, 64}};
 // 默认的占位文字颜色
 #define DZYPlaceholderDefaultColor [UIColor grayColor]
 // 聚焦的占位文字颜色
@@ -23,7 +21,6 @@ static CGRect const DZYCommonRect = {{0, 0}, {375, 64}};
 // 初始化设置
 - (void)awakeFromNib
 {
-    DZYLog(@"awakeFromNib-%@", NSStringFromCGRect(DZYCommonRect));
     // 文本框光标颜色
     self.tintColor = [UIColor whiteColor];
     // 文字颜色
@@ -38,7 +35,6 @@ static CGRect const DZYCommonRect = {{0, 0}, {375, 64}};
  */
 - (BOOL)becomeFirstResponder
 {
-    DZYLog(@"becomeFirstResponder-%@", NSStringFromCGRect(DZYCommonRect));
     [self setValue:DZYPlaceholderFocusColor forKeyPath:DZYPlaceholderColorKey];
     return [super becomeFirstResponder];
 }
@@ -48,7 +44,6 @@ static CGRect const DZYCommonRect = {{0, 0}, {375, 64}};
  */
 - (BOOL)resignFirstResponder
 {
-    DZYLog(@"resignFirstResponder-%@", NSStringFromCGRect(DZYCommonRect));
     [self setValue:DZYPlaceholderDefaultColor forKeyPath:DZYPlaceholderColorKey];
     return [super resignFirstResponder];
 }

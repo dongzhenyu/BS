@@ -3,8 +3,12 @@
 
 #import <UIKit/UIKit.h>
 
-// 请求路径
+/** 请求路径 */
 NSString * const DZYRequestURL = @"http://api.budejie.com/api/api_open.php";
+
+/** 统一的间距 */
+CGFloat const DZYCommonMargin = 10;
+
 
 /**
  全局常量的写法

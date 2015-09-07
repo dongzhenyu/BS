@@ -37,4 +37,8 @@
 // 弱引用
 #define DZYWeakSelf __weak typeof(self) weakSelf = self;
 
+// 将数据写到桌面的plist
+#define DZYWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/dongzhenyu/Desktop/%@.plist", filename] atomically:YES];
+
+
 #endif

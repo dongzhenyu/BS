@@ -19,10 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.frame = CGRectMake(100, 100, 100, 100);
-    [imageView setHeader:@"https://www.baidu.com/img/bd_logo1.png"];
-    [self.view addSubview:imageView];
+//    UIImageView *imageView = [[UIImageView alloc] init];
+//    imageView.frame = CGRectMake(100, 100, 100, 100);
+//    [imageView setHeader:@"https://www.baidu.com/img/bd_logo1.png"];
+//    [self.view addSubview:imageView];
     
     self.view.backgroundColor = DZYCommonBgColor;
 
@@ -40,6 +40,5 @@
     DZYTagViewController *tag = [[DZYTagViewController alloc] init];
     [self.navigationController pushViewController:tag animated:YES];
 }
-
 
 @end

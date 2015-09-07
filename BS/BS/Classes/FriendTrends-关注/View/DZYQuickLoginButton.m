@@ -15,7 +15,6 @@
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
 }
 
-
 /**
  *  自定义按钮布局子控件
  */
@@ -23,16 +22,7 @@
 {
     [super layoutSubviews];
     // 调用完super 控件就有了尺寸 在尺寸的基础上进行修改
-    
-    
-//    self.imageView.backgroundColor = [UIColor redColor];
-//    self.titleLabel.backgroundColor = [UIColor blueColor];
-    
-    // 调整图片的位置和尺寸
-//    CGRect imageF = self.imageView.frame;
-//    imageF.origin.y = 0;
-//    imageF.origin.x = self.imageView.frame.size.width * 0.5;
-//    self.imageView.frame = imageF;
+
     self.imageView.y = 0;
     self.imageView.centerX = self.width * 0.5;
     
