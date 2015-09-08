@@ -19,6 +19,8 @@
 		40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7C1B99A964007D2DBA /* DZYTagViewController.m */; };
 		40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */; };
 		403DE86A1B9EC7EB00958B0A /* NSString+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE8691B9EC7EB00958B0A /* NSString+DZYExtension.m */; };
+		403DE86D1B9ED90500958B0A /* DZYClearCachesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE86C1B9ED90500958B0A /* DZYClearCachesCell.m */; };
+		403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE86F1B9EF5ED00958B0A /* DZYThirdCell.m */; };
 		405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */; };
 		407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */; };
 		407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */; };
@@ -79,6 +81,10 @@
 		40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSettingViewController.m; sourceTree = "<group>"; };
 		403DE8681B9EC7EB00958B0A /* NSString+DZYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DZYExtension.h"; sourceTree = "<group>"; };
 		403DE8691B9EC7EB00958B0A /* NSString+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DZYExtension.m"; sourceTree = "<group>"; };
+		403DE86B1B9ED90500958B0A /* DZYClearCachesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYClearCachesCell.h; sourceTree = "<group>"; };
+		403DE86C1B9ED90500958B0A /* DZYClearCachesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYClearCachesCell.m; sourceTree = "<group>"; };
+		403DE86E1B9EF5ED00958B0A /* DZYThirdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYThirdCell.h; sourceTree = "<group>"; };
+		403DE86F1B9EF5ED00958B0A /* DZYThirdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYThirdCell.m; sourceTree = "<group>"; };
 		405CA2B41B9AAD3700B09395 /* DZYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYNavigationController.h; sourceTree = "<group>"; };
 		405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYNavigationController.m; sourceTree = "<group>"; };
 		407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYFriendTrendsViewController.xib; sourceTree = "<group>"; };
@@ -288,6 +294,10 @@
 				40A6F40B1B9DB8710026B079 /* DZYMeFooterView.m */,
 				40A6F4101B9DE7870026B079 /* DZYSquareButton.h */,
 				40A6F4111B9DE7870026B079 /* DZYSquareButton.m */,
+				403DE86B1B9ED90500958B0A /* DZYClearCachesCell.h */,
+				403DE86C1B9ED90500958B0A /* DZYClearCachesCell.m */,
+				403DE86E1B9EF5ED00958B0A /* DZYThirdCell.h */,
+				403DE86F1B9EF5ED00958B0A /* DZYThirdCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -593,6 +603,7 @@
 				40D0F3FD1B9C827F00A24DF6 /* UIImage+DZYExtension.m in Sources */,
 				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
+				403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */,
 				40CC7C7E1B9C58E500CC6105 /* NSDictionary+LOG.m in Sources */,
 				407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */,
 				40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */,
@@ -612,6 +623,7 @@
 				405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */,
 				4094BB8B1B9DFF98000BEE54 /* DZYWebViewController.m in Sources */,
 				40001F6A1B998D41007D2DBA /* DZYEssenceViewController.m in Sources */,
+				403DE86D1B9ED90500958B0A /* DZYClearCachesCell.m in Sources */,
 				40001F641B99895A007D2DBA /* main.m in Sources */,
 				40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */,
 				40A6F4121B9DE7870026B079 /* DZYSquareButton.m in Sources */,

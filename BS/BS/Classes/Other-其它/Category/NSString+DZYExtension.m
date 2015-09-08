@@ -18,13 +18,13 @@
     BOOL isDirectory = NO;
     // 这个路径是否存在
     BOOL exists = [mgr fileExistsAtPath:self isDirectory:&isDirectory];
-    // 如果路径不存在
+    // 路径不存在
     if (exists == NO) return 0;
     
-    if (isDirectory) {// 是文件夹
+    if (isDirectory) { // 文件夹
         // 总大小
-        NSUInteger size = 0;
-        // 获取文件夹所有内容
+        NSInteger size = 0;
+        // 获得文件夹中的所有内容
         NSDirectoryEnumerator *enumerator = [mgr enumeratorAtPath:self];
         for (NSString *subpath in enumerator) {
             // 获得全路径
@@ -33,7 +33,7 @@
             size += [mgr attributesOfItemAtPath:fullSubpath error:nil].fileSize;
         }
         return size;
-    } else {//文件
+    } else { // 文件
         return [mgr attributesOfItemAtPath:self error:nil].fileSize;
     }
 }
