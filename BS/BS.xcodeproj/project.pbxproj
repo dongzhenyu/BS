@@ -18,6 +18,7 @@
 		40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F791B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m */; };
 		40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7C1B99A964007D2DBA /* DZYTagViewController.m */; };
 		40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */; };
+		403DE86A1B9EC7EB00958B0A /* NSString+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE8691B9EC7EB00958B0A /* NSString+DZYExtension.m */; };
 		405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */; };
 		407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */; };
 		407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */; };
@@ -76,6 +77,8 @@
 		40001F7C1B99A964007D2DBA /* DZYTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTagViewController.m; sourceTree = "<group>"; };
 		40001F7E1B99AB9E007D2DBA /* DZYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSettingViewController.h; sourceTree = "<group>"; };
 		40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSettingViewController.m; sourceTree = "<group>"; };
+		403DE8681B9EC7EB00958B0A /* NSString+DZYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DZYExtension.h"; sourceTree = "<group>"; };
+		403DE8691B9EC7EB00958B0A /* NSString+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DZYExtension.m"; sourceTree = "<group>"; };
 		405CA2B41B9AAD3700B09395 /* DZYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYNavigationController.h; sourceTree = "<group>"; };
 		405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYNavigationController.m; sourceTree = "<group>"; };
 		407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYFriendTrendsViewController.xib; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 				40D0F3FC1B9C827F00A24DF6 /* UIImage+DZYExtension.m */,
 				40D0F3FE1B9C8AB300A24DF6 /* UIImageView+DZYExtension.h */,
 				40D0F3FF1B9C8AB300A24DF6 /* UIImageView+DZYExtension.m */,
+				403DE8681B9EC7EB00958B0A /* NSString+DZYExtension.h */,
+				403DE8691B9EC7EB00958B0A /* NSString+DZYExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40001F701B998D76007D2DBA /* DZYMeViewController.m in Sources */,
+				403DE86A1B9EC7EB00958B0A /* NSString+DZYExtension.m in Sources */,
 				40D0F3FD1B9C827F00A24DF6 /* UIImage+DZYExtension.m in Sources */,
 				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,

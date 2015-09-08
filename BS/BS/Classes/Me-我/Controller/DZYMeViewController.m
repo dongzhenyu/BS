@@ -63,7 +63,7 @@ static NSString * const DZYMeCellId = @"me";
 
 - (void)settingClick
 {
-    DZYSettingViewController *setting = [[DZYSettingViewController alloc] init];
+    DZYSettingViewController *setting = [[DZYSettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
 //    setting.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:setting animated:YES];
 }
