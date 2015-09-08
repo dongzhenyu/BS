@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class DZYSquare;
 @interface DZYWebViewController : UIViewController
+
+/** squareModel */
+@property (nonatomic, strong) DZYSquare *square;
 
 @end

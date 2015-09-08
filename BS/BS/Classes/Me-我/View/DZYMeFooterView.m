@@ -14,11 +14,11 @@
 #import "DZYWebViewController.h"
 
 
-@interface DZYMeFooterView ()
-
-@property (nonatomic, strong) NSArray *squares;
-
-@end
+//@interface DZYMeFooterView ()
+//
+//@property (nonatomic, strong) NSArray *squares;
+//
+//@end
 
 #import "DZYSquareButton.h"
 
@@ -54,7 +54,7 @@
  */
 - (void)createSquares:(NSArray *)squares
 {
-    self.squares = squares;
+//    self.squares = squares;
     // 每行的列数
     int colsCount = 4;
     
@@ -102,24 +102,21 @@
 //    DZYSquare *square = self.squares[index];
 ////    DZYSquare *square = self.squares[button.tag];
 //    DZYLog(@"%@", button.square.url);
-    if ([button.square.url hasPrefix:@"http"]) {
+    
+    if ([button.square.url hasPrefix:@"http"] == NO) return;
         
-        DZYWebViewController *webVc = [[DZYWebViewController alloc] init];
-        
+    DZYWebViewController *webVc = [[DZYWebViewController alloc] init];
+    webVc.square = button.square;
 //        // 取出当前选中的导航控制器
-        UITabBarController *rootVc = (UITabBarController *)self.window.rootViewController;
-        UINavigationController *nav = (UINavigationController *)rootVc.selectedViewController;
+    UITabBarController *rootVc = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *nav = (UINavigationController *)rootVc.selectedViewController;
 
-        [nav pushViewController:webVc animated:YES];
+    [nav pushViewController:webVc animated:YES];
 
 //        [UIApplication sharedApplication].keyWindow;
 //        [[rootVc.childViewControllers lastObject] pushViewController:webVc animated:YES];
 //        DZYLog(@"%@", rootVc.selectedViewController);
         
-        
-    }
-    
-    
 }
 
 /**

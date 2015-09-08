@@ -1,19 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DZYWebViewController">
             <connections>
+                <outlet property="backItem" destination="gcU-iy-Aqq" id="8EC-X8-LBD"/>
+                <outlet property="forwardItem" destination="Zx9-9C-MX8" id="Pov-MI-XB9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="webView" destination="ihe-ax-bfH" id="n2D-Qg-C5X"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihe-ax-bfH">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="nv2-QK-JTu"/>
+                    </connections>
+                </webView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhh-Fp-x0B">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="tjK-4T-yt0"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem enabled="NO" image="back" id="gcU-iy-Aqq">
+                            <connections>
+                                <action selector="back" destination="-1" id="yk6-QQ-vaW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem enabled="NO" image="forward-1" id="Zx9-9C-MX8">
+                            <connections>
+                                <action selector="forward" destination="-1" id="aKO-0Q-NwF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="ShO-xQ-TbE"/>
+                        <barButtonItem systemItem="refresh" id="Pbn-fm-bC3">
+                            <connections>
+                                <action selector="refresh" destination="-1" id="dbJ-xp-Boo"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Xhh-Fp-x0B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FVJ-0h-BQX"/>
+                <constraint firstItem="ihe-ax-bfH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IcL-YV-C52"/>
+                <constraint firstAttribute="bottom" secondItem="Xhh-Fp-x0B" secondAttribute="bottom" id="XdI-Fo-V4M"/>
+                <constraint firstAttribute="trailing" secondItem="ihe-ax-bfH" secondAttribute="trailing" id="alc-dz-GkN"/>
+                <constraint firstItem="Xhh-Fp-x0B" firstAttribute="top" secondItem="ihe-ax-bfH" secondAttribute="bottom" id="hGc-Tw-zux"/>
+                <constraint firstItem="ihe-ax-bfH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nNM-Q1-CYC"/>
+                <constraint firstAttribute="trailing" secondItem="Xhh-Fp-x0B" secondAttribute="trailing" id="nyJ-yt-JhL"/>
+            </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="back" width="32" height="32"/>
+        <image name="forward-1" width="32" height="32"/>
+    </resources>
 </document>
