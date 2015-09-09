@@ -11,7 +11,7 @@
 
 @implementation DZYClearCachesCell
 /** 缓存路径*/
-#define DZYCachesFile [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"default"]
+#define DZYCacheFile [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"default"]
 
 static NSString * const DZYDefaultText = @"清除缓存";
 
@@ -31,7 +31,7 @@ static NSString * const DZYDefaultText = @"清除缓存";
         // 计算大小
         [[[NSOperationQueue alloc] init] addOperationWithBlock:^{
             // 计算缓存大小
-            NSInteger size = DZYCachesFile.fileSize;
+            NSInteger size = DZYCacheFile.fileSize;
             CGFloat unit = 1000.0;
             NSString *sizeText = nil;
             if (size >= unit * unit * unit) { // >= 1GB
@@ -72,7 +72,7 @@ static NSString * const DZYDefaultText = @"清除缓存";
     [SVProgressHUD showWithStatus:@"正在清除缓存" maskType:SVProgressHUDMaskTypeBlack];
     
     [[[NSOperationQueue alloc] init] addOperationWithBlock:^{
-        [[NSFileManager defaultManager] removeItemAtPath:DZYCachesFile error:nil];
+        [[NSFileManager defaultManager] removeItemAtPath:DZYCacheFile error:nil];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [SVProgressHUD showSuccessWithStatus:@"清除成功"];

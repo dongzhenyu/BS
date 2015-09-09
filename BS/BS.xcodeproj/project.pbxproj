@@ -21,6 +21,9 @@
 		403DE86A1B9EC7EB00958B0A /* NSString+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE8691B9EC7EB00958B0A /* NSString+DZYExtension.m */; };
 		403DE86D1B9ED90500958B0A /* DZYClearCachesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE86C1B9ED90500958B0A /* DZYClearCachesCell.m */; };
 		403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE86F1B9EF5ED00958B0A /* DZYThirdCell.m */; };
+		40531A671BA046DF006845C8 /* DZYPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40531A651BA046DF006845C8 /* DZYPublishViewController.m */; };
+		40531A681BA046DF006845C8 /* DZYPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40531A661BA046DF006845C8 /* DZYPublishViewController.xib */; };
+		40531A6B1BA05A7F006845C8 /* DZYPublishButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 40531A6A1BA05A7F006845C8 /* DZYPublishButton.m */; };
 		405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */; };
 		407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */; };
 		407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */; };
@@ -85,6 +88,11 @@
 		403DE86C1B9ED90500958B0A /* DZYClearCachesCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYClearCachesCell.m; sourceTree = "<group>"; };
 		403DE86E1B9EF5ED00958B0A /* DZYThirdCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYThirdCell.h; sourceTree = "<group>"; };
 		403DE86F1B9EF5ED00958B0A /* DZYThirdCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYThirdCell.m; sourceTree = "<group>"; };
+		40531A641BA046DF006845C8 /* DZYPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYPublishViewController.h; sourceTree = "<group>"; };
+		40531A651BA046DF006845C8 /* DZYPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYPublishViewController.m; sourceTree = "<group>"; };
+		40531A661BA046DF006845C8 /* DZYPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYPublishViewController.xib; sourceTree = "<group>"; };
+		40531A691BA05A7F006845C8 /* DZYPublishButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYPublishButton.h; sourceTree = "<group>"; };
+		40531A6A1BA05A7F006845C8 /* DZYPublishButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYPublishButton.m; sourceTree = "<group>"; };
 		405CA2B41B9AAD3700B09395 /* DZYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYNavigationController.h; sourceTree = "<group>"; };
 		405CA2B51B9AAD3700B09395 /* DZYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYNavigationController.m; sourceTree = "<group>"; };
 		407FF9031B9AE48600D21B68 /* DZYFriendTrendsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYFriendTrendsViewController.xib; sourceTree = "<group>"; };
@@ -162,6 +170,7 @@
 		40001F4A1B99895A007D2DBA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				40531A611BA045A4006845C8 /* Publish-发布 */,
 				40001F4B1B99895A007D2DBA /* Essence-精华 */,
 				40001F4F1B99895A007D2DBA /* FriendTrends-关注 */,
 				40001F531B99895A007D2DBA /* Me-我 */,
@@ -397,6 +406,34 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		40531A611BA045A4006845C8 /* Publish-发布 */ = {
+			isa = PBXGroup;
+			children = (
+				40531A621BA045A4006845C8 /* Controller */,
+				40531A631BA045A4006845C8 /* View */,
+			);
+			path = "Publish-发布";
+			sourceTree = "<group>";
+		};
+		40531A621BA045A4006845C8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				40531A641BA046DF006845C8 /* DZYPublishViewController.h */,
+				40531A651BA046DF006845C8 /* DZYPublishViewController.m */,
+				40531A661BA046DF006845C8 /* DZYPublishViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		40531A631BA045A4006845C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				40531A691BA05A7F006845C8 /* DZYPublishButton.h */,
+				40531A6A1BA05A7F006845C8 /* DZYPublishButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		40E40A551B996A78002A26D7 = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40531A681BA046DF006845C8 /* DZYPublishViewController.xib in Resources */,
 				407FF9091B9AF11700D21B68 /* DZYLoginRegisterViewController.xib in Resources */,
 				40CC7C791B9C145E00CC6105 /* DZYRecommendTagCell.xib in Resources */,
 				407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */,
@@ -608,6 +646,7 @@
 				407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */,
 				40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */,
 				40CC7C781B9C145E00CC6105 /* DZYRecommendTagCell.m in Sources */,
+				40531A671BA046DF006845C8 /* DZYPublishViewController.m in Sources */,
 				40A6F40C1B9DB8710026B079 /* DZYMeFooterView.m in Sources */,
 				407FF9121B9B38AD00D21B68 /* DZYLoginRegisterTextField.m in Sources */,
 				40001F6D1B998D6A007D2DBA /* DZYFriendTrendsViewController.m in Sources */,
@@ -620,6 +659,7 @@
 				40D0F4081B9C9AB200A24DF6 /* DZYConst.m in Sources */,
 				407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */,
 				40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */,
+				40531A6B1BA05A7F006845C8 /* DZYPublishButton.m in Sources */,
 				405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */,
 				4094BB8B1B9DFF98000BEE54 /* DZYWebViewController.m in Sources */,
 				40001F6A1B998D41007D2DBA /* DZYEssenceViewController.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "DZYTabBar.h"
+#import "DZYPublishViewController.h"
 
 @interface DZYTabBar ()
 
@@ -41,7 +42,10 @@
 
 - (void)publishClick
 {
-    DZYLogFunc;
+    DZYPublishViewController *publish = [[DZYPublishViewController alloc] init];
+    
+    [self.window.rootViewController presentViewController:publish animated:NO completion:nil];
+    
 }
 
 /**
