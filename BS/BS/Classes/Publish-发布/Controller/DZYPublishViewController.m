@@ -9,6 +9,8 @@
 #import "DZYPublishViewController.h"
 #import "DZYPublishButton.h"
 #import <POP.h>
+#import "DZYPostWordViewController.h"
+#import "DZYNavigationController.h"
 
 static CGFloat const DZYSpringFactor = 10;
 @interface DZYPublishViewController ()
@@ -26,6 +28,7 @@ static CGFloat const DZYSpringFactor = 10;
 
 @implementation DZYPublishViewController
 
+#pragma mark - 懒加载
 - (NSMutableArray *)buttons
 {
     if (!_buttons) {
@@ -49,7 +52,7 @@ static CGFloat const DZYSpringFactor = 10;
     }
     return _times;
 }
-
+#pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -134,12 +137,10 @@ static CGFloat const DZYSpringFactor = 10;
     
 
 }
-- (void)buttonClick:(DZYPublishButton *)button
+
+#pragma mark - 退出动画
+- (void)exit:(void (^)())task
 {
-    DZYLogFunc;
-}
-- (IBAction)cancel {
-    
     // 禁止交互
     self.view.userInteractionEnabled = NO;
     
@@ -149,7 +150,6 @@ static CGFloat const DZYSpringFactor = 10;
         
         POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
         anim.toValue = @(button.layer.position.y + DZYScreenH);
-        // CACurrentMediaTime()获得的是当前时间
         anim.beginTime = CACurrentMediaTime() + [self.times[i] doubleValue];
         [button.layer pop_addAnimation:anim forKey:nil];
     }
@@ -158,17 +158,56 @@ static CGFloat const DZYSpringFactor = 10;
     // 让标题执行动画
     POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
     anim.toValue = @(self.sloganView.layer.position.y + DZYScreenH);
-    // CACurrentMediaTime()获得的是当前时间
     anim.beginTime = CACurrentMediaTime() + [self.times.lastObject doubleValue];
     [anim setCompletionBlock:^(POPAnimation *anim, BOOL finished) {
         [weakSelf dismissViewControllerAnimated:NO completion:nil];
+        
+        // 可能会做其他事情
+//        if (task) task();
+        !task ? : task();
     }];
     [self.sloganView.layer pop_addAnimation:anim forKey:nil];
 }
 
+#pragma mark - 点击
+- (void)buttonClick:(DZYPublishButton *)button
+{
+    [self exit:^{
+        // 按钮索引
+        NSUInteger index = [self.buttons indexOfObject:button];
+       
+        switch (index) {
+            case 2: {// 发段子
+                DZYPostWordViewController *postWord = [[DZYPostWordViewController alloc] init];
+                [self.view.window.rootViewController presentViewController:[[DZYNavigationController alloc] initWithRootViewController:postWord] animated:YES completion:nil];
+                
+                break;
+            }
+            case 0:
+                DZYLog(@"发视频");
+                break;
+            case 1:
+                DZYLog(@"发图片");
+                break;
+                
+            default:
+                DZYLog(@"其它");
+                break;
+        }
+        
+        
+    }];
+}
+
+
+- (IBAction)cancel {
+    
+    [self exit:nil];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self cancel];
+    [self exit:nil];
 }
 
 
