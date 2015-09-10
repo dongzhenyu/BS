@@ -8,16 +8,28 @@
 
 #import "DZYPlaceholderTextView.h"
 
+@interface DZYPlaceholderTextView ()
+// 占位文字label
+@property (nonatomic, weak) UILabel *placeholderLabel;
+
+@end
+
+
 @implementation DZYPlaceholderTextView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-//        self.backgroundColor = [UIColor yellowColor];
-        // 默认字体颜色
+
+        UILabel *placeholderLabel = [[UILabel alloc] init];
+        placeholderLabel.numberOfLines = 0;
+        [self addSubview:placeholderLabel];
+        self.placeholderLabel = placeholderLabel;
+        
+        // 设置默认字体
         self.font = [UIFont systemFontOfSize:15];
         
-        // 默认字体颜色
+        // 设置默认颜色
         self.placeholderColor = [UIColor grayColor];
         
         // 使用通知监听文字改变
@@ -28,8 +40,7 @@
 
 - (void)textDidChange:(NSNotification *)note
 {
-    // 重新调用drawRect
-    [self setNeedsDisplay];
+    self.placeholderLabel.hidden = self.hasText;
 }
 
 - (void)dealloc
@@ -37,61 +48,54 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-/**
- *  每次调用drawRect方法 都会把以前的东西清掉
- */
-- (void)drawRect:(CGRect)rect
-{
-    // 如果有文字 就直接返回 不许要画占位文字
-    if (self.hasText) return;
-    
-    // 属性
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    attrs[NSFontAttributeName] = self.font;
-    attrs[NSForegroundColorAttributeName] = self.placeholderColor;
-    
-    // 画文字
-    rect.origin.x = 5;
-    rect.origin.y = 8;
-    rect.size.width -= 2 * rect.origin.x;
-    
-    [self.placeholder drawInRect:rect withAttributes:attrs];
-    
-        
-}
-
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
-    [self setNeedsDisplay];
+    self.placeholderLabel.x = 5;
+    self.placeholderLabel.y = 8;
+    self.placeholderLabel.width = self.width - 2 * self.placeholderLabel.x;
+    [self.placeholderLabel sizeToFit];
 }
 
 #pragma mark - setter
 - (void)setPlaceholder:(NSString *)placeholder
 {
-    _placeholder = placeholder;
+    _placeholder = [placeholder copy];
     
-    [self setNeedsDisplay];
+    self.placeholderLabel.text = placeholder;
+    [self.placeholderLabel sizeToFit];
+    //    [self setNeedsLayout];
 }
 
 - (void)setPlaceholderColor:(UIColor *)placeholderColor
 {
     _placeholderColor = placeholderColor;
-    [self setNeedsDisplay];
+    
+    self.placeholderLabel.textColor = placeholderColor;
 }
 
 - (void)setFont:(UIFont *)font
 {
     [super setFont:font];
-    [self setNeedsDisplay];
+    
+    self.placeholderLabel.font = font;
+    [self.placeholderLabel sizeToFit];
+    //    [self setNeedsLayout];
+}
+
+- (void)setText:(NSString *)text
+{
+    [super setText:text];
+    
+    self.placeholderLabel.hidden = self.hasText;
 }
 
 - (void)setAttributedText:(NSAttributedString *)attributedText
 {
     [super setAttributedText:attributedText];
-    [self setNeedsDisplay];
+    
+    self.placeholderLabel.hidden = self.hasText;
 }
-
 
 @end
