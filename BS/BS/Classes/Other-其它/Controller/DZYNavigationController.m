@@ -14,6 +14,35 @@
 
 @implementation DZYNavigationController
 
++ (void)initialize
+{
+  /** 设置navigationBar */
+    UINavigationBar *bar = [UINavigationBar appearance];
+    
+    // 设置背景
+    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    // 设置标题文字属性
+    NSMutableDictionary *barAttrs = [NSMutableDictionary dictionary];
+    barAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:20];
+    [bar setTitleTextAttributes:barAttrs];
+    
+    /** 设置navigationBaritem */
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+
+    // UIControlStateNormal
+    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
+    normalAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+    normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:17];
+    [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+    
+    // UIControlStateDisabled
+    NSMutableDictionary *disableAttrs = [NSMutableDictionary dictionary];
+    disableAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    [item setTitleTextAttributes:disableAttrs forState:UIControlStateDisabled];
+    
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -25,7 +54,7 @@
 //    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] forBarMetrics:UIBarMetricsDefault];
     
     // 设置导航条的背景图片
-    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationBar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
 
 }
 

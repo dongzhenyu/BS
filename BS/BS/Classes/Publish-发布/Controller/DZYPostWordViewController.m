@@ -8,20 +8,54 @@
 
 #import "DZYPostWordViewController.h"
 #import "DZYPlaceholderTextView.h"
+#import "DZYPostWordToolbar.h"
 
 @interface DZYPostWordViewController ()<UITextViewDelegate>
 @property (nonatomic, weak) DZYPlaceholderTextView *textView;
+
+@property (nonatomic, weak) DZYPostWordToolbar *toolbar;
 @end
 
 @implementation DZYPostWordViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.title = @"发表文字";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
+    
+    [self setupNav];
+    
     [self setupTextView];
     
+    [self setupToolBar];
+}
+
+- (void)setupToolBar
+{
+    DZYPostWordToolbar *toolbar = [DZYPostWordToolbar viewFromXib];
+    toolbar.x = 0;
+    toolbar.y = self.view.height - toolbar.height;
+    toolbar.width = self.view.width;
+    [self.view addSubview:toolbar];
+    self.toolbar = toolbar;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)setupNav
+{
+    self.title = @"发表文字";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发表" style:UIBarButtonItemStyleDone target:self action:@selector(post)];
+    // 右边按钮一开是不能点击
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    // 强制更新 （能立马刷新当前的状态）
+    [self.navigationController.navigationBar layoutIfNeeded];
 }
 
 - (void)setupTextView
@@ -42,15 +76,39 @@
     
 }
 
+#pragma mark - 监听
+- (void)keyboardWillChangeFrame:(NSNotification *)note
+{
+    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+       // 工具条平移的距离 = 键盘最终的Y值 -  屏幕的高度
+        CGFloat ty = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y - DZYScreenH;
+        self.toolbar.transform = CGAffineTransformMakeTranslation(0, ty);
+        
+    }];
+}
+
 - (void)cancel
 {
+    
+    
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)post
+{
+    DZYLogFunc;
 }
 
 #pragma mark - 代理方法
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
     [self.view endEditing:YES];
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.navigationItem.rightBarButtonItem.enabled = textView.hasText;
 }
 
 @end

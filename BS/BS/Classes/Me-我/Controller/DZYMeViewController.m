@@ -54,6 +54,9 @@ static NSString * const DZYMeCellId = @"me";
     UIBarButtonItem *moonItem = [UIBarButtonItem itemWithImage:@"mine-moon-icon" highImage:@"mine-moon-icon-click" target:self action:@selector(moonClick)];
     UIBarButtonItem *settingItem = [UIBarButtonItem itemWithImage:@"mine-setting-icon" highImage:@"mine-setting-icon-click" target:self action:@selector(settingClick)];
     self.navigationItem.rightBarButtonItems = @[settingItem, moonItem];
+    
+//    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"哈哈" style:UIBarButtonItemStyleDone target:nil action:nil];
+//    self.navigationItem.leftBarButtonItem.enabled = NO;
 }
 
 - (void)moonClick

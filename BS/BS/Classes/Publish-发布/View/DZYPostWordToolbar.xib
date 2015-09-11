@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DZYPostWordToolbar">
+            <rect key="frame" x="0.0" y="5" width="388" height="117"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-2O-rMX">
+                    <rect key="frame" x="0.0" y="82" width="388" height="35"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-n9-505">
+                            <rect key="frame" x="0.0" y="0.0" width="388" height="35"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEV-zy-FB8">
+                            <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="22Z-GI-lCx"/>
+                            </constraints>
+                            <state key="normal" image="post-@N">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="post-@"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c25-zu-0eH">
+                            <rect key="frame" x="35" y="0.0" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="35" id="0E6-xV-v1e"/>
+                            </constraints>
+                            <state key="normal" image="post-#N">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <state key="highlighted" image="post-#"/>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="jNh-n9-505" firstAttribute="top" secondItem="SB2-2O-rMX" secondAttribute="top" id="95f-rP-aiV"/>
+                        <constraint firstAttribute="bottom" secondItem="jNh-n9-505" secondAttribute="bottom" id="Cbb-Ck-gNa"/>
+                        <constraint firstItem="c25-zu-0eH" firstAttribute="leading" secondItem="dEV-zy-FB8" secondAttribute="trailing" id="Gg2-d3-ays"/>
+                        <constraint firstAttribute="height" constant="35" id="Hap-5R-Bvh"/>
+                        <constraint firstItem="dEV-zy-FB8" firstAttribute="bottom" secondItem="c25-zu-0eH" secondAttribute="bottom" id="S78-RS-0op"/>
+                        <constraint firstItem="dEV-zy-FB8" firstAttribute="leading" secondItem="SB2-2O-rMX" secondAttribute="leading" id="a3U-Y3-8o0"/>
+                        <constraint firstAttribute="bottom" secondItem="dEV-zy-FB8" secondAttribute="bottom" id="awE-Wn-rd7"/>
+                        <constraint firstAttribute="trailing" secondItem="jNh-n9-505" secondAttribute="trailing" id="hGF-WF-iEs"/>
+                        <constraint firstItem="jNh-n9-505" firstAttribute="leading" secondItem="SB2-2O-rMX" secondAttribute="leading" id="nXB-UQ-tr3"/>
+                        <constraint firstItem="dEV-zy-FB8" firstAttribute="top" secondItem="c25-zu-0eH" secondAttribute="top" id="qrV-qc-gLs"/>
+                        <constraint firstItem="dEV-zy-FB8" firstAttribute="top" secondItem="SB2-2O-rMX" secondAttribute="top" id="vEO-6K-rST"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-Lz-U88">
+                    <rect key="frame" x="0.0" y="0.0" width="388" height="60"/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="uxF-Ta-3i5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vhw-Lz-U88" secondAttribute="trailing" id="Nr9-Eb-nHD"/>
+                <constraint firstItem="vhw-Lz-U88" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Top-PW-dma"/>
+                <constraint firstAttribute="bottom" secondItem="SB2-2O-rMX" secondAttribute="bottom" id="TvZ-FQ-Vxf"/>
+                <constraint firstItem="vhw-Lz-U88" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="XvE-2T-oJ5"/>
+                <constraint firstItem="SB2-2O-rMX" firstAttribute="trailing" secondItem="vhw-Lz-U88" secondAttribute="trailing" id="jGg-U7-iHT"/>
+                <constraint firstItem="SB2-2O-rMX" firstAttribute="leading" secondItem="vhw-Lz-U88" secondAttribute="leading" id="oKq-u0-pdg"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="232" y="266.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="post-#" width="19" height="19"/>
+        <image name="post-#N" width="19" height="19"/>
+        <image name="post-@" width="19" height="19"/>
+        <image name="post-@N" width="19" height="19"/>
+    </resources>
+</document>

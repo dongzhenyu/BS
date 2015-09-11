@@ -17,4 +17,9 @@
 @property (nonatomic, assign) CGFloat centerX;
 @property (nonatomic, assign) CGFloat centerY;
 
+/**
+ *  从xib中创建一个控件
+ */
++ (instancetype)viewFromXib;
+
 @end

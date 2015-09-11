@@ -23,6 +23,8 @@
 		403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE86F1B9EF5ED00958B0A /* DZYThirdCell.m */; };
 		40400FEF1BA0936700B5B165 /* DZYPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40400FEE1BA0936700B5B165 /* DZYPostWordViewController.m */; };
 		40400FF51BA0975100B5B165 /* DZYPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40400FF41BA0975100B5B165 /* DZYPlaceholderTextView.m */; };
+		4045B7311BA2EBC3009469E1 /* DZYPostWordToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4045B7301BA2EBC3009469E1 /* DZYPostWordToolbar.m */; };
+		4045B7331BA2EBF2009469E1 /* DZYPostWordToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4045B7321BA2EBF2009469E1 /* DZYPostWordToolbar.xib */; };
 		40531A671BA046DF006845C8 /* DZYPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40531A651BA046DF006845C8 /* DZYPublishViewController.m */; };
 		40531A681BA046DF006845C8 /* DZYPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40531A661BA046DF006845C8 /* DZYPublishViewController.xib */; };
 		40531A6B1BA05A7F006845C8 /* DZYPublishButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 40531A6A1BA05A7F006845C8 /* DZYPublishButton.m */; };
@@ -94,6 +96,9 @@
 		40400FEE1BA0936700B5B165 /* DZYPostWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYPostWordViewController.m; sourceTree = "<group>"; };
 		40400FF31BA0975100B5B165 /* DZYPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYPlaceholderTextView.h; sourceTree = "<group>"; };
 		40400FF41BA0975100B5B165 /* DZYPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYPlaceholderTextView.m; sourceTree = "<group>"; };
+		4045B72F1BA2EBC3009469E1 /* DZYPostWordToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYPostWordToolbar.h; sourceTree = "<group>"; };
+		4045B7301BA2EBC3009469E1 /* DZYPostWordToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYPostWordToolbar.m; sourceTree = "<group>"; };
+		4045B7321BA2EBF2009469E1 /* DZYPostWordToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYPostWordToolbar.xib; sourceTree = "<group>"; };
 		40531A641BA046DF006845C8 /* DZYPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYPublishViewController.h; sourceTree = "<group>"; };
 		40531A651BA046DF006845C8 /* DZYPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYPublishViewController.m; sourceTree = "<group>"; };
 		40531A661BA046DF006845C8 /* DZYPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYPublishViewController.xib; sourceTree = "<group>"; };
@@ -440,6 +445,9 @@
 				40531A6A1BA05A7F006845C8 /* DZYPublishButton.m */,
 				40400FF31BA0975100B5B165 /* DZYPlaceholderTextView.h */,
 				40400FF41BA0975100B5B165 /* DZYPlaceholderTextView.m */,
+				4045B72F1BA2EBC3009469E1 /* DZYPostWordToolbar.h */,
+				4045B7301BA2EBC3009469E1 /* DZYPostWordToolbar.m */,
+				4045B7321BA2EBF2009469E1 /* DZYPostWordToolbar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -596,6 +604,7 @@
 				407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */,
 				4094BB8C1B9DFF98000BEE54 /* DZYWebViewController.xib in Resources */,
 				40E40A721B996A78002A26D7 /* Images.xcassets in Resources */,
+				4045B7331BA2EBF2009469E1 /* DZYPostWordToolbar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +665,7 @@
 				407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */,
 				40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */,
 				40CC7C781B9C145E00CC6105 /* DZYRecommendTagCell.m in Sources */,
+				4045B7311BA2EBC3009469E1 /* DZYPostWordToolbar.m in Sources */,
 				40531A671BA046DF006845C8 /* DZYPublishViewController.m in Sources */,
 				40400FEF1BA0936700B5B165 /* DZYPostWordViewController.m in Sources */,
 				40A6F40C1B9DB8710026B079 /* DZYMeFooterView.m in Sources */,
