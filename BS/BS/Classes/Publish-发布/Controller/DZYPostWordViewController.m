@@ -112,27 +112,6 @@
 
 - (void)cancel
 {
-//    /** 切换键盘 */
-//    // 使用系统自带的键盘
-//    if (self.textView.inputView) {
-//        self.textView.inputView = nil;
-//    } else {
-//        UIView *keyboard = [[UIView alloc] init];
-//        keyboard.backgroundColor = [UIColor yellowColor];
-//        keyboard.height = 200;
-//        self.textView.inputView = keyboard;
-//    }
-//    
-//    [self.textView resignFirstResponder];
-//    
-//    // 让键盘切换的时候 有动画 可以在下面代码中执行
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self.textView becomeFirstResponder];
-//    });
-    
-//    [self.textView becomeFirstResponder];
-    
-    
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

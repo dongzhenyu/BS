@@ -138,6 +138,37 @@ static CGFloat const DZYSpringFactor = 10;
 
 }
 
+/*
+ 1.定义变量
+ 1》普通变量
+ 变量类型 变量名称 = 变量的值；
+ 2》block变量
+ 返回值 (^变量名称)（形参类型列表）= ^(形参列表){
+    // ....
+ }；
+ 
+ 2.定义属性
+ 1>.普通属性
+ @property(nonatomic, xxx) 变量类型 变量名字；
+ 2》block属性
+ @property(nonatomic, xxx) 返回值 (^变量名字)(形参列表);
+ 
+ 3.定义方法参数
+ - (void)方法名：（参数类型)参数名字
+ {
+    // ..
+ }
+ 
+ 4.定义返回值
+ - (返回值类型)方法名
+ {
+    // ...
+ }
+
+ 
+ */
+
+
 #pragma mark - 退出动画
 - (void)exit:(void (^)())task
 {

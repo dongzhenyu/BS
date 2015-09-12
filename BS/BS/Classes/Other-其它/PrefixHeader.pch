@@ -35,6 +35,8 @@
 #define DZYGrayColor(v) DZYColor((v), (v), (v))
 // 全局灰色
 #define DZYCommonBgColor DZYGrayColor(215)
+// 标签的背景颜色
+#define DZYTagBgColor DZYColor(70, 142, 243);
 
 // 弱引用
 #define DZYWeakSelf __weak typeof(self) weakSelf = self;
