@@ -9,7 +9,7 @@
 #import "DZYAddTagViewController.h"
 #import "DZYTagButton.h"
 
-@interface DZYAddTagViewController ()
+@interface DZYAddTagViewController () <UITextFieldDelegate>
 /**
  *  用来容纳所有的按钮和文本框
  */
@@ -106,6 +106,8 @@
     // 如果想设置文字颜色 必须在设置完占位文字内容以后才能设置
 //    [textField setValue:[UIColor redColor] forKeyPath:@"placeholderLabel.textColor"];
     
+    textField.delegate = self;
+    
     [self.contentView addSubview:textField];
     
     [textField becomeFirstResponder];
@@ -124,9 +126,31 @@
 {
     // 提醒按钮
     if (self.textField.hasText) {
-        self.tigButton.hidden = NO;
-        self.tigButton.y = CGRectGetMaxY(self.textField.frame) + DZYCommonSmallMargin;
-        [self.tigButton setTitle:[NSString stringWithFormat:@"添加标签:%@", self.textField.text] forState:UIControlStateNormal];
+        NSString *text = self.textField.text;
+        NSString *lastChar = [text substringFromIndex:text.length - 1];
+        if ([lastChar isEqualToString:@","] || [lastChar isEqualToString:@"，"]) { // 最后一个输入的字符是逗号
+            // 去掉文本框最后一个逗号
+            self.textField.text = [text substringToIndex:text.length - 1];
+            // 点击提醒按钮
+            [self tigClick];
+        } else { // 最后输入的字符不是逗号
+            CGFloat textW = [text sizeWithAttributes:@{NSFontAttributeName: self.textField.font}].width;
+            // 排布文本框
+            DZYTagButton *lastTagButton = self.tagButtons.lastObject;
+            CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + DZYCommonSmallMargin;
+            CGFloat rightWidth = self.contentView.width - leftWidth;
+            if (rightWidth >= textW) { // 跟新添加的标签按钮在同一行
+                self.textField.x = leftWidth;
+                self.textField.y = lastTagButton.y;
+            } else { // 换行
+                self.textField.x = 0;
+                self.textField.y = CGRectGetMaxY(lastTagButton.frame) + DZYCommonSmallMargin;
+            }
+            self.tigButton.hidden = NO;
+            self.tigButton.y = CGRectGetMaxY(self.textField.frame) + DZYCommonSmallMargin;
+            [self.tigButton setTitle:[NSString stringWithFormat:@"添加标签:%@", self.textField.text] forState:UIControlStateNormal];
+        }
+        
     } else {
         self.tigButton.hidden = YES;
     }
@@ -134,6 +158,8 @@
 
 - (void)tigClick
 {
+    if (self.textField.hasText == NO) return;
+
     // 创建一个标签按钮
     DZYTagButton *newTagButton = [DZYTagButton buttonWithType:UIButtonTypeCustom];
     [newTagButton setTitle:self.textField.text forState:UIControlStateNormal];
@@ -150,7 +176,7 @@
         if (rightWidth >= newTagButton.width) { // 跟最后一个按钮在同一行
             newTagButton.x = leftWidth;
             newTagButton.y = lastTagButton.y;
-        } else { // 不在同一行
+        } else { // 下一行
             newTagButton.x = 0;
             newTagButton.y = CGRectGetMaxY(lastTagButton.frame) + DZYCommonSmallMargin;
         }
@@ -163,8 +189,16 @@
     [self.tagButtons addObject:newTagButton];
     
     // 排布文本框
-    self.textField.x = CGRectGetMaxX(newTagButton.frame) + DZYCommonSmallMargin;
-    self.textField.y = newTagButton.y;
+    CGFloat leftWidth = CGRectGetMaxX(newTagButton.frame) + DZYCommonSmallMargin;
+    CGFloat rightWidth = self.contentView.width - leftWidth;
+    if (rightWidth >= 100) { // 跟新添加的按钮处在同一行
+        self.textField.x = leftWidth;
+        self.textField.y = newTagButton.y;
+    } else { // 换行
+        self.textField.x = 0;
+        self.textField.y = CGRectGetMaxY(newTagButton.frame) + DZYCommonSmallMargin;
+    }
+
     self.textField.text = nil;
     
     // 隐藏提醒按钮
@@ -179,5 +213,12 @@
 - (void)done
 {
     DZYLogFunc;
+}
+
+#pragma mark - <UITextFieldDelegate>
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self tigClick];
+    return YES;
 }
 @end
