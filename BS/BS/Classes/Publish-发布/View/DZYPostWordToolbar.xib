@@ -10,12 +10,11 @@
             <rect key="frame" x="0.0" y="5" width="388" height="117"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-2O-rMX">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SB2-2O-rMX" userLabel="顶部">
                     <rect key="frame" x="0.0" y="82" width="388" height="35"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-n9-505">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar-light" translatesAutoresizingMaskIntoConstraints="NO" id="jNh-n9-505">
                             <rect key="frame" x="0.0" y="0.0" width="388" height="35"/>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEV-zy-FB8">
                             <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -53,7 +52,7 @@
                         <constraint firstItem="dEV-zy-FB8" firstAttribute="top" secondItem="SB2-2O-rMX" secondAttribute="top" id="vEO-6K-rST"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-Lz-U88">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhw-Lz-U88" userLabel="底部">
                     <rect key="frame" x="0.0" y="0.0" width="388" height="60"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -72,6 +71,9 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="topView" destination="vhw-Lz-U88" id="h0W-zD-OlE"/>
+            </connections>
             <point key="canvasLocation" x="232" y="266.5"/>
         </view>
     </objects>
@@ -80,5 +82,6 @@
         <image name="post-#N" width="19" height="19"/>
         <image name="post-@" width="19" height="19"/>
         <image name="post-@N" width="19" height="19"/>
+        <image name="tabbar-light" width="320" height="49"/>
     </resources>
 </document>

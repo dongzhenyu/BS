@@ -25,6 +25,7 @@
     
     [self setupTextView];
     
+    // 要放在textView的后面 因为要盖住它
     [self setupToolBar];
 }
 
@@ -37,7 +38,8 @@
     [self.view addSubview:toolbar];
     self.toolbar = toolbar;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    // 用一个通知监听两种行为
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil]; //（匿名发出,是没有对象的 写了对象也不起作用）
     
     
 }
@@ -71,17 +73,37 @@
     textView.delegate = self;
     
     textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理";
-    [self.view addSubview:textView];
-    self.textView = textView;
+    // 一进入界面就弹出键盘
+//    [textView becomeFirstResponder];
     
+    [self.view addSubview:textView];
+
+    self.textView = textView;
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.textView becomeFirstResponder];
+}
+
+// 当界面完全显示的时候调用
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    
+//    [self.textView becomeFirstResponder];
+//}
 
 #pragma mark - 监听
 - (void)keyboardWillChangeFrame:(NSNotification *)note
 {
+//    DZYLog(@"%@", note.userInfo);
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
        // 工具条平移的距离 = 键盘最终的Y值 -  屏幕的高度
+        // 想要让键盘往上走 得是负值 反过来减 当是0时 回到底部
         CGFloat ty = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y - DZYScreenH;
         self.toolbar.transform = CGAffineTransformMakeTranslation(0, ty);
         
@@ -90,6 +112,26 @@
 
 - (void)cancel
 {
+//    /** 切换键盘 */
+//    // 使用系统自带的键盘
+//    if (self.textView.inputView) {
+//        self.textView.inputView = nil;
+//    } else {
+//        UIView *keyboard = [[UIView alloc] init];
+//        keyboard.backgroundColor = [UIColor yellowColor];
+//        keyboard.height = 200;
+//        self.textView.inputView = keyboard;
+//    }
+//    
+//    [self.textView resignFirstResponder];
+//    
+//    // 让键盘切换的时候 有动画 可以在下面代码中执行
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [self.textView becomeFirstResponder];
+//    });
+    
+//    [self.textView becomeFirstResponder];
+    
     
     
     [self dismissViewControllerAnimated:YES completion:nil];

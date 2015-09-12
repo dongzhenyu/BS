@@ -8,8 +8,7 @@
 
 #import "DZYLoginRegisterTextField.h"
 // 占位文字颜色
-//#define DZYPlaceholderColorKey @"placeholderLabel.textColor"
-static NSString * const DZYPlaceholderColorKey = @"placeholderLabel.textColor";
+
 // 默认的占位文字颜色
 #define DZYPlaceholderDefaultColor [UIColor grayColor]
 // 聚焦的占位文字颜色
@@ -22,12 +21,11 @@ static NSString * const DZYPlaceholderColorKey = @"placeholderLabel.textColor";
 - (void)awakeFromNib
 {
     // 文本框光标颜色
-    self.tintColor = [UIColor whiteColor];
+    self.tintColor = DZYPlaceholderFocusColor;
     // 文字颜色
-    self.textColor = [UIColor whiteColor];
+    self.textColor = DZYPlaceholderFocusColor;
     // 设置占位文字颜色
-    [self resignFirstResponder];
-    
+    self.placeholderColor = DZYPlaceholderDefaultColor;
 }
 
 /**
@@ -35,7 +33,7 @@ static NSString * const DZYPlaceholderColorKey = @"placeholderLabel.textColor";
  */
 - (BOOL)becomeFirstResponder
 {
-    [self setValue:DZYPlaceholderFocusColor forKeyPath:DZYPlaceholderColorKey];
+    self.placeholderColor = DZYPlaceholderFocusColor;
     return [super becomeFirstResponder];
 }
 
@@ -44,7 +42,7 @@ static NSString * const DZYPlaceholderColorKey = @"placeholderLabel.textColor";
  */
 - (BOOL)resignFirstResponder
 {
-    [self setValue:DZYPlaceholderDefaultColor forKeyPath:DZYPlaceholderColorKey];
+    self.placeholderColor = DZYPlaceholderDefaultColor;
     return [super resignFirstResponder];
 }
 @end
