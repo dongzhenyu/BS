@@ -52,6 +52,7 @@
 		40D0F3FD1B9C827F00A24DF6 /* UIImage+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F3FC1B9C827F00A24DF6 /* UIImage+DZYExtension.m */; };
 		40D0F4001B9C8AB300A24DF6 /* UIImageView+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F3FF1B9C8AB300A24DF6 /* UIImageView+DZYExtension.m */; };
 		40D0F4081B9C9AB200A24DF6 /* DZYConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 40D0F4071B9C9AB200A24DF6 /* DZYConst.m */; };
+		40E1D1D31BA5D95700B14E84 /* DZYTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E1D1D21BA5D95700B14E84 /* DZYTitleButton.m */; };
 		40E40A721B996A78002A26D7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40E40A711B996A78002A26D7 /* Images.xcassets */; };
 		40E40A811B996A78002A26D7 /* BSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E40A801B996A78002A26D7 /* BSTests.m */; };
 		F6B01BACEECC44CADE9F992C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78A1EDE84C19FD47A6EF197C /* libPods.a */; };
@@ -151,6 +152,8 @@
 		40D0F3FF1B9C8AB300A24DF6 /* UIImageView+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DZYExtension.m"; sourceTree = "<group>"; };
 		40D0F4061B9C9AB200A24DF6 /* DZYConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYConst.h; sourceTree = "<group>"; };
 		40D0F4071B9C9AB200A24DF6 /* DZYConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYConst.m; sourceTree = "<group>"; };
+		40E1D1D11BA5D95700B14E84 /* DZYTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTitleButton.h; sourceTree = "<group>"; };
+		40E1D1D21BA5D95700B14E84 /* DZYTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTitleButton.m; sourceTree = "<group>"; };
 		40E40A5E1B996A78002A26D7 /* BS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40E40A621B996A78002A26D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40E40A711B996A78002A26D7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -239,6 +242,8 @@
 				40CC7C751B9C145E00CC6105 /* DZYRecommendTagCell.h */,
 				40CC7C761B9C145E00CC6105 /* DZYRecommendTagCell.m */,
 				40CC7C771B9C145E00CC6105 /* DZYRecommendTagCell.xib */,
+				40E1D1D11BA5D95700B14E84 /* DZYTitleButton.h */,
+				40E1D1D21BA5D95700B14E84 /* DZYTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -699,6 +704,7 @@
 				40001F671B998CC1007D2DBA /* DZYTabBarController.m in Sources */,
 				40D0F4001B9C8AB300A24DF6 /* UIImageView+DZYExtension.m in Sources */,
 				407FF90C1B9B14E200D21B68 /* DZYQuickLoginButton.m in Sources */,
+				40E1D1D31BA5D95700B14E84 /* DZYTitleButton.m in Sources */,
 				40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */,
 				4045B7391BA3389F009469E1 /* DZYAddTagViewController.m in Sources */,
 				40001F731B998D84007D2DBA /* DZYNewViewController.m in Sources */,
