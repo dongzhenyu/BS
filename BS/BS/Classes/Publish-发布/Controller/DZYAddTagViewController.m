@@ -8,6 +8,8 @@
 
 #import "DZYAddTagViewController.h"
 #import "DZYTagButton.h"
+#import "DZYTagTextField.h"
+#import <SVProgressHUD.h>
 
 @interface DZYAddTagViewController () <UITextFieldDelegate>
 /** 用来容纳所有的按钮和文本框 */
@@ -65,6 +67,23 @@
     [self setupContentView];
     
     [self setupTextField];
+    
+    [self setupTags];
+}
+
+- (void)setupTags
+{
+//    self.textField.text = @"哈哈";
+//    [self tigClick];
+//    
+//    self.textField.text = @"嘿嘿";
+//    [self tigClick];
+    for (NSString *tag in self.tags) {
+        self.textField.text = tag;
+        [self tigClick];
+    }
+    
+    
 }
 
 - (void)setupNav
@@ -88,7 +107,8 @@
 
 - (void)setupTextField
 {
-    UITextField *textField = [[UITextField alloc] init];
+    DZYWeakSelf;
+    DZYTagTextField *textField = [[DZYTagTextField alloc] init];
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     textField.width = self.contentView.width;
     textField.height = DZYTagH;
@@ -106,6 +126,15 @@
     
     self.textField = textField;
     
+    // 设置点击删除键需要执行的操作
+    textField.deleteBackwardOperation = ^{
+        // 判断文本框是否有文字
+        if (weakSelf.textField.hasText) return;
+        
+        // 点击了最后一个按钮（删掉最后一个标签按钮）
+        [weakSelf tagClick:weakSelf.tagButtons.lastObject];
+    };
+    
 }
 
 #pragma mark - 监听
@@ -120,7 +149,7 @@
         NSString *lastChar = [text substringFromIndex:text.length - 1];
         if ([lastChar isEqualToString:@","] || [lastChar isEqualToString:@"，"]) { // 最后一个输入的字符是逗号
             // 去掉文本框最后一个逗号
-            self.textField.text = [text substringToIndex:text.length - 1];
+            [self.textField deleteBackward];
             // 点击提醒按钮
             [self tigClick];
         } else { // 最后输入的字符不是逗号
@@ -141,6 +170,11 @@
 - (void)tigClick
 {
     if (self.textField.hasText == NO) return;
+    
+    if (self.tagButtons.count == 5) {
+        [SVProgressHUD showErrorWithStatus:@"亲，最多只能添加5个按钮噢~~" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
 
     // 创建一个标签按钮
     DZYTagButton *newTagButton = [DZYTagButton buttonWithType:UIButtonTypeCustom];
@@ -169,10 +203,16 @@
 
 - (void)done
 {
-    DZYLogFunc;
+    // 传递标签数据回到上一个界面
+    // 将self.tagButtons中存放的所有对象的currentTitle取出来 放到一个新数组中 并返回
+    NSArray *tags = [self.tagButtons valueForKeyPath:@"currentTitle"];
+    !self.getTagsBlock ? :self.getTagsBlock(tags);
+    
+    // 关闭当前控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-/**
+/**r
  *  点击了标签按钮
  */
 - (void)tagClick:(DZYTagButton *)clickedTagButton

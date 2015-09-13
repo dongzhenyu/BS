@@ -40,6 +40,7 @@
 		4094BB8B1B9DFF98000BEE54 /* DZYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4094BB891B9DFF98000BEE54 /* DZYWebViewController.m */; };
 		4094BB8C1B9DFF98000BEE54 /* DZYWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4094BB8A1B9DFF98000BEE54 /* DZYWebViewController.xib */; };
 		4096E2C91BA4364900C0A878 /* DZYTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4096E2C81BA4364900C0A878 /* DZYTagButton.m */; };
+		4096E2CC1BA4705A00C0A878 /* DZYTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4096E2CB1BA4705A00C0A878 /* DZYTagTextField.m */; };
 		40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F4081B9DA2B80026B079 /* DZYMeCell.m */; };
 		40A6F40C1B9DB8710026B079 /* DZYMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40B1B9DB8710026B079 /* DZYMeFooterView.m */; };
 		40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40E1B9DBC510026B079 /* DZYSquare.m */; };
@@ -128,6 +129,8 @@
 		4094BB8A1B9DFF98000BEE54 /* DZYWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYWebViewController.xib; sourceTree = "<group>"; };
 		4096E2C71BA4364900C0A878 /* DZYTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTagButton.h; sourceTree = "<group>"; };
 		4096E2C81BA4364900C0A878 /* DZYTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTagButton.m; sourceTree = "<group>"; };
+		4096E2CA1BA4705A00C0A878 /* DZYTagTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTagTextField.h; sourceTree = "<group>"; };
+		4096E2CB1BA4705A00C0A878 /* DZYTagTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTagTextField.m; sourceTree = "<group>"; };
 		40A6F4071B9DA2B80026B079 /* DZYMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeCell.h; sourceTree = "<group>"; };
 		40A6F4081B9DA2B80026B079 /* DZYMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYMeCell.m; sourceTree = "<group>"; };
 		40A6F40A1B9DB8710026B079 /* DZYMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeFooterView.h; sourceTree = "<group>"; };
@@ -463,6 +466,8 @@
 				4045B7321BA2EBF2009469E1 /* DZYPostWordToolbar.xib */,
 				4096E2C71BA4364900C0A878 /* DZYTagButton.h */,
 				4096E2C81BA4364900C0A878 /* DZYTagButton.m */,
+				4096E2CA1BA4705A00C0A878 /* DZYTagTextField.h */,
+				4096E2CB1BA4705A00C0A878 /* DZYTagTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -675,6 +680,7 @@
 				40D0F3FD1B9C827F00A24DF6 /* UIImage+DZYExtension.m in Sources */,
 				4045B7361BA2FDC1009469E1 /* UITextField+DZYExtension.m in Sources */,
 				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
+				4096E2CC1BA4705A00C0A878 /* DZYTagTextField.m in Sources */,
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
 				403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */,
 				40CC7C7E1B9C58E500CC6105 /* NSDictionary+LOG.m in Sources */,
