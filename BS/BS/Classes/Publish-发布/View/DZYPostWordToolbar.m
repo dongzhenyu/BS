@@ -13,12 +13,15 @@
 @interface DZYPostWordToolbar ()
 
 @property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
 
 /** 所有标签的lable */
 @property (nonatomic, strong) NSMutableArray *tagLabels;
 
 /** 加号按钮 */
 @property (nonatomic, weak) UIButton *addButton;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeight;
 
 @end
 
@@ -41,6 +44,9 @@
     [addButton addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:addButton];
     self.addButton = addButton;
+    
+    // 默认传递两个标签
+    [self creatTagLabels:@[@"吐槽", @"糗事"]];
 }
 
 - (void)addClick
@@ -86,7 +92,21 @@
         [newTagLabel sizeToFit];
         newTagLabel.height = DZYTagH;
         newTagLabel.width += 2 * DZYCommonSmallMargin;
+    }
+    
+    // 重新布局子控件
+    [self setNeedsLayout];
 
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    // 所有的标签label
+    for (int i = 0; i<self.tagLabels.count; i++) {
+        // 创建label
+        UILabel *newTagLabel = self.tagLabels[i];
         
         // 位置
         if (i == 0) {
@@ -109,7 +129,6 @@
     
     // 加号按钮
     UILabel *lastTagLabel = self.tagLabels.lastObject;
-//    DZYLog(@"%@",lastTagLabel);
     if (lastTagLabel) {
         CGFloat leftWidth = CGRectGetMaxX(lastTagLabel.frame) + DZYCommonSmallMargin;
         CGFloat rightWidth = self.topView.width - leftWidth;
@@ -124,5 +143,12 @@
         self.addButton.x = 0;
         self.addButton.y = 0;
     }
+    
+    // 计算工具条的高度
+    self.topViewHeight.constant = CGRectGetMaxY(self.addButton.frame);
+    CGFloat oldHeight = self.height;
+    self.height = self.topViewHeight.constant + self.bottomView.height + DZYCommonSmallMargin;
+    self.y += oldHeight - self.height;
+    
 }
 @end

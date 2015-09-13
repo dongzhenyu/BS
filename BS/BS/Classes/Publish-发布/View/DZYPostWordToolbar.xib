@@ -12,7 +12,6 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D4h-kB-zq0" userLabel="顶部">
                     <rect key="frame" x="5" y="0.0" width="378" height="60"/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="wO2-m8-eoA"/>
                     </constraints>
@@ -74,7 +73,9 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="bottomView" destination="CWw-0R-gdN" id="Qwv-mk-zwF"/>
                 <outlet property="topView" destination="D4h-kB-zq0" id="scb-yf-zCS"/>
+                <outlet property="topViewHeight" destination="wO2-m8-eoA" id="feW-iM-mLH"/>
             </connections>
             <point key="canvasLocation" x="232" y="266.5"/>
         </view>

@@ -49,6 +49,31 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+/**
+ 有两种方法实现控制器内部通知的注册和移除
+ 第一种方法 不管当前控制器是否显示在用户眼前 只要控制器对象还在内存中 就会处理各个地方发出的通知
+ 1 在viewDidLoad方法中注册通知的监听
+ 2 在dealloc方法中移除通知的监听
+ 
+ 第二种方法 只有当控制器显示在用户眼前时 才会处理通知
+ 1 在viewWillAppear 方法中注册通知的监听
+ 2 在viewWillDisappear 方法中移除通知的监听
+ */
+
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    DZYLog(@"11");
+//    [super viewWillAppear:animated];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+//    
+//}
+//
+//- (void)viewWillDisappear:(BOOL)animated
+//{
+//    DZYLog(@"22");
+//    [super viewWillDisappear:animated];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//}
 - (void)setupNav
 {
     self.title = @"发表文字";
