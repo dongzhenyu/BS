@@ -17,7 +17,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    DZYLogFunc;
+    self.tableView.backgroundColor = DZYCommonBgColor;
+    self.tableView.contentInset = UIEdgeInsetsMake(DZYNavBarMaxY + DZYTitlesViewH, 0, DZYTabBarH, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
 
 #pragma mark - Table view data source

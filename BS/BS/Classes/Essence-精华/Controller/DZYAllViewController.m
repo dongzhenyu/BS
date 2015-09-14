@@ -14,10 +14,21 @@
 
 @implementation DZYAllViewController
 
+/**
+ *  要想让一个scrollView能够穿透整个屏幕 那么设置它的frame占据整个屏幕
+    要想让一个scrollView能够完全显示 那么设置它的contentInset属性
+ */
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    DZYLogFunc;
+    self.tableView.backgroundColor = DZYCommonBgColor;
+    
+    self.tableView.contentInset = UIEdgeInsetsMake(DZYNavBarMaxY + DZYTitlesViewH, 0, DZYTabBarH, 0);
+    
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    
 }
 
 #pragma mark - Table view data source

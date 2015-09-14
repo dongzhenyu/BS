@@ -25,6 +25,16 @@ CGFloat const DZYNavBarMaxY = 64;
 CGFloat const DZYTagH = 25;
 
 /**
+ *  UITabBar高度
+ */
+CGFloat const DZYTabBarH = 49;
+
+/**
+ *  DZYTitlesView的高度
+ */
+CGFloat const DZYTitlesViewH = 35;
+
+/**
  全局常量的写法
  1.仅限于本文件访问
  在本文件（.m）中写下面的代码

@@ -92,7 +92,7 @@
     // 标签栏整体
     UIView *titlesView = [[UIView alloc] init];
     titlesView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
-    titlesView.frame = CGRectMake(0, DZYNavBarMaxY, self.view.width, 35);
+    titlesView.frame = CGRectMake(0, DZYNavBarMaxY, self.view.width, DZYTitlesViewH);
     [self.view addSubview:titlesView];
     self.titlesView = titlesView;
     

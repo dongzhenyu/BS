@@ -19,3 +19,13 @@ UIKIT_EXTERN CGFloat const DZYNavBarMaxY;
  *  标签的高度
  */
 UIKIT_EXTERN CGFloat const DZYTagH;
+
+/**
+ *  UITabBar高度
+ */
+UIKIT_EXTERN CGFloat const DZYTabBarH;
+
+/**
+ *  DZYTitlesView的高度
+ */
+UIKIT_EXTERN CGFloat const DZYTitlesViewH;
