@@ -136,15 +136,21 @@
 
 - (void)setupScrollView
 {
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+    // 不要自动调整scrollView的contentInset
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.frame = self.view.bounds;
     scrollView.backgroundColor = DZYCommonBgColor;
     scrollView.delegate = self;
+    scrollView.pagingEnabled = YES;
     scrollView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.width, 0);
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
+    
+    // 默认显示第0个控制器
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+    
     
 //    DZYLog(@"setupScrollView--%@", NSStringFromUIEdgeInsets(self.scrollView.contentInset));
 }
@@ -194,9 +200,10 @@
 
 #pragma mark - <UIScrollViewDelegate>
 /**
- *  当滚动动画完毕的时候调用
+ *  当滚动动画完毕的时候调用 通过代码setContentOffset:animated:让scrollView滚动完毕后，就会调用这个方法）
+
+ *  如果执行完 通过代码setContentOffset:animated:，scrollView的偏移量没有发生改变就不会调用
  *
- *  @param scrollView 滚动完毕时候调用
  */
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
@@ -213,10 +220,14 @@
 }
 
 /**
- *  当减速完毕的时候调用
+ *  当减速完毕的时候调用 （人为拖拽scrollView，手松开后scrollView慢慢减速完毕到静止）
  */
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    DZYLogFunc;
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+    
+    // 点击按钮
+    int index = scrollView.contentOffset.x / scrollView.width;
+    [self titleClick:self.titleButtons[index]];
 }
 @end

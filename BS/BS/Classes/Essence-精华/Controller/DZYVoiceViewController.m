@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    DZYLogFunc;
 }
 
 #pragma mark - Table view data source
