@@ -49,6 +49,23 @@ static NSString * const DZYTopicCellId = @"topic";
     [self setupRefresh];
 }
 
+- (void)setupTable
+{
+    self.tableView.backgroundColor = DZYCommonBgColor;
+    self.tableView.contentInset = UIEdgeInsetsMake(DZYNavBarMaxY + DZYTitlesViewH, 0, DZYTabBarH, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    // 去掉分隔线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // 注册
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYTopicCell class]) bundle:nil] forCellReuseIdentifier:DZYTopicCellId];
+    
+    self.tableView.rowHeight = 150;
+}
+
+
+
 - (void)setupRefresh
 {
     // 下拉刷新
@@ -133,18 +150,6 @@ static NSString * const DZYTopicCellId = @"topic";
         
     }];
     
-}
-
-- (void)setupTable
-{
-    self.tableView.backgroundColor = DZYCommonBgColor;
-    self.tableView.contentInset = UIEdgeInsetsMake(DZYNavBarMaxY + DZYTitlesViewH, 0, DZYTabBarH, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    
-    // 注册
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYTopicCell class]) bundle:nil] forCellReuseIdentifier:DZYTopicCellId];
-    
-    self.tableView.rowHeight = 150;
 }
 
 #pragma mark - Table view data source
