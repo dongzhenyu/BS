@@ -9,8 +9,13 @@
 #import "DZYEssenceViewController.h"
 #import "DZYTagViewController.h"
 #import "DZYTitleButton.h"
+#import "DZYAllViewController.h"
+#import "DZYVideoViewController.h"
+#import "DZYVoiceViewController.h"
+#import "DZYPictureViewController.h"
+#import "DZYWordViewController.h"
 
-@interface DZYEssenceViewController ()
+@interface DZYEssenceViewController ()<UIScrollViewDelegate>
 
 /** 存放所有子控制器view */
 @property (nonatomic, weak) UIScrollView *scrollView;
@@ -49,12 +54,39 @@
     
     [self setupNav];
     
+    [self setupChildVcs];
+    
     [self setupScrollView];
     
     [self setupTitlesView];
 
 }
 
+- (void)setupChildVcs
+{
+    DZYAllViewController *all = [[DZYAllViewController alloc] init];
+    all.title = @"全部";
+    [self addChildViewController:all];
+    
+    DZYVideoViewController *video = [[DZYVideoViewController alloc] init];
+    video.title = @"视频";
+    [self addChildViewController:video];
+    
+    DZYVoiceViewController *voice = [[DZYVoiceViewController alloc] init];
+    voice.title = @"声音";
+    [self addChildViewController:voice];
+    
+    DZYPictureViewController *picture = [[DZYPictureViewController alloc] init];
+    picture.title = @"图片";
+    [self addChildViewController:picture];
+    
+    DZYWordViewController *word = [[DZYWordViewController alloc] init];
+    word.title = @"段子";
+    [self addChildViewController:word];
+
+    // scrollView滚动完毕后 才添加对应的子控制器view到scrollView中
+    
+}
 - (void)setupTitlesView
 {
     // 标签栏整体
@@ -102,6 +134,35 @@
     
 }
 
+- (void)setupScrollView
+{
+//    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] init];
+    scrollView.frame = self.view.bounds;
+    scrollView.backgroundColor = DZYCommonBgColor;
+    scrollView.delegate = self;
+    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.width, 0);
+    [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
+    
+//    DZYLog(@"setupScrollView--%@", NSStringFromUIEdgeInsets(self.scrollView.contentInset));
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+//    DZYLog(@"viewDidAppear--%@", NSStringFromUIEdgeInsets(self.scrollView.contentInset));
+}
+- (void)setupNav
+{
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
+    
+    // 设置导航栏左边的内容
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(tagClick)];
+
+}
 #pragma mark - 监听
 - (void)titleClick:(DZYTitleButton *)titleButton
 {
@@ -115,25 +176,13 @@
         self.titleBottomView.width = titleButton.titleLabel.width;
         self.titleBottomView.centerX = titleButton.centerX;
     }];
-}
-
-- (void)setupScrollView
-{
-    UIScrollView *scrollView = [[UIScrollView alloc] init];
-    scrollView.frame = self.view.bounds;
-    scrollView.backgroundColor = DZYCommonBgColor;
-    [self.view addSubview:scrollView];
-    self.scrollView = scrollView;
-}
-
-- (void)setupNav
-{
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     
-    // 设置导航栏左边的内容
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImage:@"MainTagSubIcon" highImage:@"MainTagSubIconClick" target:self action:@selector(tagClick)];
-
+    // 让scrollView滚动到对应的位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = self.view.width * [self.titleButtons indexOfObject:titleButton];
+    [self.scrollView setContentOffset:offset animated:YES];
 }
+
 /**
  *  左上角按钮点击
  */
@@ -143,4 +192,31 @@
     [self.navigationController pushViewController:tag animated:YES];
 }
 
+#pragma mark - <UIScrollViewDelegate>
+/**
+ *  当滚动动画完毕的时候调用
+ *
+ *  @param scrollView 滚动完毕时候调用
+ */
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    // 取出对应的子控制器
+    int index = scrollView.contentOffset.x / scrollView.width;
+    UIViewController *willShowChildVc = self.childViewControllers[index];
+    
+    // 如果控制器的view已经创建过 直接返回
+    if (willShowChildVc.isViewLoaded) return;
+    
+    // 添加子控制器的view到scrollView上
+    willShowChildVc.view.frame = scrollView.bounds;
+    [scrollView addSubview:willShowChildVc.view];
+}
+
+/**
+ *  当减速完毕的时候调用
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    DZYLogFunc;
+}
 @end
