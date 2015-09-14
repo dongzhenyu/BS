@@ -18,6 +18,10 @@
 		40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F791B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m */; };
 		40001F7D1B99A964007D2DBA /* DZYTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7C1B99A964007D2DBA /* DZYTagViewController.m */; };
 		40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */; };
+		402B088B1BA6F10B002BC995 /* DZYTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B088A1BA6F10B002BC995 /* DZYTopic.m */; };
+		402B088F1BA6F167002BC995 /* DZYTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B088D1BA6F167002BC995 /* DZYTopicCell.m */; };
+		402B08901BA6F167002BC995 /* DZYTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 402B088E1BA6F167002BC995 /* DZYTopicCell.xib */; };
+		402B08961BA71989002BC995 /* DZYMyFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B08951BA71989002BC995 /* DZYMyFooter.m */; };
 		403DE86A1B9EC7EB00958B0A /* NSString+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE8691B9EC7EB00958B0A /* NSString+DZYExtension.m */; };
 		403DE86D1B9ED90500958B0A /* DZYClearCachesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE86C1B9ED90500958B0A /* DZYClearCachesCell.m */; };
 		403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 403DE86F1B9EF5ED00958B0A /* DZYThirdCell.m */; };
@@ -96,6 +100,13 @@
 		40001F7C1B99A964007D2DBA /* DZYTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTagViewController.m; sourceTree = "<group>"; };
 		40001F7E1B99AB9E007D2DBA /* DZYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSettingViewController.h; sourceTree = "<group>"; };
 		40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSettingViewController.m; sourceTree = "<group>"; };
+		402B08891BA6F10B002BC995 /* DZYTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTopic.h; sourceTree = "<group>"; };
+		402B088A1BA6F10B002BC995 /* DZYTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTopic.m; sourceTree = "<group>"; };
+		402B088C1BA6F167002BC995 /* DZYTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTopicCell.h; sourceTree = "<group>"; };
+		402B088D1BA6F167002BC995 /* DZYTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTopicCell.m; sourceTree = "<group>"; };
+		402B088E1BA6F167002BC995 /* DZYTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYTopicCell.xib; sourceTree = "<group>"; };
+		402B08941BA71989002BC995 /* DZYMyFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMyFooter.h; sourceTree = "<group>"; };
+		402B08951BA71989002BC995 /* DZYMyFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYMyFooter.m; sourceTree = "<group>"; };
 		403DE8681B9EC7EB00958B0A /* NSString+DZYExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DZYExtension.h"; sourceTree = "<group>"; };
 		403DE8691B9EC7EB00958B0A /* NSString+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DZYExtension.m"; sourceTree = "<group>"; };
 		403DE86B1B9ED90500958B0A /* DZYClearCachesCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYClearCachesCell.h; sourceTree = "<group>"; };
@@ -257,6 +268,8 @@
 			children = (
 				40CC7C7A1B9C4DF700CC6105 /* DZYRecommendTag.h */,
 				40CC7C7B1B9C4DF700CC6105 /* DZYRecommendTag.m */,
+				402B08891BA6F10B002BC995 /* DZYTopic.h */,
+				402B088A1BA6F10B002BC995 /* DZYTopic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -269,6 +282,9 @@
 				40CC7C771B9C145E00CC6105 /* DZYRecommendTagCell.xib */,
 				40E1D1D11BA5D95700B14E84 /* DZYTitleButton.h */,
 				40E1D1D21BA5D95700B14E84 /* DZYTitleButton.m */,
+				402B088C1BA6F167002BC995 /* DZYTopicCell.h */,
+				402B088D1BA6F167002BC995 /* DZYTopicCell.m */,
+				402B088E1BA6F167002BC995 /* DZYTopicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -536,6 +552,8 @@
 			children = (
 				40E40A711B996A78002A26D7 /* Images.xcassets */,
 				40E40A621B996A78002A26D7 /* Info.plist */,
+				402B08941BA71989002BC995 /* DZYMyFooter.h */,
+				402B08951BA71989002BC995 /* DZYMyFooter.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -655,6 +673,7 @@
 				4094BB8C1B9DFF98000BEE54 /* DZYWebViewController.xib in Resources */,
 				40E40A721B996A78002A26D7 /* Images.xcassets in Resources */,
 				4045B7331BA2EBF2009469E1 /* DZYPostWordToolbar.xib in Resources */,
+				402B08901BA6F167002BC995 /* DZYTopicCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +728,7 @@
 				403DE86A1B9EC7EB00958B0A /* NSString+DZYExtension.m in Sources */,
 				40D0F3FD1B9C827F00A24DF6 /* UIImage+DZYExtension.m in Sources */,
 				4045B7361BA2FDC1009469E1 /* UITextField+DZYExtension.m in Sources */,
+				402B08961BA71989002BC995 /* DZYMyFooter.m in Sources */,
 				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
 				4096E2CC1BA4705A00C0A878 /* DZYTagTextField.m in Sources */,
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
@@ -716,6 +736,7 @@
 				40CC7C7E1B9C58E500CC6105 /* NSDictionary+LOG.m in Sources */,
 				407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */,
 				40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */,
+				402B088F1BA6F167002BC995 /* DZYTopicCell.m in Sources */,
 				40CC7C781B9C145E00CC6105 /* DZYRecommendTagCell.m in Sources */,
 				4045B7311BA2EBC3009469E1 /* DZYPostWordToolbar.m in Sources */,
 				40E1D1E21BA5E5AF00B14E84 /* DZYWordViewController.m in Sources */,
@@ -746,6 +767,7 @@
 				4094BB8B1B9DFF98000BEE54 /* DZYWebViewController.m in Sources */,
 				40001F6A1B998D41007D2DBA /* DZYEssenceViewController.m in Sources */,
 				403DE86D1B9ED90500958B0A /* DZYClearCachesCell.m in Sources */,
+				402B088B1BA6F10B002BC995 /* DZYTopic.m in Sources */,
 				40001F641B99895A007D2DBA /* main.m in Sources */,
 				40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */,
 				40A6F4121B9DE7870026B079 /* DZYSquareButton.m in Sources */,

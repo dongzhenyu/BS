@@ -7,45 +7,158 @@
 //
 
 #import "DZYAllViewController.h"
+#import <AFNetworking.h>
+#import "DZYTopic.h"
+#import <MJExtension.h>
+#import "DZYTopicCell.h"
+#import <MJRefresh.h>
+#import "DZYMyFooter.h"
 
 @interface DZYAllViewController ()
+
+/** 请求管理者 */
+@property (nonatomic, weak) AFHTTPSessionManager *manager;
+
+/** 所有帖子的数据 */
+@property (nonatomic, strong) NSMutableArray *topics;
+
+/** 用来加载下一组数据 */
+@property (nonatomic, copy) NSString *maxtime;
 
 @end
 
 @implementation DZYAllViewController
 
-/**
- *  要想让一个scrollView能够穿透整个屏幕 那么设置它的frame占据整个屏幕
-    要想让一个scrollView能够完全显示 那么设置它的contentInset属性
- */
+static NSString * const DZYTopicCellId = @"topic";
 
+#pragma mark - 懒加载
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
+#pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self setupTable];
+    
+    [self setupRefresh];
+}
+
+- (void)setupRefresh
+{
+    // 下拉刷新
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    // 自动改变透明度
+    self.tableView.header.automaticallyChangeAlpha = YES;
+    // 马上进入刷新状态
+    [self.tableView.header beginRefreshing];
+    
+    // 上拉刷新
+    self.tableView.footer = [DZYMyFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    
+}
+
+/**
+ *  加载最新帖子数据
+ */
+- (void)loadNewTopics
+{
+    // 取消之前的所有请求任务
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"data";
+    params[@"type"] = @1;//@"1";
+    
+    DZYWeakSelf;
+    [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+//        [responseObject writeToFile:@"/Users/dongzhenyu/Desktop/topic.plist" atomically:YES];
+        // 字典数组 -》字典模型
+        weakSelf.topics = [DZYTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        // 存储maxtime
+        weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
+        
+//        DZYLog(@"%@", self.topics);
+        // 刷新表格
+        [weakSelf.tableView reloadData];
+        
+        // 结束刷新
+        [self.tableView.header endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 结束刷新
+        [self.tableView.header endRefreshing];
+    }];
+}
+
+/**
+ *  加载更多的帖子数据
+ */
+- (void)loadMoreTopics
+{
+    // 取消之前所有的请求任务
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"data";
+    params[@"type"] = @1;
+    params[@"maxtime"] = self.maxtime;
+    
+    DZYWeakSelf;
+    [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        // 字典数组-》模型数组
+        NSArray *moreTopics = [DZYTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [weakSelf.topics addObjectsFromArray:moreTopics];
+        
+        // 存储maxtime
+        weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
+        
+        // 刷新表格
+        [weakSelf.tableView reloadData];
+        
+        // 结束刷新
+        [weakSelf.tableView.footer endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        // 结束刷新
+        [weakSelf.tableView.footer endRefreshing];
+        
+    }];
+    
+}
+
+- (void)setupTable
+{
     self.tableView.backgroundColor = DZYCommonBgColor;
-    
     self.tableView.contentInset = UIEdgeInsetsMake(DZYNavBarMaxY + DZYTitlesViewH, 0, DZYTabBarH, 0);
-    
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
+    // 注册
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYTopicCell class]) bundle:nil] forCellReuseIdentifier:DZYTopicCellId];
     
+    self.tableView.rowHeight = 150;
 }
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 50;
+    return self.topics.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"all";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ - %zd", self.title, indexPath.row];
+    DZYTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:DZYTopicCellId];
+    
+    cell.topic = self.topics[indexPath.row];
     
     return cell;
 }
