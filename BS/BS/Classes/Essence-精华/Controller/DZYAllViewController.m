@@ -61,7 +61,7 @@ static NSString * const DZYTopicCellId = @"topic";
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYTopicCell class]) bundle:nil] forCellReuseIdentifier:DZYTopicCellId];
     
-    self.tableView.rowHeight = 150;
+    self.tableView.rowHeight = 200;
 }
 
 
