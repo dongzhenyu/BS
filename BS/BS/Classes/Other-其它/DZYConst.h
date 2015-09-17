@@ -29,3 +29,13 @@ UIKIT_EXTERN CGFloat const DZYTabBarH;
  *  DZYTitlesView的高度
  */
 UIKIT_EXTERN CGFloat const DZYTitlesViewH;
+
+/**
+ *  帖子文字的Y值
+ */
+UIKIT_EXTERN CGFloat const DZYTopicTextY;
+
+/**
+ *  帖子底部工具条的高度
+ */
+UIKIT_EXTERN CGFloat const DZYTopicToolbarH;

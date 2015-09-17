@@ -8,6 +8,7 @@
 
 #import "DZYTopicCell.h"
 #import "DZYTopic.h"
+#import "DZYTopicPictureView.h"
 
 @interface DZYTopicCell ()
 
@@ -19,10 +20,22 @@
 @property (weak, nonatomic) IBOutlet UIButton *caiButton;
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
-
+/** 图片控件 */
+@property (nonatomic, weak) DZYTopicPictureView *pictureView;
 @end
 
 @implementation DZYTopicCell
+
+#pragma mark - lazy
+- (DZYTopicPictureView *)pictureView
+{
+    if (!_pictureView) {
+        DZYTopicPictureView *pictureView = [DZYTopicPictureView viewFromXib];
+        [self.contentView addSubview:pictureView];
+        _pictureView = pictureView;
+    }
+    return _pictureView;
+}
 
 /**
  *  设置cell的背景图片
@@ -46,6 +59,17 @@
     [self setupButtonTitle:self.caiButton number:topic.cai placeholder:@"踩"];
     [self setupButtonTitle:self.repostButton number:topic.repost placeholder:@"分享"];
     [self setupButtonTitle:self.commentButton number:topic.comment placeholder:@"评论"];
+    
+    // 根据帖子的类型决定中间的内容
+    if (topic.type == DZYTopicTypePicture) { // picture
+        self.pictureView.hidden = NO;
+    } else if (topic.type == DZYTopicTypeWord) { // word
+        self.pictureView.hidden = YES;
+    } else if (topic.type == DZYTopicTypeVioce) { // vioce
+        self.pictureView.hidden = YES;
+    } else if (topic.type == DZYTopicTypeVideo) { // video
+        self.pictureView.hidden = YES;
+    }
     
 }
 
@@ -75,10 +99,6 @@
 }
 - (IBAction)moreClick {
     
-//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"哈哈" message:@"heihei" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"Other", nil];
-//    [alert show];
-//    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:@"haha" delegate:nil cancelButtonTitle:@"qixiao" destructiveButtonTitle:@"queding" otherButtonTitles:@"other", nil];
-//    [sheet showInView:self];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {

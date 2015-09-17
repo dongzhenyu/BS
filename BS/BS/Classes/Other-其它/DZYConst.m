@@ -35,6 +35,16 @@ CGFloat const DZYTabBarH = 49;
 CGFloat const DZYTitlesViewH = 35;
 
 /**
+ *  帖子文字的Y值
+ */
+CGFloat const DZYTopicTextY = 55;
+
+/**
+ *  帖子底部工具条的高度
+ */
+CGFloat const DZYTopicToolbarH = 35;
+
+/**
  全局常量的写法
  1.仅限于本文件访问
  在本文件（.m）中写下面的代码

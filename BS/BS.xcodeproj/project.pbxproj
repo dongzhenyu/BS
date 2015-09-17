@@ -41,6 +41,8 @@
 		407FF90C1B9B14E200D21B68 /* DZYQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF90B1B9B14E200D21B68 /* DZYQuickLoginButton.m */; };
 		407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF90E1B9B17B300D21B68 /* UIView+DZYExtension.m */; };
 		407FF9121B9B38AD00D21B68 /* DZYLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 407FF9111B9B38AD00D21B68 /* DZYLoginRegisterTextField.m */; };
+		408CC2591BA9CA45003B06EA /* DZYTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 408CC2581BA9CA45003B06EA /* DZYTopicPictureView.m */; };
+		408CC25B1BA9CA56003B06EA /* DZYTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 408CC25A1BA9CA56003B06EA /* DZYTopicPictureView.xib */; };
 		4094BB8B1B9DFF98000BEE54 /* DZYWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4094BB891B9DFF98000BEE54 /* DZYWebViewController.m */; };
 		4094BB8C1B9DFF98000BEE54 /* DZYWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4094BB8A1B9DFF98000BEE54 /* DZYWebViewController.xib */; };
 		4096E2C91BA4364900C0A878 /* DZYTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4096E2C81BA4364900C0A878 /* DZYTagButton.m */; };
@@ -142,6 +144,9 @@
 		407FF90E1B9B17B300D21B68 /* UIView+DZYExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DZYExtension.m"; sourceTree = "<group>"; };
 		407FF9101B9B38AD00D21B68 /* DZYLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYLoginRegisterTextField.h; sourceTree = "<group>"; };
 		407FF9111B9B38AD00D21B68 /* DZYLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYLoginRegisterTextField.m; sourceTree = "<group>"; };
+		408CC2571BA9CA45003B06EA /* DZYTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTopicPictureView.h; sourceTree = "<group>"; };
+		408CC2581BA9CA45003B06EA /* DZYTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTopicPictureView.m; sourceTree = "<group>"; };
+		408CC25A1BA9CA56003B06EA /* DZYTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYTopicPictureView.xib; sourceTree = "<group>"; };
 		4094BB881B9DFF98000BEE54 /* DZYWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYWebViewController.h; sourceTree = "<group>"; };
 		4094BB891B9DFF98000BEE54 /* DZYWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYWebViewController.m; sourceTree = "<group>"; };
 		4094BB8A1B9DFF98000BEE54 /* DZYWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYWebViewController.xib; sourceTree = "<group>"; };
@@ -288,6 +293,9 @@
 				402B088C1BA6F167002BC995 /* DZYTopicCell.h */,
 				402B088D1BA6F167002BC995 /* DZYTopicCell.m */,
 				402B088E1BA6F167002BC995 /* DZYTopicCell.xib */,
+				408CC2571BA9CA45003B06EA /* DZYTopicPictureView.h */,
+				408CC2581BA9CA45003B06EA /* DZYTopicPictureView.m */,
+				408CC25A1BA9CA56003B06EA /* DZYTopicPictureView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -676,6 +684,7 @@
 				40CC7C791B9C145E00CC6105 /* DZYRecommendTagCell.xib in Resources */,
 				407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */,
 				4094BB8C1B9DFF98000BEE54 /* DZYWebViewController.xib in Resources */,
+				408CC25B1BA9CA56003B06EA /* DZYTopicPictureView.xib in Resources */,
 				40E40A721B996A78002A26D7 /* Images.xcassets in Resources */,
 				4045B7331BA2EBF2009469E1 /* DZYPostWordToolbar.xib in Resources */,
 				402B08901BA6F167002BC995 /* DZYTopicCell.xib in Resources */,
@@ -776,6 +785,7 @@
 				402B088B1BA6F10B002BC995 /* DZYTopic.m in Sources */,
 				40001F641B99895A007D2DBA /* main.m in Sources */,
 				40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */,
+				408CC2591BA9CA45003B06EA /* DZYTopicPictureView.m in Sources */,
 				40A6F4121B9DE7870026B079 /* DZYSquareButton.m in Sources */,
 				40001F631B99895A007D2DBA /* AppDelegate.m in Sources */,
 			);

@@ -61,10 +61,8 @@ static NSString * const DZYTopicCellId = @"topic";
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYTopicCell class]) bundle:nil] forCellReuseIdentifier:DZYTopicCellId];
     
-    self.tableView.rowHeight = 200;
+//    self.tableView.rowHeight = 200;
 }
-
-
 
 - (void)setupRefresh
 {
@@ -76,8 +74,7 @@ static NSString * const DZYTopicCellId = @"topic";
     [self.tableView.header beginRefreshing];
     
     // 上拉刷新
-    self.tableView.footer = [DZYMyFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
-    
+    self.tableView.footer = [DZYMyFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];    
 }
 
 /**
@@ -168,5 +165,30 @@ static NSString * const DZYTopicCellId = @"topic";
     return cell;
 }
 
-
+// 以前学的方法 把所有控件加进去 然后在自动布局子控件的位置  这种方法不可行
+// 因为在这里  中间的图片是动态加进去的 不能自动布局 只能手动通过代码来计算
+#pragma mark - delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // cell的高度
+    CGFloat cellHeight = DZYTopicTextY;
+    
+    // 计算文字的高度
+    DZYTopic *topic = self.topics[indexPath.row];
+    CGFloat textW = DZYScreenW - 2 * DZYCommonMargin;
+    CGFloat textH = [topic.text boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size.height;
+    cellHeight += textH + DZYCommonMargin;
+    
+    // 中间内容的高度
+    if (topic.type != DZYTopicTypeWord) {
+        CGFloat contentW = textW;
+        CGFloat contentH = topic.height * contentW / topic.width;
+        cellHeight += contentH + DZYCommonMargin;
+    }
+    
+    // 工具条的高度
+    cellHeight += DZYTopicToolbarH + DZYCommonMargin;
+    
+    return cellHeight;
+}
 @end
