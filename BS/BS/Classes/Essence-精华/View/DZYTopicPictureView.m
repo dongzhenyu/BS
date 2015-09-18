@@ -10,6 +10,7 @@
 #import "DZYTopic.h"
 #import <UIImageView+WebCache.h>
 #import <DALabeledCircularProgressView.h>
+#import "DZYSeeBigPictureViewController.h"
 
 @interface DZYTopicPictureView ()
 
@@ -27,6 +28,23 @@
 {
     // 清除自动伸缩属性
     self.autoresizingMask = UIViewAutoresizingNone;
+    self.progressView.roundedCorners = 5;
+    self.progressView.progressLabel.textColor = [UIColor whiteColor];
+    
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick)]];
+}
+
+- (void)imageClick
+{
+    // 下载完毕 才能点击查看图片
+    if (self.imageView.image == nil) return;
+    
+    DZYSeeBigPictureViewController *seeBig = [[DZYSeeBigPictureViewController alloc] init];
+    
+    seeBig.topic = self.topic;
+    
+    [self.window.rootViewController presentViewController:seeBig animated:YES completion:nil];
 }
 
 - (void)setTopic:(DZYTopic *)topic
@@ -39,10 +57,10 @@
         
         // 每下载一点图片就会调用
         weakSelf.progressView.hidden = NO;
-        weakSelf.progressView.roundedCorners = 5;
+        
         weakSelf.progressView.progress = 1.0 * receivedSize / expectedSize;
         weakSelf.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", weakSelf.progressView.progress * 100];
-        weakSelf.progressView.progressLabel.textColor = [UIColor whiteColor];
+        
         
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         // 下载完毕的时候调用
