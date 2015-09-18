@@ -20,6 +20,10 @@
 		40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40001F7F1B99AB9E007D2DBA /* DZYSettingViewController.m */; };
 		401BA8CE1BABE83600DD6394 /* DZYSeeBigPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */; };
 		401BA8CF1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */; };
+		401BA8D21BAC77B600DD6394 /* DZYTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BA8D11BAC77B600DD6394 /* DZYTopicVideoView.m */; };
+		401BA8D41BAC77D400DD6394 /* DZYTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401BA8D31BAC77D400DD6394 /* DZYTopicVideoView.xib */; };
+		401BA8D71BAC839A00DD6394 /* DZYTopicVioceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BA8D61BAC839A00DD6394 /* DZYTopicVioceView.m */; };
+		401BA8D91BAC83B700DD6394 /* DZYTopicVioceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401BA8D81BAC83B700DD6394 /* DZYTopicVioceView.xib */; };
 		402B088B1BA6F10B002BC995 /* DZYTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B088A1BA6F10B002BC995 /* DZYTopic.m */; };
 		402B088F1BA6F167002BC995 /* DZYTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B088D1BA6F167002BC995 /* DZYTopicCell.m */; };
 		402B08901BA6F167002BC995 /* DZYTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 402B088E1BA6F167002BC995 /* DZYTopicCell.xib */; };
@@ -108,6 +112,12 @@
 		401BA8CB1BABE83600DD6394 /* DZYSeeBigPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSeeBigPictureViewController.h; sourceTree = "<group>"; };
 		401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSeeBigPictureViewController.m; sourceTree = "<group>"; };
 		401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYSeeBigPictureViewController.xib; sourceTree = "<group>"; };
+		401BA8D01BAC77B600DD6394 /* DZYTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTopicVideoView.h; sourceTree = "<group>"; };
+		401BA8D11BAC77B600DD6394 /* DZYTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTopicVideoView.m; sourceTree = "<group>"; };
+		401BA8D31BAC77D400DD6394 /* DZYTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYTopicVideoView.xib; sourceTree = "<group>"; };
+		401BA8D51BAC839A00DD6394 /* DZYTopicVioceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTopicVioceView.h; sourceTree = "<group>"; };
+		401BA8D61BAC839A00DD6394 /* DZYTopicVioceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTopicVioceView.m; sourceTree = "<group>"; };
+		401BA8D81BAC83B700DD6394 /* DZYTopicVioceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYTopicVioceView.xib; sourceTree = "<group>"; };
 		402B08891BA6F10B002BC995 /* DZYTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTopic.h; sourceTree = "<group>"; };
 		402B088A1BA6F10B002BC995 /* DZYTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTopic.m; sourceTree = "<group>"; };
 		402B088C1BA6F167002BC995 /* DZYTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTopicCell.h; sourceTree = "<group>"; };
@@ -304,6 +314,12 @@
 				408CC2571BA9CA45003B06EA /* DZYTopicPictureView.h */,
 				408CC2581BA9CA45003B06EA /* DZYTopicPictureView.m */,
 				408CC25A1BA9CA56003B06EA /* DZYTopicPictureView.xib */,
+				401BA8D01BAC77B600DD6394 /* DZYTopicVideoView.h */,
+				401BA8D11BAC77B600DD6394 /* DZYTopicVideoView.m */,
+				401BA8D31BAC77D400DD6394 /* DZYTopicVideoView.xib */,
+				401BA8D51BAC839A00DD6394 /* DZYTopicVioceView.h */,
+				401BA8D61BAC839A00DD6394 /* DZYTopicVioceView.m */,
+				401BA8D81BAC83B700DD6394 /* DZYTopicVioceView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -691,7 +707,9 @@
 				407FF9091B9AF11700D21B68 /* DZYLoginRegisterViewController.xib in Resources */,
 				40CC7C791B9C145E00CC6105 /* DZYRecommendTagCell.xib in Resources */,
 				407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */,
+				401BA8D41BAC77D400DD6394 /* DZYTopicVideoView.xib in Resources */,
 				4094BB8C1B9DFF98000BEE54 /* DZYWebViewController.xib in Resources */,
+				401BA8D91BAC83B700DD6394 /* DZYTopicVioceView.xib in Resources */,
 				408CC25B1BA9CA56003B06EA /* DZYTopicPictureView.xib in Resources */,
 				401BA8CF1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib in Resources */,
 				40E40A721B996A78002A26D7 /* Images.xcassets in Resources */,
@@ -783,6 +801,7 @@
 				40D0F4081B9C9AB200A24DF6 /* DZYConst.m in Sources */,
 				40E1D1DC1BA5E58900B14E84 /* DZYVoiceViewController.m in Sources */,
 				407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */,
+				401BA8D71BAC839A00DD6394 /* DZYTopicVioceView.m in Sources */,
 				40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */,
 				40531A6B1BA05A7F006845C8 /* DZYPublishButton.m in Sources */,
 				40E1D1DF1BA5E59F00B14E84 /* DZYPictureViewController.m in Sources */,
@@ -797,6 +816,7 @@
 				40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */,
 				408CC2591BA9CA45003B06EA /* DZYTopicPictureView.m in Sources */,
 				40A6F4121B9DE7870026B079 /* DZYSquareButton.m in Sources */,
+				401BA8D21BAC77B600DD6394 /* DZYTopicVideoView.m in Sources */,
 				40001F631B99895A007D2DBA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

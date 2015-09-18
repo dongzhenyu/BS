@@ -9,6 +9,8 @@
 #import "DZYTopicCell.h"
 #import "DZYTopic.h"
 #import "DZYTopicPictureView.h"
+#import "DZYTopicVideoView.h"
+#import "DZYTopicVioceView.h"
 
 @interface DZYTopicCell ()
 
@@ -22,6 +24,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 /** 图片控件 */
 @property (nonatomic, weak) DZYTopicPictureView *pictureView;
+/** 视频 */
+@property (nonatomic, weak) DZYTopicVideoView *videoView;
+/** vioce */
+@property (nonatomic, weak) DZYTopicVioceView *vioceView;
+
 @end
 
 @implementation DZYTopicCell
@@ -35,6 +42,26 @@
         _pictureView = pictureView;
     }
     return _pictureView;
+}
+
+- (DZYTopicVideoView *)videoView
+{
+    if (!_videoView) {
+        DZYTopicVideoView *videoView = [DZYTopicVideoView viewFromXib];
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+    }
+    return _videoView;
+}
+
+- (DZYTopicVioceView *)vioceView
+{
+    if (!_vioceView) {
+        DZYTopicVioceView *vioceView = [DZYTopicVioceView viewFromXib];
+        [self.contentView addSubview:vioceView];
+        _vioceView = vioceView;
+    }
+    return _vioceView;
 }
 
 /**
@@ -62,14 +89,33 @@
     
     // 根据帖子的类型决定中间的内容
     if (topic.type == DZYTopicTypePicture) { // picture
+        
+        self.vioceView.hidden = YES;
+        self.videoView.hidden = YES;
         self.pictureView.hidden = NO;
         self.pictureView.frame = topic.contentFrame;
         self.pictureView.topic = topic;
-    } else if (topic.type == DZYTopicTypeWord) { // word
-        self.pictureView.hidden = YES;
+        
     } else if (topic.type == DZYTopicTypeVioce) { // vioce
+        
+        self.videoView.hidden = YES;
         self.pictureView.hidden = YES;
+        self.vioceView.hidden = NO;
+        self.vioceView.frame = topic.contentFrame;
+        self.vioceView.topic = topic;
+        
     } else if (topic.type == DZYTopicTypeVideo) { // video
+        
+        self.vioceView.hidden = YES;
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = NO;
+        self.videoView.frame = topic.contentFrame;
+        self.videoView.topic = topic;
+        
+    } else if (topic.type == DZYTopicTypeWord) { // word
+        
+        self.vioceView.hidden = YES;
+        self.videoView.hidden = YES;
         self.pictureView.hidden = YES;
     }
     
