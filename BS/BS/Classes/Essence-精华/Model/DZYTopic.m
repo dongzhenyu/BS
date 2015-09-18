@@ -43,4 +43,39 @@
     }
 }
 
+- (CGFloat)cellHeight
+{
+    if (_cellHeight == 0) {
+        
+        // cell的高度
+        _cellHeight = DZYTopicTextY;
+        
+        // 计算文字的高度
+        CGFloat textW = DZYScreenW - 2 * DZYCommonMargin;
+        CGFloat textH = [self.text boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15]} context:nil].size.height;
+        _cellHeight += textH + DZYCommonMargin;
+        
+        // 中间内容的高度
+        if (self.type != DZYTopicTypeWord) {
+            CGFloat contentW = textW;
+            // 图片高度 * 内容宽度 / 图片的宽度
+            CGFloat contentH = self.height * contentW / self.width;
+            if (contentH >= DZYScreenH) {// 一旦内容的高度大于屏幕的高度 就让内容的高度等于200
+                contentH = 200;
+                self.bigPicture = YES;
+            }
+            CGFloat contentX = DZYCommonMargin;
+            CGFloat contentY = _cellHeight;
+            self.contentFrame = CGRectMake(contentX, contentY, contentW, contentH);
+            _cellHeight += contentH + DZYCommonMargin;
+        }
+        
+        // 底部工具条的高度
+        _cellHeight += DZYTopicToolbarH + DZYCommonMargin;
+        
+    }
+    return _cellHeight;
+    
+}
+
 @end

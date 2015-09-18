@@ -170,25 +170,9 @@ static NSString * const DZYTopicCellId = @"topic";
 #pragma mark - delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // cell的高度
-    CGFloat cellHeight = DZYTopicTextY;
-    
-    // 计算文字的高度
+
     DZYTopic *topic = self.topics[indexPath.row];
-    CGFloat textW = DZYScreenW - 2 * DZYCommonMargin;
-    CGFloat textH = [topic.text boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size.height;
-    cellHeight += textH + DZYCommonMargin;
     
-    // 中间内容的高度
-    if (topic.type != DZYTopicTypeWord) {
-        CGFloat contentW = textW;
-        CGFloat contentH = topic.height * contentW / topic.width;
-        cellHeight += contentH + DZYCommonMargin;
-    }
-    
-    // 工具条的高度
-    cellHeight += DZYTopicToolbarH + DZYCommonMargin;
-    
-    return cellHeight;
+    return topic.cellHeight;
 }
 @end

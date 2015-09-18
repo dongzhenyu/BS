@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class DZYTopic;
 @interface DZYTopicPictureView : UIView
+
+/** 帖子模型 */
+@property (nonatomic, strong) DZYTopic *topic;
 
 @end

@@ -63,6 +63,8 @@
     // 根据帖子的类型决定中间的内容
     if (topic.type == DZYTopicTypePicture) { // picture
         self.pictureView.hidden = NO;
+        self.pictureView.frame = topic.contentFrame;
+        self.pictureView.topic = topic;
     } else if (topic.type == DZYTopicTypeWord) { // word
         self.pictureView.hidden = YES;
     } else if (topic.type == DZYTopicTypeVioce) { // vioce
