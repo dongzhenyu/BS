@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DZYTopic;
 @interface DZYCommentViewController : UIViewController
 
+/** 帖子模型 */
+@property (nonatomic, strong) DZYTopic *topic;
 @end

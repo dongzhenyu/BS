@@ -7,8 +7,9 @@
 //
 
 #import "DZYCommentViewController.h"
-#import "DZYTopicCell.h"
+#import "DZYTopic.h"
 #import "DZYCommentCell.h"
+#import "DZYTopicCell.h"
 
 @interface DZYCommentViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -30,9 +31,21 @@
 
 - (void)setupTable
 {
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYTopicCell class]) bundle:nil] forCellReuseIdentifier:@"topic"];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYCommentCell class]) bundle:nil] forCellReuseIdentifier:@"comment"];
+    
+    // 设置header
+    DZYTopicCell *cell = [DZYTopicCell viewFromXib];
+    cell.topic = self.topic;
+    cell.frame = CGRectMake(0, 0, DZYScreenW, self.topic.cellHeight);
+    
+    UIView *header = [[UIView alloc] init];
+    header.height = cell.height + 2 * DZYCommonMargin;
+    header.backgroundColor = [UIColor redColor];
+    [header addSubview:cell];
+    
+    self.tableView.tableHeaderView = header;
+    
 }
 
 - (void)dealloc
@@ -55,25 +68,21 @@
 #pragma mark - <UITableViewDataSource>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) return 1;
-    if (section == 1) return 5;
-    return 10;
+    if (section == 0) return 10;
+    
+    return 25;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) { // topic
-        return [tableView dequeueReusableCellWithIdentifier:@"topic"];
-    } else { // comment
-        return [tableView dequeueReusableCellWithIdentifier:@"comment"];
-    }
-    
+
+    return [tableView dequeueReusableCellWithIdentifier:@"comment"];
 }
 
 #pragma mark - <UITableViewDelegate>
@@ -82,19 +91,10 @@
     [self.view endEditing:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.section == 0) return 200;
-    return 50;
-    
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) return nil;
-    if (section == 1) return @"最热评论";
+    if (section == 0) return @"最热评论";
     return @"最新评论";
-        
 }
 @end
 

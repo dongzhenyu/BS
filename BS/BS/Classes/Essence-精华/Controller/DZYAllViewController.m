@@ -196,6 +196,7 @@ static NSString * const DZYTopicCellId = @"topic";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DZYCommentViewController *comment = [[DZYCommentViewController alloc] init];
+    comment.topic = self.topics[indexPath.row];
     [self.navigationController pushViewController:comment animated:YES];
     
 }
