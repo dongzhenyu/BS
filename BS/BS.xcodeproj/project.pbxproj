@@ -57,6 +57,10 @@
 		409C66AA1BAD2B9300DE79B1 /* DZYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66A91BAD2B9300DE79B1 /* DZYUser.m */; };
 		409C66AD1BAD2BA800DE79B1 /* DZYComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66AC1BAD2BA800DE79B1 /* DZYComment.m */; };
 		409C66B01BAD378300DE79B1 /* MJExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66AF1BAD378300DE79B1 /* MJExtensionConfig.m */; };
+		409C66B41BAD483400DE79B1 /* DZYCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66B21BAD483400DE79B1 /* DZYCommentViewController.m */; };
+		409C66B51BAD483400DE79B1 /* DZYCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409C66B31BAD483400DE79B1 /* DZYCommentViewController.xib */; };
+		409C66B91BAD537300DE79B1 /* DZYCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66B71BAD537300DE79B1 /* DZYCommentCell.m */; };
+		409C66BA1BAD537300DE79B1 /* DZYCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409C66B81BAD537300DE79B1 /* DZYCommentCell.xib */; };
 		40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F4081B9DA2B80026B079 /* DZYMeCell.m */; };
 		40A6F40C1B9DB8710026B079 /* DZYMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40B1B9DB8710026B079 /* DZYMeFooterView.m */; };
 		40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40E1B9DBC510026B079 /* DZYSquare.m */; };
@@ -180,6 +184,12 @@
 		409C66AC1BAD2BA800DE79B1 /* DZYComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYComment.m; sourceTree = "<group>"; };
 		409C66AE1BAD378300DE79B1 /* MJExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConfig.h; sourceTree = "<group>"; };
 		409C66AF1BAD378300DE79B1 /* MJExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConfig.m; sourceTree = "<group>"; };
+		409C66B11BAD483400DE79B1 /* DZYCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYCommentViewController.h; sourceTree = "<group>"; };
+		409C66B21BAD483400DE79B1 /* DZYCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYCommentViewController.m; sourceTree = "<group>"; };
+		409C66B31BAD483400DE79B1 /* DZYCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYCommentViewController.xib; sourceTree = "<group>"; };
+		409C66B61BAD537300DE79B1 /* DZYCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYCommentCell.h; sourceTree = "<group>"; };
+		409C66B71BAD537300DE79B1 /* DZYCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYCommentCell.m; sourceTree = "<group>"; };
+		409C66B81BAD537300DE79B1 /* DZYCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYCommentCell.xib; sourceTree = "<group>"; };
 		40A6F4071B9DA2B80026B079 /* DZYMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeCell.h; sourceTree = "<group>"; };
 		40A6F4081B9DA2B80026B079 /* DZYMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYMeCell.m; sourceTree = "<group>"; };
 		40A6F40A1B9DB8710026B079 /* DZYMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeFooterView.h; sourceTree = "<group>"; };
@@ -294,6 +304,9 @@
 				401BA8CB1BABE83600DD6394 /* DZYSeeBigPictureViewController.h */,
 				401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */,
 				401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */,
+				409C66B11BAD483400DE79B1 /* DZYCommentViewController.h */,
+				409C66B21BAD483400DE79B1 /* DZYCommentViewController.m */,
+				409C66B31BAD483400DE79B1 /* DZYCommentViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,6 +346,9 @@
 				401BA8D51BAC839A00DD6394 /* DZYTopicVioceView.h */,
 				401BA8D61BAC839A00DD6394 /* DZYTopicVioceView.m */,
 				401BA8D81BAC83B700DD6394 /* DZYTopicVioceView.xib */,
+				409C66B61BAD537300DE79B1 /* DZYCommentCell.h */,
+				409C66B71BAD537300DE79B1 /* DZYCommentCell.m */,
+				409C66B81BAD537300DE79B1 /* DZYCommentCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -719,7 +735,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				40531A681BA046DF006845C8 /* DZYPublishViewController.xib in Resources */,
+				409C66BA1BAD537300DE79B1 /* DZYCommentCell.xib in Resources */,
 				407FF9091B9AF11700D21B68 /* DZYLoginRegisterViewController.xib in Resources */,
+				409C66B51BAD483400DE79B1 /* DZYCommentViewController.xib in Resources */,
 				40CC7C791B9C145E00CC6105 /* DZYRecommendTagCell.xib in Resources */,
 				407FF9041B9AE48600D21B68 /* DZYFriendTrendsViewController.xib in Resources */,
 				401BA8D41BAC77D400DD6394 /* DZYTopicVideoView.xib in Resources */,
@@ -786,12 +804,14 @@
 				4045B7361BA2FDC1009469E1 /* UITextField+DZYExtension.m in Sources */,
 				402B08961BA71989002BC995 /* DZYMyFooter.m in Sources */,
 				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
+				409C66B41BAD483400DE79B1 /* DZYCommentViewController.m in Sources */,
 				4096E2CC1BA4705A00C0A878 /* DZYTagTextField.m in Sources */,
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
 				403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */,
 				40CC7C7E1B9C58E500CC6105 /* NSDictionary+LOG.m in Sources */,
 				407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */,
 				40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */,
+				409C66B91BAD537300DE79B1 /* DZYCommentCell.m in Sources */,
 				402B088F1BA6F167002BC995 /* DZYTopicCell.m in Sources */,
 				40CC7C781B9C145E00CC6105 /* DZYRecommendTagCell.m in Sources */,
 				4045B7311BA2EBC3009469E1 /* DZYPostWordToolbar.m in Sources */,

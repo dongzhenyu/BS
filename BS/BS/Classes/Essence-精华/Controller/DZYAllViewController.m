@@ -13,6 +13,7 @@
 #import "DZYTopicCell.h"
 #import <MJRefresh.h>
 #import "DZYMyFooter.h"
+#import "DZYCommentViewController.h"
 
 @interface DZYAllViewController ()
 
@@ -190,5 +191,12 @@ static NSString * const DZYTopicCellId = @"topic";
     DZYTopic *topic = self.topics[indexPath.row];
     
     return topic.cellHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DZYCommentViewController *comment = [[DZYCommentViewController alloc] init];
+    [self.navigationController pushViewController:comment animated:YES];
+    
 }
 @end
