@@ -9,6 +9,7 @@
 #import "DZYTopicVioceView.h"
 #import "DZYTopic.h"
 #import <UIImageView+WebCache.h>
+#import "DZYSeeBigPictureViewController.h"
 
 @interface DZYTopicVioceView ()
 @property (weak, nonatomic) IBOutlet UIImageView *iamgeView;
@@ -23,6 +24,20 @@
 {
     // 清除自动伸缩
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    self.iamgeView.userInteractionEnabled = YES;
+    [self.iamgeView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick)]];
+}
+
+- (void)imageClick
+{
+    if (self.iamgeView.image == nil) return;
+    
+    DZYSeeBigPictureViewController *seeBig = [[DZYSeeBigPictureViewController alloc] init];
+    seeBig.topic = self.topic;
+    
+    [self.window.rootViewController presentViewController:seeBig animated:YES completion:nil];
+        
 }
 
 - (void)setTopic:(DZYTopic *)topic

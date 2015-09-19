@@ -127,11 +127,11 @@
     }
     
     // 最热评论
-    DZYComment *cmt = topic.top_cmt.firstObject;
-    if (cmt) {
+//    DZYComment *cmt = topic.top_cmt.firstObject;
+    if (topic.topComment) {
         self.topCmtView.hidden = NO;
-        NSString *username = cmt.user.username;
-        NSString *content = cmt.content;
+        NSString *username = topic.topComment.user.username;
+        NSString *content = topic.topComment.content;
         self.topCmtLabel.text = [NSString stringWithFormat:@"%@:%@", username,content];
     } else {
         self.topCmtView.hidden = YES;

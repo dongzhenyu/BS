@@ -56,6 +56,7 @@
 		40972EE01BA7F40C005DFE27 /* NSDate+DZYExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 40972EDF1BA7F40C005DFE27 /* NSDate+DZYExtension.m */; };
 		409C66AA1BAD2B9300DE79B1 /* DZYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66A91BAD2B9300DE79B1 /* DZYUser.m */; };
 		409C66AD1BAD2BA800DE79B1 /* DZYComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66AC1BAD2BA800DE79B1 /* DZYComment.m */; };
+		409C66B01BAD378300DE79B1 /* MJExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66AF1BAD378300DE79B1 /* MJExtensionConfig.m */; };
 		40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F4081B9DA2B80026B079 /* DZYMeCell.m */; };
 		40A6F40C1B9DB8710026B079 /* DZYMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40B1B9DB8710026B079 /* DZYMeFooterView.m */; };
 		40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40E1B9DBC510026B079 /* DZYSquare.m */; };
@@ -177,6 +178,8 @@
 		409C66A91BAD2B9300DE79B1 /* DZYUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYUser.m; sourceTree = "<group>"; };
 		409C66AB1BAD2BA800DE79B1 /* DZYComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYComment.h; sourceTree = "<group>"; };
 		409C66AC1BAD2BA800DE79B1 /* DZYComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYComment.m; sourceTree = "<group>"; };
+		409C66AE1BAD378300DE79B1 /* MJExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConfig.h; sourceTree = "<group>"; };
+		409C66AF1BAD378300DE79B1 /* MJExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConfig.m; sourceTree = "<group>"; };
 		40A6F4071B9DA2B80026B079 /* DZYMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeCell.h; sourceTree = "<group>"; };
 		40A6F4081B9DA2B80026B079 /* DZYMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYMeCell.m; sourceTree = "<group>"; };
 		40A6F40A1B9DB8710026B079 /* DZYMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeFooterView.h; sourceTree = "<group>"; };
@@ -472,6 +475,8 @@
 				40CC7C7D1B9C58E500CC6105 /* NSDictionary+LOG.m */,
 				40D0F4061B9C9AB200A24DF6 /* DZYConst.h */,
 				40D0F4071B9C9AB200A24DF6 /* DZYConst.m */,
+				409C66AE1BAD378300DE79B1 /* MJExtensionConfig.h */,
+				409C66AF1BAD378300DE79B1 /* MJExtensionConfig.m */,
 			);
 			path = "Other-其它";
 			sourceTree = "<group>";
@@ -791,6 +796,7 @@
 				40CC7C781B9C145E00CC6105 /* DZYRecommendTagCell.m in Sources */,
 				4045B7311BA2EBC3009469E1 /* DZYPostWordToolbar.m in Sources */,
 				40E1D1E21BA5E5AF00B14E84 /* DZYWordViewController.m in Sources */,
+				409C66B01BAD378300DE79B1 /* MJExtensionConfig.m in Sources */,
 				4096E2C91BA4364900C0A878 /* DZYTagButton.m in Sources */,
 				40531A671BA046DF006845C8 /* DZYPublishViewController.m in Sources */,
 				40400FEF1BA0936700B5B165 /* DZYPostWordViewController.m in Sources */,

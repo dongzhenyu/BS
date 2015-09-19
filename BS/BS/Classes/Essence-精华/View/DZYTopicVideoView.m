@@ -8,6 +8,7 @@
 #import "DZYTopicVideoView.h"
 #import "DZYTopic.h"
 #import <UIImageView+WebCache.h>
+#import "DZYSeeBigPictureViewController.h"
 
 @interface DZYTopicVideoView ()
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
@@ -23,6 +24,22 @@
 {
     // 清除自动伸缩
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    self.imageView.userInteractionEnabled = YES;
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick)]];
+}
+
+- (void)imageClick
+{
+    // 下载完毕才能点击
+    if (self.imageView.image == nil) return;
+    
+    DZYSeeBigPictureViewController *seeBig = [[DZYSeeBigPictureViewController alloc] init];
+    seeBig.topic = self.topic;
+    
+    [self.window.rootViewController presentViewController:seeBig animated:YES completion:nil];
+    
+    
 }
 
 - (void)setTopic:(DZYTopic *)topic

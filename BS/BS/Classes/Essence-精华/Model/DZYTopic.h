@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class DZYComment;
 @interface DZYTopic : NSObject
 
 typedef enum {
@@ -66,7 +67,7 @@ typedef enum {
 @property (nonatomic, assign) NSInteger playcount;
 
 /** 最热评论 (这个数组里面存放的应该是DZYComment模型)*/
-@property (nonatomic, strong) NSArray *top_cmt;
+@property (nonatomic, strong) DZYComment *topComment;
 
 
 /**** 额外添加的属性 *****/

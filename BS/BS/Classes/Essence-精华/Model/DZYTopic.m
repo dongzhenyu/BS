@@ -18,22 +18,23 @@
  * 映射 - 属性名-字典Key的映射（key-mapping）
  */
 
-+ (NSDictionary *)replacedKeyFromPropertyName
-{
-    return @{
-             @"ID":@"id",
-             @"small_image":@"image0",
-             @"middle_image":@"image2",
-             @"large_image":@"image1",
-             };
-}
+//+ (NSDictionary *)replacedKeyFromPropertyName
+//{
+//    return @{
+//             @"ID":@"id",
+//             @"small_image":@"image0",
+//             @"middle_image":@"image2",
+//             @"large_image":@"image1",
+//             @"topComment":@"top_cmt[0]"
+//             };
+//}
 
-+ (NSDictionary *)objectClassInArray
-{
-    // 数组名：模型名
-    return @{@"top_cmt" : [DZYComment class]};
-//    return @{@"top_cmt":@"DZYComment"};
-}
+//+ (NSDictionary *)objectClassInArray
+//{
+//    // 数组名：模型名
+//    return @{@"top_cmt" : [DZYComment class]};
+////    return @{@"top_cmt":@"DZYComment"};
+//}
 
 
 #pragma mark - getter
@@ -98,10 +99,10 @@
         }
         
         // 最热评论
-        DZYComment *cmt = self.top_cmt.firstObject;
-        if (cmt) {
-            NSString *username = cmt.user.username;
-            NSString *content = cmt.content;
+//        DZYComment *cmt = self.topComment;
+        if (self.topComment) {
+            NSString *username = self.topComment.user.username;
+            NSString *content = self.topComment.content;
             NSString *cmtText = [NSString stringWithFormat:@"%@:%@", username, content];
             // 评论内容的高度
             CGFloat cmtTextH = [cmtText boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
