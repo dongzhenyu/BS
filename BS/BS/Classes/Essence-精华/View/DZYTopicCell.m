@@ -11,6 +11,8 @@
 #import "DZYTopicPictureView.h"
 #import "DZYTopicVideoView.h"
 #import "DZYTopicVioceView.h"
+#import "DZYComment.h"
+#import "DZYUser.h"
 
 @interface DZYTopicCell ()
 
@@ -125,11 +127,11 @@
     }
     
     // 最热评论
-    NSDictionary *cmt = topic.top_cmt.firstObject;
+    DZYComment *cmt = topic.top_cmt.firstObject;
     if (cmt) {
         self.topCmtView.hidden = NO;
-        NSString *username = cmt[@"user"][@"username"];
-        NSString *content = cmt[@"content"];
+        NSString *username = cmt.user.username;
+        NSString *content = cmt.content;
         self.topCmtLabel.text = [NSString stringWithFormat:@"%@:%@", username,content];
     } else {
         self.topCmtView.hidden = YES;

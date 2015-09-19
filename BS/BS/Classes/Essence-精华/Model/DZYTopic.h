@@ -65,7 +65,7 @@ typedef enum {
 /** 播放次数 */
 @property (nonatomic, assign) NSInteger playcount;
 
-/** 最热评论 */
+/** 最热评论 (这个数组里面存放的应该是DZYComment模型)*/
 @property (nonatomic, strong) NSArray *top_cmt;
 
 
