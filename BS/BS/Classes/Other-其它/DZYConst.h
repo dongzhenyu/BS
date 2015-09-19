@@ -39,3 +39,12 @@ UIKIT_EXTERN CGFloat const DZYTopicTextY;
  *  帖子底部工具条的高度
  */
 UIKIT_EXTERN CGFloat const DZYTopicToolbarH;
+
+/**
+ *  帖子-最热评论-顶部的高度
+ */
+UIKIT_EXTERN CGFloat const DZYTopicTopCmtTopH;
+
+
+
+

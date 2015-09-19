@@ -7,9 +7,74 @@
 //
 
 #import "DZYTopic.h"
+#import <MJExtension.h>
 
 @implementation DZYTopic
 
+#pragma mark - MJExtension
+/**
+ * 映射 - 属性名-字典Key的映射（key-mapping）
+ */
+
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"ID":@"id",
+             @"small_image":@"image0",
+             @"middle_image":@"image2",
+             @"large_image":@"image1",
+//             @"profile_image" : @"other.test[0]"
+//             @"name" : @"data.info.name"
+             // 依次将数组中每个key对应的值赋值给模型的name属性，直到name属性真正有值为止
+//             @"name" : @[@"fgdgfdg", @"image0", @"name"]
+             };
+}
+
+//+ (NSString *)replacedKeyFromPropertyName121:(NSString *)propertyName
+//{
+////    if ([propertyName isEqualToString:@"ID"]) return @"id";
+////    if ([propertyName isEqualToString:@"small_image"]) return @"image0";
+////    if ([propertyName isEqualToString:@"middle_image"]) return @"image2";
+////    if ([propertyName isEqualToString:@"large_image"]) return @"image1";
+//
+//
+//    // profileImage profile_image
+//    // isGif is_gif
+//    // createdAt created_at
+//
+//    // 把所有属性名转成下划线的key
+//    return [propertyName underlineFromCamel];
+//}
+
+
+
+/*
+ 
+ @{
+ data : @{
+ info : @{
+ name : jack,
+ },
+ age : 20
+ },
+ text : 56456jhfkdskhjfhkd,
+ other : @{
+ test : @[@"http://1.png"]
+ }
+ }
+ */
+
+//@{
+//@"name" : @"jack",
+//@"age" : 10
+//}
+//
+//@{
+//@"screenname" : @"jack",
+//@"age" : 10
+//}
+
+#pragma mark - getter
 - (NSString *)created_at
 {
     // 日期格式化类
@@ -68,6 +133,17 @@
             CGFloat contentY = _cellHeight;
             self.contentFrame = CGRectMake(contentX, contentY, contentW, contentH);
             _cellHeight += contentH + DZYCommonMargin;
+        }
+        
+        // 最热评论
+        NSDictionary *cmt = self.top_cmt.firstObject;
+        if (cmt) {
+            NSString *username = cmt[@"user"][@"username"];
+            NSString *content = cmt[@"content"];
+            NSString *cmtText = [NSString stringWithFormat:@"%@:%@", username, content];
+            // 评论内容的高度
+            CGFloat cmtTextH = [cmtText boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+            _cellHeight += DZYTopicTopCmtTopH + cmtTextH + DZYCommonMargin;
         }
         
         // 底部工具条的高度

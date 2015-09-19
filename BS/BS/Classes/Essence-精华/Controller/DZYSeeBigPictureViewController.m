@@ -49,7 +49,7 @@
     
     // 图片
     UIImageView *imageView = [[UIImageView alloc] init];
-    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.image1]];
+    [imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.large_image]];
     [scrollView addSubview:imageView];
     self.imageView = imageView;
     

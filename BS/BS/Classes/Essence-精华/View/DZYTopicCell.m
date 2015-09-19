@@ -29,6 +29,11 @@
 /** vioce */
 @property (nonatomic, weak) DZYTopicVioceView *vioceView;
 
+/** 最热评论- 整体 */
+@property (weak, nonatomic) IBOutlet UIView *topCmtView;
+/** 最热评论- 内容 */
+@property (weak, nonatomic) IBOutlet UILabel *topCmtLabel;
+
 @end
 
 @implementation DZYTopicCell
@@ -117,6 +122,17 @@
         self.vioceView.hidden = YES;
         self.videoView.hidden = YES;
         self.pictureView.hidden = YES;
+    }
+    
+    // 最热评论
+    NSDictionary *cmt = topic.top_cmt.firstObject;
+    if (cmt) {
+        self.topCmtView.hidden = NO;
+        NSString *username = cmt[@"user"][@"username"];
+        NSString *content = cmt[@"content"];
+        self.topCmtLabel.text = [NSString stringWithFormat:@"%@:%@", username,content];
+    } else {
+        self.topCmtView.hidden = YES;
     }
     
 }

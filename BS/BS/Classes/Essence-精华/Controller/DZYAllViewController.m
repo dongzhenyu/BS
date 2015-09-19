@@ -77,6 +77,20 @@ static NSString * const DZYTopicCellId = @"topic";
     self.tableView.footer = [DZYMyFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];    
 }
 
+// 处理数据
+- (void)dealData:(id)responseObject
+{
+//    int count = 0;
+//    for (NSDictionary *dict in responseObject[@"list"]) {
+//        if ([dict[@"top_cmt"] count]) {
+//            [dict[@"top_cmt"] writeToFile:@"/Users/dongzhenyu/Desktop/top_cmt.plist" atomically:YES];
+//            DZYLog(@"%zd", count);
+//        }
+//        count++;
+//    }
+//    DZYWriteToPlist(responseObject, @"topic");
+}
+
 /**
  *  加载最新帖子数据
  */
@@ -93,6 +107,7 @@ static NSString * const DZYTopicCellId = @"topic";
     DZYWeakSelf;
     [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
 //        [responseObject writeToFile:@"/Users/dongzhenyu/Desktop/topic.plist" atomically:YES];
+        [weakSelf dealData:responseObject];
         // 字典数组 -》字典模型
         weakSelf.topics = [DZYTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
@@ -128,6 +143,7 @@ static NSString * const DZYTopicCellId = @"topic";
     
     DZYWeakSelf;
     [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        [weakSelf dealData:responseObject];
         // 字典数组-》模型数组
         NSArray *moreTopics = [DZYTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
         [weakSelf.topics addObjectsFromArray:moreTopics];

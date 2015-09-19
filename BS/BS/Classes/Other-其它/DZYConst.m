@@ -45,6 +45,11 @@ CGFloat const DZYTopicTextY = 55;
 CGFloat const DZYTopicToolbarH = 35;
 
 /**
+ *  帖子-最热评论-顶部的高度
+ */
+CGFloat const DZYTopicTopCmtTopH = 20;
+
+/**
  全局常量的写法
  1.仅限于本文件访问
  在本文件（.m）中写下面的代码

@@ -29,7 +29,7 @@
 {
     _topic = topic;
     
-    [self.iamgeView sd_setImageWithURL:[NSURL URLWithString:topic.image1]];
+    [self.iamgeView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
     
     self.playCountLabel.text = [NSString stringWithFormat:@"%zd播放", topic.playcount];
     
