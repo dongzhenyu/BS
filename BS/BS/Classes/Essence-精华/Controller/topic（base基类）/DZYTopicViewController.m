@@ -1,12 +1,12 @@
 //
-//  DZYAllViewController.m
+//  DZYTopicViewController.m
 //  BS
 //
 //  Created by dzy on 15/9/14.
 //  Copyright (c) 2015年 董震宇. All rights reserved.
 //
 
-#import "DZYAllViewController.h"
+#import "DZYTopicViewController.h"
 #import <AFNetworking.h>
 #import "DZYTopic.h"
 #import <MJExtension.h>
@@ -15,7 +15,7 @@
 #import "DZYMyFooter.h"
 #import "DZYCommentViewController.h"
 
-@interface DZYAllViewController ()
+@interface DZYTopicViewController ()
 
 /** 请求管理者 */
 @property (nonatomic, weak) AFHTTPSessionManager *manager;
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation DZYAllViewController
+@implementation DZYTopicViewController
 
 static NSString * const DZYTopicCellId = @"topic";
 
@@ -44,7 +44,7 @@ static NSString * const DZYTopicCellId = @"topic";
 #pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     [self setupTable];
     
     [self setupRefresh];
@@ -62,7 +62,7 @@ static NSString * const DZYTopicCellId = @"topic";
     // 注册
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYTopicCell class]) bundle:nil] forCellReuseIdentifier:DZYTopicCellId];
     
-//    self.tableView.rowHeight = 200;
+    //    self.tableView.rowHeight = 200;
 }
 
 - (void)setupRefresh
@@ -75,21 +75,21 @@ static NSString * const DZYTopicCellId = @"topic";
     [self.tableView.header beginRefreshing];
     
     // 上拉刷新
-    self.tableView.footer = [DZYMyFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];    
+    self.tableView.footer = [DZYMyFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
 }
 
 // 处理数据
 - (void)dealData:(id)responseObject
 {
-//    int count = 0;
-//    for (NSDictionary *dict in responseObject[@"list"]) {
-//        if ([dict[@"top_cmt"] count]) {
-//            [dict[@"top_cmt"] writeToFile:@"/Users/dongzhenyu/Desktop/top_cmt.plist" atomically:YES];
-//            DZYLog(@"%zd", count);
-//        }
-//        count++;
-//    }
-//    DZYWriteToPlist(responseObject, @"topic");
+    //    int count = 0;
+    //    for (NSDictionary *dict in responseObject[@"list"]) {
+    //        if ([dict[@"top_cmt"] count]) {
+    //            [dict[@"top_cmt"] writeToFile:@"/Users/dongzhenyu/Desktop/top_cmt.plist" atomically:YES];
+    //            DZYLog(@"%zd", count);
+    //        }
+    //        count++;
+    //    }
+    //    DZYWriteToPlist(responseObject, @"topic");
 }
 
 /**
@@ -103,11 +103,11 @@ static NSString * const DZYTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @(DZYTopicTypeAll);
+    params[@"type"] = @(self.type);
     
     DZYWeakSelf;
     [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-//        [responseObject writeToFile:@"/Users/dongzhenyu/Desktop/topic.plist" atomically:YES];
+        //        [responseObject writeToFile:@"/Users/dongzhenyu/Desktop/topic.plist" atomically:YES];
         [weakSelf dealData:responseObject];
         // 字典数组 -》字典模型
         weakSelf.topics = [DZYTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
@@ -115,7 +115,7 @@ static NSString * const DZYTopicCellId = @"topic";
         // 存储maxtime
         weakSelf.maxtime = responseObject[@"info"][@"maxtime"];
         
-//        DZYLog(@"%@", self.topics);
+        //        DZYLog(@"%@", self.topics);
         // 刷新表格
         [weakSelf.tableView reloadData];
         
@@ -139,7 +139,7 @@ static NSString * const DZYTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @(DZYTopicTypeAll);
+    params[@"type"] = @(self.type);
     params[@"maxtime"] = self.maxtime;
     
     DZYWeakSelf;
@@ -187,7 +187,7 @@ static NSString * const DZYTopicCellId = @"topic";
 #pragma mark - delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     DZYTopic *topic = self.topics[indexPath.row];
     
     return topic.cellHeight;

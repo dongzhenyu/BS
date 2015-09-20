@@ -9,11 +9,12 @@
 #import "DZYEssenceViewController.h"
 #import "DZYTagViewController.h"
 #import "DZYTitleButton.h"
-#import "DZYAllViewController.h"
-#import "DZYVideoViewController.h"
-#import "DZYVoiceViewController.h"
-#import "DZYPictureViewController.h"
-#import "DZYWordViewController.h"
+//#import "DZYAllViewController.h"
+//#import "DZYVideoViewController.h"
+//#import "DZYVoiceViewController.h"
+//#import "DZYPictureViewController.h"
+//#import "DZYWordViewController.h"
+#import "DZYTopicViewController.h"
 
 @interface DZYEssenceViewController ()<UIScrollViewDelegate>
 
@@ -64,23 +65,28 @@
 
 - (void)setupChildVcs
 {
-    DZYAllViewController *all = [[DZYAllViewController alloc] init];
+    DZYTopicViewController *all = [[DZYTopicViewController alloc] init];
+    all.type = DZYTopicTypeAll;
     all.title = @"全部";
     [self addChildViewController:all];
     
-    DZYVideoViewController *video = [[DZYVideoViewController alloc] init];
+    DZYTopicViewController *video = [[DZYTopicViewController alloc] init];
+    video.type = DZYTopicTypeVideo;
     video.title = @"视频";
     [self addChildViewController:video];
     
-    DZYVoiceViewController *voice = [[DZYVoiceViewController alloc] init];
+    DZYTopicViewController *voice = [[DZYTopicViewController alloc] init];
+    voice.type = DZYTopicTypeVioce;
     voice.title = @"声音";
     [self addChildViewController:voice];
     
-    DZYPictureViewController *picture = [[DZYPictureViewController alloc] init];
+    DZYTopicViewController *picture = [[DZYTopicViewController alloc] init];
+    picture.type = DZYTopicTypePicture;
     picture.title = @"图片";
     [self addChildViewController:picture];
     
-    DZYWordViewController *word = [[DZYWordViewController alloc] init];
+    DZYTopicViewController *word = [[DZYTopicViewController alloc] init];
+    word.type = DZYTopicTypeWord;
     word.title = @"段子";
     [self addChildViewController:word];
 
