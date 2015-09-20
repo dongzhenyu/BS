@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 董震宇. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "DZYEssenceViewController.h"
 
-@interface DZYNewViewController : UIViewController
+@interface DZYNewViewController : DZYEssenceViewController
 
 @end

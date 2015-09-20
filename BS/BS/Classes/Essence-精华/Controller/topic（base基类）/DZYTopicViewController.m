@@ -14,6 +14,7 @@
 #import <MJRefresh.h>
 #import "DZYMyFooter.h"
 #import "DZYCommentViewController.h"
+#import "DZYNewViewController.h"
 
 @interface DZYTopicViewController ()
 
@@ -26,6 +27,7 @@
 /** 用来加载下一组数据 */
 @property (nonatomic, copy) NSString *maxtime;
 
+- (NSString *)aParam;
 @end
 
 @implementation DZYTopicViewController
@@ -97,6 +99,15 @@ static NSString * const DZYTopicCellId = @"topic";
     //    DZYWriteToPlist(responseObject, @"topic");
 }
 
+- (NSString *)aParam
+{
+    // [a isKindOfClass:c] 判断a是否为c类型或者c的子类类型
+    if ([self.parentViewController isKindOfClass:[DZYNewViewController class]]) {
+        return @"newlist";
+    }
+    return @"list";
+}
+
 /**
  *  加载最新帖子数据
  */
@@ -106,7 +117,7 @@ static NSString * const DZYTopicCellId = @"topic";
     [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.aParam;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     
@@ -142,7 +153,7 @@ static NSString * const DZYTopicCellId = @"topic";
     [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = self.aParam;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     params[@"maxtime"] = self.maxtime;

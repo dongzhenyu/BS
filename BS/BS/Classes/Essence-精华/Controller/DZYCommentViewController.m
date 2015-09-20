@@ -15,6 +15,7 @@
 #import <MJExtension.h>
 #import "DZYComment.h"
 #import "DZYCommentHeadView.h"
+#import "DZYUser.h"
 
 @interface DZYCommentViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -31,7 +32,8 @@
 
 /** 最新评论 （所有评论数据） */
 @property (nonatomic, strong) NSMutableArray *latestComments;
-
+/** 写方法声明的目的为了使用点语法提示 */
+- (DZYComment *)selectedComment;
 @end
 
 @implementation DZYCommentViewController
@@ -63,6 +65,8 @@ static NSString * const DZYHeadId = @"header";
 - (void)setupTable
 {
     self.tableView.backgroundColor = DZYCommonBgColor;
+    // cell的分隔线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYCommentCell class]) bundle:nil] forCellReuseIdentifier:DZYCommtentCellId];
     [self.tableView registerClass:[DZYCommentHeadView class] forHeaderFooterViewReuseIdentifier:DZYHeadId];
     
@@ -130,6 +134,12 @@ static NSString * const DZYHeadId = @"header";
     [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
 //        DZYWriteToPlist(responseObject, @"comment");
+        if ([responseObject isKindOfClass:[NSArray class]]) {
+            // 意味着没有评论数据
+            // 结束刷新
+            [weakSelf.tableView.header endRefreshing];
+            return ;
+        }
         
         // 最热评论
         weakSelf.hotComments = [DZYComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
@@ -142,6 +152,12 @@ static NSString * const DZYHeadId = @"header";
         
         // 结束刷新
         [weakSelf.tableView.header endRefreshing];
+        
+        // 判断数据是否已经加载完全
+        if (self.latestComments.count >= [responseObject[@"total"] intValue]) {
+            // 已经加载完毕
+            weakSelf.tableView.footer.hidden = YES;
+        }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         // 结束刷新
@@ -249,5 +265,75 @@ static NSString * const DZYHeadId = @"header";
     
     return header;
 }
-@end
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 取出cell
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    
+    // 设置菜单内容
+    menu.menuItems = @[
+                       [[UIMenuItem alloc] initWithTitle:@"顶" action:@selector(ding:)],
+                       [[UIMenuItem alloc] initWithTitle:@"回复" action:@selector(reply:)],
+                       [[UIMenuItem alloc] initWithTitle:@"举报" action:@selector(warn:)]
+                       ];
+    // 显示位置
+    CGRect rect = CGRectMake(0, cell.height * 0.5, cell.width, 1);
+    
+    [menu setTargetRect:rect inView:cell];
+    
+    // 显示出来
+    [menu setMenuVisible:YES animated:YES];
+    
+}
+
+#pragma mark - 获取当前的评论
+- (DZYComment *)selectedComment
+{
+    // 获得被选中的cell的行号
+    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
+    NSInteger row = indexPath.row;
+    
+    // 获得评论数据
+    NSArray *comments = self.latestComments;
+    if (indexPath.section == 0 && self.hotComments.count) {
+        comments = self.hotComments;
+    }
+    return comments[row];
+}
+
+#pragma mark - UIMenuController的处理
+
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    if (!self.isFirstResponder) { // 文本框弹出键盘 文本框才是第一响应者
+        if (action == @selector(ding:)
+            || action == @selector(reply:)
+            || action == @selector(warn:)) return NO;
+    }
+    return [super canPerformAction:action withSender:sender];
+}
+
+- (void)ding:(UIMenuController *)menu
+{
+    DZYLog(@"ding---%@ %@", self.selectedComment.user.username, self.selectedComment.content);
+    
+}
+- (void)reply:(UIMenuController *)menu
+{
+    DZYLog(@"reply---%@ %@", self.selectedComment.user.username, self.selectedComment.content);
+    
+}
+- (void)warn:(UIMenuController *)menu
+{
+    DZYLog(@"warn---%@ %@", self.selectedComment.user.username, self.selectedComment.content);
+    
+}@end
 

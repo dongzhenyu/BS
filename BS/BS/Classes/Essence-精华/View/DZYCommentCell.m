@@ -24,6 +24,11 @@
 
 @implementation DZYCommentCell
 
+- (void)awakeFromNib
+{
+    self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+}
+
 - (void)setComment:(DZYComment *)comment
 {
     
