@@ -30,6 +30,11 @@
 
 @implementation DZYTopicViewController
 
+/**
+ *  实现这个方法 仅仅是为了消除警告（因为子类的type方法最终会覆盖父类的方法）
+ */
+- (DZYTopicType)type { return 0; }
+
 static NSString * const DZYTopicCellId = @"topic";
 
 #pragma mark - 懒加载

@@ -12,5 +12,8 @@
 @interface DZYTopicViewController : UITableViewController
 
 /** 帖子的类型 */
-@property (nonatomic, assign) DZYTopicType type;
+- (DZYTopicType)type;
+
+//@property (nonatomic, assign) DZYTopicType type;// 外界可以修改类型 不安全
+
 @end

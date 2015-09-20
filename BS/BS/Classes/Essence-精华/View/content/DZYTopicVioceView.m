@@ -12,7 +12,7 @@
 #import "DZYSeeBigPictureViewController.h"
 
 @interface DZYTopicVioceView ()
-@property (weak, nonatomic) IBOutlet UIImageView *iamgeView;
+
 @property (weak, nonatomic) IBOutlet UILabel *playCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *vioceTimeLabel;
 
@@ -20,31 +20,11 @@
 
 @implementation DZYTopicVioceView
 
-- (void)awakeFromNib
-{
-    // 清除自动伸缩
-    self.autoresizingMask = UIViewAutoresizingNone;
-    
-    self.iamgeView.userInteractionEnabled = YES;
-    [self.iamgeView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick)]];
-}
-
-- (void)imageClick
-{
-    if (self.iamgeView.image == nil) return;
-    
-    DZYSeeBigPictureViewController *seeBig = [[DZYSeeBigPictureViewController alloc] init];
-    seeBig.topic = self.topic;
-    
-    [self.window.rootViewController presentViewController:seeBig animated:YES completion:nil];
-        
-}
-
 - (void)setTopic:(DZYTopic *)topic
 {
-    _topic = topic;
+    [super setTopic:topic];
     
-    [self.iamgeView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
     
     self.playCountLabel.text = [NSString stringWithFormat:@"%zd播放", topic.playcount];
     

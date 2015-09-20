@@ -14,7 +14,7 @@
 
 @interface DZYTopicPictureView ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *gifView;
 @property (weak, nonatomic) IBOutlet UIButton *seeBigPictureButton;
 
@@ -26,34 +26,19 @@
 
 - (void)awakeFromNib
 {
-    // 清除自动伸缩属性
-    self.autoresizingMask = UIViewAutoresizingNone;
+    [super awakeFromNib];
+    
     self.progressView.roundedCorners = 5;
     self.progressView.progressLabel.textColor = [UIColor whiteColor];
-    
-    self.imageView.userInteractionEnabled = YES;
-    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageClick)]];
-}
-
-- (void)imageClick
-{
-    // 下载完毕 才能点击查看图片
-    if (self.imageView.image == nil) return;
-    
-    DZYSeeBigPictureViewController *seeBig = [[DZYSeeBigPictureViewController alloc] init];
-    
-    seeBig.topic = self.topic;
-    
-    [self.window.rootViewController presentViewController:seeBig animated:YES completion:nil];
 }
 
 - (void)setTopic:(DZYTopic *)topic
 {
-    _topic = topic;
+    [super setTopic:topic];
     
     // 下载图片
     DZYWeakSelf;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
         // 每下载一点图片就会调用
         weakSelf.progressView.hidden = NO;
@@ -74,11 +59,11 @@
     // seeBig
     self.seeBigPictureButton.hidden = !topic.isBigPicture;
     if (topic.isBigPicture) {
-        self.imageView.contentMode = UIViewContentModeTop;
-        self.imageView.clipsToBounds = YES;
+        _imageView.contentMode = UIViewContentModeTop;
+        _imageView.clipsToBounds = YES;
     } else {
-        self.imageView.contentMode = UIViewContentModeScaleToFill;
-        self.imageView.clipsToBounds = NO;
+        _imageView.contentMode = UIViewContentModeScaleToFill;
+        _imageView.clipsToBounds = NO;
     }
 }
 

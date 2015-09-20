@@ -9,12 +9,12 @@
 #import "DZYEssenceViewController.h"
 #import "DZYTagViewController.h"
 #import "DZYTitleButton.h"
-//#import "DZYAllViewController.h"
-//#import "DZYVideoViewController.h"
-//#import "DZYVoiceViewController.h"
-//#import "DZYPictureViewController.h"
-//#import "DZYWordViewController.h"
-#import "DZYTopicViewController.h"
+#import "DZYAllViewController.h"
+#import "DZYVideoViewController.h"
+#import "DZYVoiceViewController.h"
+#import "DZYPictureViewController.h"
+#import "DZYWordViewController.h"
+
 
 @interface DZYEssenceViewController ()<UIScrollViewDelegate>
 
@@ -65,29 +65,23 @@
 
 - (void)setupChildVcs
 {
-    DZYTopicViewController *all = [[DZYTopicViewController alloc] init];
-    all.type = DZYTopicTypeAll;
+    DZYAllViewController *all = [[DZYAllViewController alloc] init];
     all.title = @"全部";
     [self addChildViewController:all];
     
-    DZYTopicViewController *video = [[DZYTopicViewController alloc] init];
-    video.type = DZYTopicTypeVideo;
+    DZYVideoViewController *video = [[DZYVideoViewController alloc] init];
     video.title = @"视频";
     [self addChildViewController:video];
     
-    DZYTopicViewController *voice = [[DZYTopicViewController alloc] init];
-    voice.type = DZYTopicTypeVioce;
+    DZYVoiceViewController *voice = [[DZYVoiceViewController alloc] init];
     voice.title = @"声音";
     [self addChildViewController:voice];
     
-    DZYTopicViewController *picture = [[DZYTopicViewController alloc] init];
-    picture.type = DZYTopicTypePicture;
+    DZYPictureViewController *picture = [[DZYPictureViewController alloc] init];
     picture.title = @"图片";
     [self addChildViewController:picture];
     
-    DZYTopicViewController *word = [[DZYTopicViewController alloc] init];
-    word.type = DZYTopicTypeWord;
-    word.title = @"段子";
+    DZYWordViewController *word = [[DZYWordViewController alloc] init];    word.title = @"段子";
     [self addChildViewController:word];
 
     // scrollView滚动完毕后 才添加对应的子控制器view到scrollView中

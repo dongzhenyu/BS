@@ -59,7 +59,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="iamgeView" destination="gL1-3q-qfQ" id="Gdg-eT-1Bc"/>
+                <outlet property="imageView" destination="gL1-3q-qfQ" id="28K-SN-pSs"/>
                 <outlet property="playCountLabel" destination="6bM-Yw-raz" id="KwN-nE-YIF"/>
                 <outlet property="vioceTimeLabel" destination="36o-c2-Kd2" id="8Vi-SJ-IHi"/>
             </connections>
