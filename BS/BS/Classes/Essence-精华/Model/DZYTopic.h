@@ -12,6 +12,8 @@
 @interface DZYTopic : NSObject
 
 typedef enum {
+    /** 全部 */
+    DZYTopicTypeAll = 1,
     /** 图片 */
     DZYTopicTypePicture = 10,
     /** 段子(文字) */

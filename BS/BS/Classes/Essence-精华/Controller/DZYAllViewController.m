@@ -103,7 +103,7 @@ static NSString * const DZYTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @1;//@"1";
+    params[@"type"] = @(DZYTopicTypeAll);
     
     DZYWeakSelf;
     [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -139,7 +139,7 @@ static NSString * const DZYTopicCellId = @"topic";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @1;
+    params[@"type"] = @(DZYTopicTypeAll);
     params[@"maxtime"] = self.maxtime;
     
     DZYWeakSelf;
