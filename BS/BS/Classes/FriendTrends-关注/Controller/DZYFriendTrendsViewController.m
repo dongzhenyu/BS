@@ -8,6 +8,7 @@
 
 #import "DZYFriendTrendsViewController.h"
 #import "DZYLoginRegisterViewController.h"
+#import "DZYRecommendFollowViewController.h"
 
 
 @interface DZYFriendTrendsViewController ()
@@ -33,7 +34,9 @@
 
 - (void)riendsRecommendClick
 {
-    DZYLogFunc;
+    DZYRecommendFollowViewController *recommend = [[DZYRecommendFollowViewController alloc] init];
+    
+    [self.navigationController pushViewController:recommend animated:YES];
 
 }
 

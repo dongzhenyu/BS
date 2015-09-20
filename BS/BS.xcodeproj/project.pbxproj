@@ -31,6 +31,12 @@
 		400D60C01BAEF20800E74781 /* DZYTopicVioceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60B91BAEF20800E74781 /* DZYTopicVioceView.m */; };
 		400D60C11BAEF20800E74781 /* DZYTopicVioceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400D60BA1BAEF20800E74781 /* DZYTopicVioceView.xib */; };
 		400D60C41BAEF23500E74781 /* DZYTopicContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60C31BAEF23500E74781 /* DZYTopicContentView.m */; };
+		400D60C81BAF148A00E74781 /* DZYRecommendFollowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60C61BAF148A00E74781 /* DZYRecommendFollowViewController.m */; };
+		400D60C91BAF148A00E74781 /* DZYRecommendFollowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400D60C71BAF148A00E74781 /* DZYRecommendFollowViewController.xib */; };
+		400D60CD1BAF156900E74781 /* DZYCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60CB1BAF156900E74781 /* DZYCategoryCell.m */; };
+		400D60CE1BAF156900E74781 /* DZYCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400D60CC1BAF156900E74781 /* DZYCategoryCell.xib */; };
+		400D60D21BAF158200E74781 /* DZYUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60D01BAF158200E74781 /* DZYUserCell.m */; };
+		400D60D31BAF158200E74781 /* DZYUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400D60D11BAF158200E74781 /* DZYUserCell.xib */; };
 		401BA8CE1BABE83600DD6394 /* DZYSeeBigPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */; };
 		401BA8CF1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */; };
 		402B088B1BA6F10B002BC995 /* DZYTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B088A1BA6F10B002BC995 /* DZYTopic.m */; };
@@ -142,6 +148,15 @@
 		400D60BA1BAEF20800E74781 /* DZYTopicVioceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYTopicVioceView.xib; sourceTree = "<group>"; };
 		400D60C21BAEF23500E74781 /* DZYTopicContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYTopicContentView.h; sourceTree = "<group>"; };
 		400D60C31BAEF23500E74781 /* DZYTopicContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYTopicContentView.m; sourceTree = "<group>"; };
+		400D60C51BAF148A00E74781 /* DZYRecommendFollowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYRecommendFollowViewController.h; sourceTree = "<group>"; };
+		400D60C61BAF148A00E74781 /* DZYRecommendFollowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYRecommendFollowViewController.m; sourceTree = "<group>"; };
+		400D60C71BAF148A00E74781 /* DZYRecommendFollowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYRecommendFollowViewController.xib; sourceTree = "<group>"; };
+		400D60CA1BAF156900E74781 /* DZYCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYCategoryCell.h; sourceTree = "<group>"; };
+		400D60CB1BAF156900E74781 /* DZYCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYCategoryCell.m; sourceTree = "<group>"; };
+		400D60CC1BAF156900E74781 /* DZYCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYCategoryCell.xib; sourceTree = "<group>"; };
+		400D60CF1BAF158200E74781 /* DZYUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYUserCell.h; sourceTree = "<group>"; };
+		400D60D01BAF158200E74781 /* DZYUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYUserCell.m; sourceTree = "<group>"; };
+		400D60D11BAF158200E74781 /* DZYUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYUserCell.xib; sourceTree = "<group>"; };
 		401BA8CB1BABE83600DD6394 /* DZYSeeBigPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSeeBigPictureViewController.h; sourceTree = "<group>"; };
 		401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSeeBigPictureViewController.m; sourceTree = "<group>"; };
 		401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYSeeBigPictureViewController.xib; sourceTree = "<group>"; };
@@ -366,6 +381,9 @@
 				407FF9051B9AF11700D21B68 /* DZYLoginRegisterViewController.h */,
 				407FF9061B9AF11700D21B68 /* DZYLoginRegisterViewController.m */,
 				407FF9071B9AF11700D21B68 /* DZYLoginRegisterViewController.xib */,
+				400D60C51BAF148A00E74781 /* DZYRecommendFollowViewController.h */,
+				400D60C61BAF148A00E74781 /* DZYRecommendFollowViewController.m */,
+				400D60C71BAF148A00E74781 /* DZYRecommendFollowViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -384,6 +402,12 @@
 				407FF90B1B9B14E200D21B68 /* DZYQuickLoginButton.m */,
 				407FF9101B9B38AD00D21B68 /* DZYLoginRegisterTextField.h */,
 				407FF9111B9B38AD00D21B68 /* DZYLoginRegisterTextField.m */,
+				400D60CA1BAF156900E74781 /* DZYCategoryCell.h */,
+				400D60CB1BAF156900E74781 /* DZYCategoryCell.m */,
+				400D60CC1BAF156900E74781 /* DZYCategoryCell.xib */,
+				400D60CF1BAF158200E74781 /* DZYUserCell.h */,
+				400D60D01BAF158200E74781 /* DZYUserCell.m */,
+				400D60D11BAF158200E74781 /* DZYUserCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -765,6 +789,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				400D60D31BAF158200E74781 /* DZYUserCell.xib in Resources */,
 				40531A681BA046DF006845C8 /* DZYPublishViewController.xib in Resources */,
 				409C66BA1BAD537300DE79B1 /* DZYCommentCell.xib in Resources */,
 				407FF9091B9AF11700D21B68 /* DZYLoginRegisterViewController.xib in Resources */,
@@ -774,7 +799,9 @@
 				400D60C11BAEF20800E74781 /* DZYTopicVioceView.xib in Resources */,
 				4094BB8C1B9DFF98000BEE54 /* DZYWebViewController.xib in Resources */,
 				401BA8CF1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib in Resources */,
+				400D60CE1BAF156900E74781 /* DZYCategoryCell.xib in Resources */,
 				40E40A721B996A78002A26D7 /* Images.xcassets in Resources */,
+				400D60C91BAF148A00E74781 /* DZYRecommendFollowViewController.xib in Resources */,
 				4045B7331BA2EBF2009469E1 /* DZYPostWordToolbar.xib in Resources */,
 				402B08901BA6F167002BC995 /* DZYTopicCell.xib in Resources */,
 				400D60BF1BAEF20800E74781 /* DZYTopicVideoView.xib in Resources */,
@@ -841,6 +868,7 @@
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
 				403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */,
 				40CC7C7E1B9C58E500CC6105 /* NSDictionary+LOG.m in Sources */,
+				400D60C81BAF148A00E74781 /* DZYRecommendFollowViewController.m in Sources */,
 				407FF90F1B9B17B300D21B68 /* UIView+DZYExtension.m in Sources */,
 				40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */,
 				409C66B91BAD537300DE79B1 /* DZYCommentCell.m in Sources */,
@@ -879,6 +907,7 @@
 				40531A6B1BA05A7F006845C8 /* DZYPublishButton.m in Sources */,
 				405CA2B61B9AAD3700B09395 /* DZYNavigationController.m in Sources */,
 				40972EE01BA7F40C005DFE27 /* NSDate+DZYExtension.m in Sources */,
+				400D60CD1BAF156900E74781 /* DZYCategoryCell.m in Sources */,
 				400D608C1BAEDA1000E74781 /* DZYTopicViewController.m in Sources */,
 				400D60BE1BAEF20800E74781 /* DZYTopicVideoView.m in Sources */,
 				4094BB8B1B9DFF98000BEE54 /* DZYWebViewController.m in Sources */,
@@ -889,6 +918,7 @@
 				40001F641B99895A007D2DBA /* main.m in Sources */,
 				40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */,
 				40A6F4121B9DE7870026B079 /* DZYSquareButton.m in Sources */,
+				400D60D21BAF158200E74781 /* DZYUserCell.m in Sources */,
 				40001F631B99895A007D2DBA /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
