@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class DZYComment;
 @interface DZYCommentCell : UITableViewCell
+
+/** 评论模型数据 */
+@property (nonatomic, strong) DZYComment *comment;
 
 @end

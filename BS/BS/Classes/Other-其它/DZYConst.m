@@ -50,6 +50,16 @@ CGFloat const DZYTopicToolbarH = 35;
 CGFloat const DZYTopicTopCmtTopH = 20;
 
 /**
+ *  性别-男
+ */
+NSString * const DZYUserSexMale = @"m";
+
+/**
+ *  性别-女
+ */
+NSString * const DZYUserSexFemale = @"f";
+
+/**
  全局常量的写法
  1.仅限于本文件访问
  在本文件（.m）中写下面的代码

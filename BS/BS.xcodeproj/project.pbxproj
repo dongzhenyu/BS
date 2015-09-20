@@ -61,6 +61,7 @@
 		409C66B51BAD483400DE79B1 /* DZYCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409C66B31BAD483400DE79B1 /* DZYCommentViewController.xib */; };
 		409C66B91BAD537300DE79B1 /* DZYCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66B71BAD537300DE79B1 /* DZYCommentCell.m */; };
 		409C66BA1BAD537300DE79B1 /* DZYCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409C66B81BAD537300DE79B1 /* DZYCommentCell.xib */; };
+		409C66C01BADA9E400DE79B1 /* DZYCommentHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 409C66BF1BADA9E400DE79B1 /* DZYCommentHeadView.m */; };
 		40A6F4091B9DA2B80026B079 /* DZYMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F4081B9DA2B80026B079 /* DZYMeCell.m */; };
 		40A6F40C1B9DB8710026B079 /* DZYMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40B1B9DB8710026B079 /* DZYMeFooterView.m */; };
 		40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40E1B9DBC510026B079 /* DZYSquare.m */; };
@@ -190,6 +191,8 @@
 		409C66B61BAD537300DE79B1 /* DZYCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYCommentCell.h; sourceTree = "<group>"; };
 		409C66B71BAD537300DE79B1 /* DZYCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYCommentCell.m; sourceTree = "<group>"; };
 		409C66B81BAD537300DE79B1 /* DZYCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYCommentCell.xib; sourceTree = "<group>"; };
+		409C66BE1BADA9E400DE79B1 /* DZYCommentHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYCommentHeadView.h; sourceTree = "<group>"; };
+		409C66BF1BADA9E400DE79B1 /* DZYCommentHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYCommentHeadView.m; sourceTree = "<group>"; };
 		40A6F4071B9DA2B80026B079 /* DZYMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeCell.h; sourceTree = "<group>"; };
 		40A6F4081B9DA2B80026B079 /* DZYMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYMeCell.m; sourceTree = "<group>"; };
 		40A6F40A1B9DB8710026B079 /* DZYMeFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYMeFooterView.h; sourceTree = "<group>"; };
@@ -349,6 +352,8 @@
 				409C66B61BAD537300DE79B1 /* DZYCommentCell.h */,
 				409C66B71BAD537300DE79B1 /* DZYCommentCell.m */,
 				409C66B81BAD537300DE79B1 /* DZYCommentCell.xib */,
+				409C66BE1BADA9E400DE79B1 /* DZYCommentHeadView.h */,
+				409C66BF1BADA9E400DE79B1 /* DZYCommentHeadView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -840,6 +845,7 @@
 				407FF9081B9AF11700D21B68 /* DZYLoginRegisterViewController.m in Sources */,
 				401BA8D71BAC839A00DD6394 /* DZYTopicVioceView.m in Sources */,
 				409C66AD1BAD2BA800DE79B1 /* DZYComment.m in Sources */,
+				409C66C01BADA9E400DE79B1 /* DZYCommentHeadView.m in Sources */,
 				40001F801B99AB9E007D2DBA /* DZYSettingViewController.m in Sources */,
 				40531A6B1BA05A7F006845C8 /* DZYPublishButton.m in Sources */,
 				40E1D1DF1BA5E59F00B14E84 /* DZYPictureViewController.m in Sources */,

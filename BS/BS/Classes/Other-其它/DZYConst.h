@@ -45,6 +45,14 @@ UIKIT_EXTERN CGFloat const DZYTopicToolbarH;
  */
 UIKIT_EXTERN CGFloat const DZYTopicTopCmtTopH;
 
+/**
+ *  性别-男
+ */
+UIKIT_EXTERN NSString * const DZYUserSexMale;
 
+/**
+ *  性别-女
+ */
+UIKIT_EXTERN NSString * const DZYUserSexFemale;
 
 
