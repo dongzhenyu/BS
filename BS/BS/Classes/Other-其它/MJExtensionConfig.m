@@ -27,8 +27,8 @@
                  };
     }];
     
-    [DZYTopic setupObjectClassInArray:^NSDictionary *{
-        return @{@"users":@"DZYUser"};
+    [DZYComment setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID":@"id"};
     }];
 }
 

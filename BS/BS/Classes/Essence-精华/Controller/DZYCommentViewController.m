@@ -99,6 +99,7 @@ static NSString * const DZYHeadId = @"header";
     [self.tableView.header beginRefreshing];
     
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreComments)];
+    [self.tableView.footer beginRefreshing];
 }
 
 - (void)dealloc
@@ -128,6 +129,8 @@ static NSString * const DZYHeadId = @"header";
     DZYWeakSelf;
     [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
+//        DZYWriteToPlist(responseObject, @"comment");
+        
         // 最热评论
         weakSelf.hotComments = [DZYComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         
@@ -148,7 +151,40 @@ static NSString * const DZYHeadId = @"header";
 
 - (void)loadMoreComments
 {
-    DZYLogFunc;
+    // 取消之前的所有请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    DZYWeakSelf;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"lastcid"] = [self.latestComments.lastObject ID];
+    
+    [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask * __nonnull task, id responseObject) {
+        DZYWriteToPlist(responseObject, @"comment_more");
+        // 最新评论
+        NSArray *newComments = [DZYComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        [self.latestComments addObjectsFromArray:newComments];
+        
+        // 刷新表格
+        [weakSelf.tableView reloadData];
+        
+        // 判断评论数据是否加载完全
+        if (self.latestComments.count >= [responseObject[@"total"] intValue]) {
+            // 已经加载完毕
+            weakSelf.tableView.footer.hidden = YES;
+//            [weakSelf.tableView.footer noticeNoMoreData];
+        } else { // 应该还有下一页
+            // 结束刷新 （恢复到普通状态 仍旧还可以继续刷新 ）
+            [weakSelf.tableView.footer endRefreshing];
+        }
+        
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+        // 结束刷新
+        [weakSelf.tableView.footer endRefreshing];
+    }];
+    
 }
 
 #pragma mark - 监听
@@ -199,72 +235,6 @@ static NSString * const DZYHeadId = @"header";
 {
     [self.view endEditing:YES];
 }
-
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    if (section == 0 && self.hotComments.count) {
-//        return @"最新评论";
-//    }
-//    return @"最新评论";
-//}
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    // label
-//    UILabel *label = [[UILabel alloc] init];
-//    if (section == 0 && self.hotComments.count) {
-//        label.text = @"最热评论";
-//    } else {
-//        label.text = @"最新评论";
-//    }
-//    label.x = DZYCommonSmallMargin;
-//    [label sizeToFit];
-//    label.textColor = DZYGrayColor(120);
-//    label.font = [UIFont systemFontOfSize:14];
-//
-//    // header
-//    UIView *header = [[UIView alloc] init];
-//    header.backgroundColor = self.tableView.backgroundColor;
-//    [header addSubview:label];
-//
-//    return header;
-//}
-
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    // label
-//    UILabel *label = nil;
-//
-//    // header
-//    static NSString *ID = @"header";
-//    static NSInteger tag = 99;
-//    UITableViewHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:ID];
-//    if (header == nil) { // 缓存池中没有header
-//        header = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:ID];
-//        header.contentView.backgroundColor = self.tableView.backgroundColor;
-//
-//        // label
-//        label = [[UILabel alloc] init];
-//        label.x = DZYCommonSmallMargin;
-//        label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-//        label.textColor = DZYGrayColor(120);
-//        label.tag = tag;
-//        label.font = [UIFont systemFontOfSize:14];
-//        [header.contentView addSubview:label];
-//    } else { // 这个header是从缓存池中取出来（这个header里面本身就已经有label）
-//        label = (UILabel *)[header viewWithTag:tag];
-//    }
-//
-//    // 覆盖文字
-//    if (section == 0 && self.hotComments.count) {
-//        label.text = @"最热评论";
-//    } else {
-//        label.text = @"最新评论";
-//    }
-//
-//    return header;
-//}
-
 
 // 如果不想使用系统默认的头部标题文字样式 那么要自定义控件 （在label外面可以再包装一层UIView）
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

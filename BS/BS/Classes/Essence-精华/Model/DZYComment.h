@@ -11,6 +11,9 @@
 @class DZYUser;
 @interface DZYComment : NSObject
 
+/** id */
+@property (nonatomic, copy) NSString *ID;
+
 /** 文字内容 */
 @property (nonatomic, copy) NSString *content;
 
