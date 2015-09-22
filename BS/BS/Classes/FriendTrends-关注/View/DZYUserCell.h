@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class DZYFollowUser;
 @interface DZYUserCell : UITableViewCell
 
+/** 用户模型 */
+@property (nonatomic, strong) DZYFollowUser *user;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "DZYCategoryCell.h"
-#import "DZYCategory.h"
+#import "DZYFollowCategory.h"
 
 @interface DZYCategoryCell ()
 
@@ -37,7 +37,7 @@
     
 }
 
-- (void)setCategory:(DZYCategory *)category
+- (void)setCategory:(DZYFollowCategory *)category
 {
     _category = category;
     

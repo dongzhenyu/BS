@@ -37,7 +37,7 @@
 		400D60CE1BAF156900E74781 /* DZYCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400D60CC1BAF156900E74781 /* DZYCategoryCell.xib */; };
 		400D60D21BAF158200E74781 /* DZYUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60D01BAF158200E74781 /* DZYUserCell.m */; };
 		400D60D31BAF158200E74781 /* DZYUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400D60D11BAF158200E74781 /* DZYUserCell.xib */; };
-		400D60D61BAF25B800E74781 /* DZYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60D51BAF25B800E74781 /* DZYCategory.m */; };
+		400D60D61BAF25B800E74781 /* DZYFollowCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60D51BAF25B800E74781 /* DZYFollowCategory.m */; };
 		401BA8CE1BABE83600DD6394 /* DZYSeeBigPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */; };
 		401BA8CF1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */; };
 		402B088B1BA6F10B002BC995 /* DZYTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B088A1BA6F10B002BC995 /* DZYTopic.m */; };
@@ -80,6 +80,7 @@
 		40A6F40C1B9DB8710026B079 /* DZYMeFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40B1B9DB8710026B079 /* DZYMeFooterView.m */; };
 		40A6F40F1B9DBC510026B079 /* DZYSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F40E1B9DBC510026B079 /* DZYSquare.m */; };
 		40A6F4121B9DE7870026B079 /* DZYSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A6F4111B9DE7870026B079 /* DZYSquareButton.m */; };
+		40A704611BB131DF008257C8 /* DZYFollowUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A704601BB131DF008257C8 /* DZYFollowUser.m */; };
 		40CC7C781B9C145E00CC6105 /* DZYRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CC7C761B9C145E00CC6105 /* DZYRecommendTagCell.m */; };
 		40CC7C791B9C145E00CC6105 /* DZYRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40CC7C771B9C145E00CC6105 /* DZYRecommendTagCell.xib */; };
 		40CC7C7C1B9C4DF700CC6105 /* DZYRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 40CC7C7B1B9C4DF700CC6105 /* DZYRecommendTag.m */; };
@@ -158,8 +159,8 @@
 		400D60CF1BAF158200E74781 /* DZYUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYUserCell.h; sourceTree = "<group>"; };
 		400D60D01BAF158200E74781 /* DZYUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYUserCell.m; sourceTree = "<group>"; };
 		400D60D11BAF158200E74781 /* DZYUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYUserCell.xib; sourceTree = "<group>"; };
-		400D60D41BAF25B800E74781 /* DZYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYCategory.h; sourceTree = "<group>"; };
-		400D60D51BAF25B800E74781 /* DZYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYCategory.m; sourceTree = "<group>"; };
+		400D60D41BAF25B800E74781 /* DZYFollowCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYFollowCategory.h; sourceTree = "<group>"; };
+		400D60D51BAF25B800E74781 /* DZYFollowCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYFollowCategory.m; sourceTree = "<group>"; };
 		401BA8CB1BABE83600DD6394 /* DZYSeeBigPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSeeBigPictureViewController.h; sourceTree = "<group>"; };
 		401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSeeBigPictureViewController.m; sourceTree = "<group>"; };
 		401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYSeeBigPictureViewController.xib; sourceTree = "<group>"; };
@@ -235,6 +236,8 @@
 		40A6F40E1B9DBC510026B079 /* DZYSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSquare.m; sourceTree = "<group>"; };
 		40A6F4101B9DE7870026B079 /* DZYSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSquareButton.h; sourceTree = "<group>"; };
 		40A6F4111B9DE7870026B079 /* DZYSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSquareButton.m; sourceTree = "<group>"; };
+		40A7045F1BB131DF008257C8 /* DZYFollowUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYFollowUser.h; sourceTree = "<group>"; };
+		40A704601BB131DF008257C8 /* DZYFollowUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYFollowUser.m; sourceTree = "<group>"; };
 		40CC7C751B9C145E00CC6105 /* DZYRecommendTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYRecommendTagCell.h; sourceTree = "<group>"; };
 		40CC7C761B9C145E00CC6105 /* DZYRecommendTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYRecommendTagCell.m; sourceTree = "<group>"; };
 		40CC7C771B9C145E00CC6105 /* DZYRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYRecommendTagCell.xib; sourceTree = "<group>"; };
@@ -394,8 +397,10 @@
 		40001F511B99895A007D2DBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				400D60D41BAF25B800E74781 /* DZYCategory.h */,
-				400D60D51BAF25B800E74781 /* DZYCategory.m */,
+				400D60D41BAF25B800E74781 /* DZYFollowCategory.h */,
+				400D60D51BAF25B800E74781 /* DZYFollowCategory.m */,
+				40A7045F1BB131DF008257C8 /* DZYFollowUser.h */,
+				40A704601BB131DF008257C8 /* DZYFollowUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -869,7 +874,7 @@
 				402B08961BA71989002BC995 /* DZYMyFooter.m in Sources */,
 				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
 				409C66B41BAD483400DE79B1 /* DZYCommentViewController.m in Sources */,
-				400D60D61BAF25B800E74781 /* DZYCategory.m in Sources */,
+				400D60D61BAF25B800E74781 /* DZYFollowCategory.m in Sources */,
 				4096E2CC1BA4705A00C0A878 /* DZYTagTextField.m in Sources */,
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
 				403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */,
@@ -890,6 +895,7 @@
 				40001F6D1B998D6A007D2DBA /* DZYFriendTrendsViewController.m in Sources */,
 				400D609A1BAEEAEC00E74781 /* DZYVoiceViewController.m in Sources */,
 				40400FF51BA0975100B5B165 /* DZYPlaceholderTextView.m in Sources */,
+				40A704611BB131DF008257C8 /* DZYFollowUser.m in Sources */,
 				40CC7C7C1B9C4DF700CC6105 /* DZYRecommendTag.m in Sources */,
 				400D609B1BAEEAEC00E74781 /* DZYWordViewController.m in Sources */,
 				40001F671B998CC1007D2DBA /* DZYTabBarController.m in Sources */,

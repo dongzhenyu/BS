@@ -11,8 +11,10 @@
 #import "DZYUserCell.h"
 #import <AFNetworking.h>
 #import <SVProgressHUD.h>
-#import "DZYCategory.h"
+#import "DZYFollowCategory.h"
 #import <MJExtension.h>
+#import <MJRefresh.h>
+#import "DZYFollowUser.h"
 
 @interface DZYRecommendFollowViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -38,6 +40,7 @@
     return _manager;
 }
 
+#pragma mark - 初始化
 static NSString * const DZYCategoryCellId = @"category";
 static NSString * const DZYUserCellId = @"user";
 - (void)viewDidLoad {
@@ -45,7 +48,15 @@ static NSString * const DZYUserCellId = @"user";
     
     [self setupTable];
     
+    [self setupRefresh];
+    
     [self loadCategories];
+}
+
+- (void)setupRefresh
+{
+    self.rightTableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
+    self.rightTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
 }
 
 - (void)setupTable
@@ -58,11 +69,17 @@ static NSString * const DZYUserCellId = @"user";
     [self.leftTableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYCategoryCell class]) bundle:nil] forCellReuseIdentifier:DZYCategoryCellId];
     self.leftTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    self.rightTableView.rowHeight = 70;
     self.rightTableView.contentInset = inset;
     self.rightTableView.scrollIndicatorInsets = inset;
     [self.rightTableView registerNib:[UINib nibWithNibName:NSStringFromClass([DZYUserCell class]) bundle:nil] forCellReuseIdentifier:DZYUserCellId];
     self.rightTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
+}
+
+- (void)dealloc
+{
+    [self.manager invalidateSessionCancelingTasks:YES];
 }
 
 #pragma mark - 加载数据
@@ -79,7 +96,7 @@ static NSString * const DZYUserCellId = @"user";
     [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask * __nonnull task, id responseObject) {
         [SVProgressHUD dismiss];
         // 字典模型 - 模型数组
-        weakSelf.categories = [DZYCategory objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        weakSelf.categories = [DZYFollowCategory objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         // 刷新表格
         [weakSelf.leftTableView reloadData];
@@ -92,13 +109,51 @@ static NSString * const DZYUserCellId = @"user";
 
 }
 
+- (void)loadNewUsers
+{
+//    DZYLogFunc;
+    // 取消之前的所有的请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    DZYWeakSelf;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    DZYFollowCategory *selectedCategory = self.categories[self.leftTableView.indexPathForSelectedRow.row];
+    params[@"category_id"] = selectedCategory.ID;
+    
+    [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask * __nonnull task, id responseObject) {
+//        DZYWriteToPlist(responseObject, @"category");
+        // 用户数据
+        selectedCategory.users = [DZYFollowUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        // 刷新表格
+        [weakSelf.rightTableView reloadData];
+        // 结束刷新
+        [weakSelf.rightTableView.header endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+        // 结束刷新
+        [weakSelf.rightTableView.header endRefreshing];
+        
+    }];
+}
+
+- (void)loadMoreUsers
+{
+    DZYLogFunc;
+}
+
 #pragma mark - 数据源方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == self.leftTableView) {
         return self.categories.count;
     } else {
-        return 40;
+        // 左边选中的类别
+        DZYFollowCategory *selectedCategory = self.categories[self.leftTableView.indexPathForSelectedRow.row];
+        
+        return selectedCategory.users.count;
     }
     
 }
@@ -111,7 +166,10 @@ static NSString * const DZYUserCellId = @"user";
         return cell;
     } else {
         DZYUserCell *cell = [tableView dequeueReusableCellWithIdentifier:DZYUserCellId];
-        cell.textLabel.text = [NSString stringWithFormat:@"----%zd", indexPath.row];
+        // 左边选中的类别
+        DZYFollowCategory *selectedCategory = self.categories[self.leftTableView.indexPathForSelectedRow.row];
+        cell.user = selectedCategory.users[indexPath.row];
+        
         return cell;
     }
 }
@@ -120,7 +178,8 @@ static NSString * const DZYUserCellId = @"user";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.leftTableView) {
-        DZYLog(@"点击了👈 ←的%zd行", indexPath.row);
+        // 加载右边用户数据
+        [self.rightTableView.header beginRefreshing];
     } else {
         DZYLog(@"点击了👉 →的%zd行", indexPath.row);
     }

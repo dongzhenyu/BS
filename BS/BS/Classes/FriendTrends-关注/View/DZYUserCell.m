@@ -7,17 +7,30 @@
 //
 
 #import "DZYUserCell.h"
+#import "DZYFollowUser.h"
 
+@interface DZYUserCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *fansCountLabel;
+
+@end
 @implementation DZYUserCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setUser:(DZYFollowUser *)user
+{
+    _user = user;
+    
+    [self.headImageView setHeader:user.header];
+    self.screenNameLabel.text = user.screen_name;
+    if (user.fans_count >= 10000) {
+        self.fansCountLabel.text = [NSString stringWithFormat:@"%.1f万人关注", user.fans_count / 10000.0];
+    } else {
+        self.fansCountLabel.text = [NSString stringWithFormat:@"%zd人关注", user.fans_count];
+    }
 }
 
 @end
