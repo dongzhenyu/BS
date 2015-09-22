@@ -124,13 +124,23 @@ static NSString * const DZYUserCellId = @"user";
     
     [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask * __nonnull task, id responseObject) {
 //        DZYWriteToPlist(responseObject, @"category");
-        // 用户数据
+        // 重置页数
+        selectedCategory.page = 1;
+        // 存储总数
+        selectedCategory.total = [responseObject[@"total"] intValue];
+        
+        // 存储用户数据
         selectedCategory.users = [DZYFollowUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         // 刷新表格
         [weakSelf.rightTableView reloadData];
         // 结束刷新
         [weakSelf.rightTableView.header endRefreshing];
+        
+        if (selectedCategory.users.count >= selectedCategory.total) {
+            // 这组用户的所有数据都已经加载完毕
+            weakSelf.rightTableView.footer.hidden = YES;
+        }
         
     } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         // 结束刷新
@@ -141,7 +151,46 @@ static NSString * const DZYUserCellId = @"user";
 
 - (void)loadMoreUsers
 {
-    DZYLogFunc;
+    // 取消之前所有的请求
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    DZYWeakSelf;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    DZYFollowCategory *selectedCategory = self.categories[self.leftTableView.indexPathForSelectedRow.row];
+    params[@"category_id"] = selectedCategory.ID;
+    NSInteger page = selectedCategory.page + 1;
+    params[@"page"] = @(page);
+    
+    [self.manager GET:DZYRequestURL parameters:params success:^(NSURLSessionDataTask * __nonnull task, id responseObject) {
+        
+        // 设置当前最新的页码
+        selectedCategory.page = page;
+        // 存数总数
+        
+      // 追加新的数据到以前的数组中
+        NSArray *newUsers = [DZYFollowUser objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        [selectedCategory.users addObjectsFromArray:newUsers];
+        
+        // 刷新右边的表格
+        [weakSelf.rightTableView reloadData];
+        
+        // 结束刷新
+        [weakSelf.rightTableView.footer endRefreshing];
+        
+        if (selectedCategory.users.count >= selectedCategory.total) {
+            // 这组用户的所有数据都已经加载完毕
+            weakSelf.rightTableView.footer.hidden = YES;
+        } else { // 还可能会有下一页数据
+            // 结束刷新
+            [weakSelf.rightTableView.footer endRefreshing];
+        }
+        
+    } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
+        // 结束刷新
+        [weakSelf.rightTableView.footer endRefreshing];
+    }];
 }
 
 #pragma mark - 数据源方法
@@ -178,8 +227,17 @@ static NSString * const DZYUserCellId = @"user";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == self.leftTableView) {
-        // 加载右边用户数据
-        [self.rightTableView.header beginRefreshing];
+        
+        DZYFollowCategory *selectedCategory = self.categories[self.leftTableView.indexPathForSelectedRow.row];
+        // 解决刷新时候显示的数据依旧是上一个选项的数据 增强用户体验 （每次都要刷新）
+        [self.rightTableView reloadData];
+        if (selectedCategory.users.count) { // 已经有用户数据
+            [self.rightTableView reloadData];
+        } else { // 从未有过用户数据
+
+            // 加载右边用户数据
+            [self.rightTableView.header beginRefreshing];
+        }
     } else {
         DZYLog(@"点击了👉 →的%zd行", indexPath.row);
     }

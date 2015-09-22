@@ -18,4 +18,8 @@
 
 /** 这个类别对应的用户数据 */
 @property (nonatomic, strong) NSMutableArray *users;
+/** 当前的页码 */
+@property (nonatomic, assign) NSInteger page;
+/** 这组用户的总数 */
+@property (nonatomic, assign) NSInteger total;
 @end
