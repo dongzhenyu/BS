@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class DZYCategory;
 @interface DZYCategoryCell : UITableViewCell
+
+/** 类别模型 */
+@property (nonatomic, strong) DZYCategory *category;
 
 @end

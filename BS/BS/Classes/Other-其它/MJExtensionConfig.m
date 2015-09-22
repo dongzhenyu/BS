@@ -13,6 +13,8 @@
 #import "DZYComment.h"
 #import "DZYUser.h"
 
+#import "DZYCategory.h"
+
 @implementation MJExtensionConfig
 
 + (void)load
@@ -28,6 +30,10 @@
     }];
     
     [DZYComment setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{@"ID":@"id"};
+    }];
+    
+    [DZYCategory setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{@"ID":@"id"};
     }];
 }

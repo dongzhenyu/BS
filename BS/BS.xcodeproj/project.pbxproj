@@ -37,6 +37,7 @@
 		400D60CE1BAF156900E74781 /* DZYCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400D60CC1BAF156900E74781 /* DZYCategoryCell.xib */; };
 		400D60D21BAF158200E74781 /* DZYUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60D01BAF158200E74781 /* DZYUserCell.m */; };
 		400D60D31BAF158200E74781 /* DZYUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 400D60D11BAF158200E74781 /* DZYUserCell.xib */; };
+		400D60D61BAF25B800E74781 /* DZYCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 400D60D51BAF25B800E74781 /* DZYCategory.m */; };
 		401BA8CE1BABE83600DD6394 /* DZYSeeBigPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */; };
 		401BA8CF1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */; };
 		402B088B1BA6F10B002BC995 /* DZYTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 402B088A1BA6F10B002BC995 /* DZYTopic.m */; };
@@ -157,6 +158,8 @@
 		400D60CF1BAF158200E74781 /* DZYUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYUserCell.h; sourceTree = "<group>"; };
 		400D60D01BAF158200E74781 /* DZYUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYUserCell.m; sourceTree = "<group>"; };
 		400D60D11BAF158200E74781 /* DZYUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYUserCell.xib; sourceTree = "<group>"; };
+		400D60D41BAF25B800E74781 /* DZYCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYCategory.h; sourceTree = "<group>"; };
+		400D60D51BAF25B800E74781 /* DZYCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYCategory.m; sourceTree = "<group>"; };
 		401BA8CB1BABE83600DD6394 /* DZYSeeBigPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZYSeeBigPictureViewController.h; sourceTree = "<group>"; };
 		401BA8CC1BABE83600DD6394 /* DZYSeeBigPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZYSeeBigPictureViewController.m; sourceTree = "<group>"; };
 		401BA8CD1BABE83600DD6394 /* DZYSeeBigPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DZYSeeBigPictureViewController.xib; sourceTree = "<group>"; };
@@ -391,6 +394,8 @@
 		40001F511B99895A007D2DBA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				400D60D41BAF25B800E74781 /* DZYCategory.h */,
+				400D60D51BAF25B800E74781 /* DZYCategory.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -864,6 +869,7 @@
 				402B08961BA71989002BC995 /* DZYMyFooter.m in Sources */,
 				40001F761B999313007D2DBA /* DZYTabBar.m in Sources */,
 				409C66B41BAD483400DE79B1 /* DZYCommentViewController.m in Sources */,
+				400D60D61BAF25B800E74781 /* DZYCategory.m in Sources */,
 				4096E2CC1BA4705A00C0A878 /* DZYTagTextField.m in Sources */,
 				40001F7A1B99A6D7007D2DBA /* UIBarButtonItem+DZYExtension.m in Sources */,
 				403DE8701B9EF5ED00958B0A /* DZYThirdCell.m in Sources */,
