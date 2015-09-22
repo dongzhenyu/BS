@@ -10,12 +10,65 @@
 #import "DZYTabBarController.h"
 
 @interface AppDelegate ()
-
+//@property (nonatomic, strong) UIWindow *window2;
+//@property (nonatomic, strong) UIWindow *window3;
+@property (nonatomic, strong) UIWindow *topWindow;
 @end
 
 @implementation AppDelegate
 
+#pragma mark - topWindow 相关
+- (UIWindow *)topWindow
+{
+    if (!_topWindow) {
+        _topWindow = [[UIWindow alloc] init];
+        _topWindow.frame = CGRectMake(0, 0, DZYScreenW, 20);
+        _topWindow.windowLevel = UIWindowLevelAlert;
+        _topWindow.backgroundColor = [UIColor clearColor];
+        _topWindow.hidden = NO;
+        [_topWindow addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(topWindowClick)]];
+    }
+    return _topWindow;
+}
 
+- (void)topWindowClick
+{
+    // 取出所有的window
+    NSArray *windows = [UIApplication sharedApplication].windows;
+    
+    // 遍历程序中所有的控件
+    for (UIWindow *window in windows) {
+        [self searchSubviews:window];
+//        DZYLog(@"%@", windows);
+    }
+}
+/**
+ * 搜索Subviews中所有的子控件 （递归 是需要传参数的）
+ */
+- (void)searchSubviews:(UIView *)superview
+{
+    for (UIScrollView *scrollView in superview.subviews) {
+        [self searchSubviews:scrollView];
+//        DZYLog(@"%@", scrollView);
+        // 判断是否为scrollView
+        if (![scrollView isKindOfClass:[UIScrollView class]]) continue;
+        
+        // 计算出scrollView在window坐标系上的矩形框
+        CGRect scrollViewRect = [scrollView convertRect:scrollView.bounds toView:scrollView.window];
+        CGRect windowRect = scrollView.window.bounds;
+        
+        // 判断scrollView的边框是否和window的边框交叉
+        if (!CGRectIntersectsRect(scrollViewRect, windowRect)) continue;
+        
+        // 让scrollView滚动到最前面
+        CGPoint offset = scrollView.contentOffset;
+        // 偏移量不一定是0
+        offset.y = - scrollView.contentInset.top;
+        [scrollView setContentOffset:offset animated:YES];
+    }
+}
+         
+#pragma mark - 程序的生命周期
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // 1.创建窗口
@@ -29,8 +82,42 @@
     // 3.显示窗口
     [self.window makeKeyAndVisible];
     
+//    UIWindow *window2 = [[UIWindow alloc] init];
+//    window2.frame = CGRectMake(100, 100, 100, 100);
+//    window2.windowLevel = UIWindowLevelAlert;
+//    window2.backgroundColor = [UIColor redColor];
+//    window2.hidden = NO;
+//    self.window2 = window2;
+    
+//    UIWindow *window3 = [[UIWindow alloc] init];
+//    window3.frame = CGRectMake(0, 0, 375, 20);
+//    window3.windowLevel = UIWindowLevelAlert;
+//    window3.backgroundColor = [UIColor yellowColor];
+//    window3.hidden = NO;
+//    self.window3 = window3;
+//
+//    // 如果想搞一个控件 让它在每个窗口都会显示 那么搞个窗口 优先级为alert
+//    UIWindow *window2 = [[UIWindow alloc] init];
+//    window2.frame = CGRectMake(300, 500, 50, 50);
+//    window2.windowLevel = UIWindowLevelAlert;
+//    window2.backgroundColor = [UIColor clearColor];
+//    [window2 addSubview:[[UISwitch alloc] init]];
+//    window2.hidden = NO;
+//    self.window2 = window2;
+
+    
+    
     return YES;
 }
+
+//- (void)setupTopWindow
+//{
+//    self.topWindow = [[UIWindow alloc] init];
+//    self.topWindow.frame = CGRectMake(0, 0, DZYScreenW, 20);
+//    self.topWindow.windowLevel = UIWindowLevelAlert;
+//    self.topWindow.backgroundColor = [UIColor yellowColor];
+//    self.topWindow.hidden = NO;
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -45,9 +132,14 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
-
+/**
+ 
+ 程序激活的时候调用一次 (当关闭程序 再次进入的时候 就又会调用一次)
+ */
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    DZYLogFunc;
+    [self topWindow];
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -62,6 +62,8 @@ static NSString * const DZYUserCellId = @"user";
 - (void)setupTable
 {
     self.title = @"推荐关注";
+    self.view.backgroundColor = DZYCommonBgColor;
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     UIEdgeInsets inset = UIEdgeInsetsMake(DZYNavBarMaxY, 0, 0, 0);
     self.leftTableView.contentInset = inset;
@@ -100,6 +102,12 @@ static NSString * const DZYUserCellId = @"user";
         
         // 刷新表格
         [weakSelf.leftTableView reloadData];
+        
+        // 选中左边第0行
+        [weakSelf.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        
+        // 让右边表格进行下拉刷新
+        [weakSelf.rightTableView.header beginRefreshing];
         
     } failure:^(NSURLSessionDataTask * __nonnull task, NSError * __nonnull error) {
         // 关闭弹框
